@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+<!--  这个案例存在一个问题：
+如果其中一个input用户输入了内容，然后再点击‘切换类型’按钮，会发现，input里的内容没有跟着切换，似乎一直是同一个input
+这个问题，下一个案例解决
+-->
+
+  <span v-if="isUser">
+    <label for="username">用户账号</label>
+    <input type="text" id="username" placeholder="用户账号">
+  </span>
+  <span v-else>
+    <label for="email">用户邮箱</label>
+    <input type="text" id="email" placeholder="用户邮箱">
+  </span>
+  <button @click="isUser = !isUser">切换类型</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      isUser: true
+    }
+  })
+</script>
+
+</body>
+</html>

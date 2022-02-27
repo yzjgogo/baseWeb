@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--
+v-model
+双向响应的
+从vue端获取数据或vue端数据发生变化，会触发使用端的响应
+使用端数据发生变化又会反向触发vue端数据的变化
+-->
+  <input type="text" v-model="message">
+  {{message}}
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    //watch，用于监视某个属性的改变，将属性名作为方法名，传入两个参数，第一个参数是新的属性值，第二个参数是原来的属性值
+    watch:{
+      message(newValue,oldValue){
+        console.log(newValue,oldValue);
+      },
+      //也可以只接收新的属性值
+      // message(newValue){
+      //   console.log(newValue);
+      // }
+    }
+  })
+</script>
+
+</body>
+</html>

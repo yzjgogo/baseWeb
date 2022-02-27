@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <h2>{{fullName}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      firstName: 'Kobe',
+      lastName: 'Bryant'
+    },
+    computed: {
+      //演化一，本质
+      //计算属性里的属性，本质上是一个对象，里面可以有set方法和get方法
+      fullName: {
+        set: function(newValue) {
+          // console.log('-----', newValue);
+          const names = newValue.split(' ');
+          this.firstName = names[0];
+          this.lastName = names[1];
+        },
+        get: function () {
+          return this.firstName + ' ' + this.lastName
+        }
+      },
+      //演化二，一般业务上用不到set方法，因此只存在get方法
+      fullName2: {
+        get: function () {
+          return this.firstName + ' ' + this.lastName
+        }
+      },
+      //演化三，如果只存在get方法，可做如下简写
+      fullName3: function () {
+        return this.firstName + ' ' + this.lastName
+      },
+      //演化四，
+      fullName4() {
+        return this.firstName + ' ' + this.lastName
+      },
+    }
+  })
+</script>
+
+</body>
+</html>

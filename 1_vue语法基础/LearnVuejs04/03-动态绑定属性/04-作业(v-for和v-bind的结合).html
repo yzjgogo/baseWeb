@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!--
+v-for
+循环创建出过个标签，且给每个标签分配一个值或索引
+-->
+<div id="app">
+  <ul>
+    <!--<li v-for="m in movies">{{m}}</li>-->
+    <li v-for="(m, index) in movies">{{index}}-{{m}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      movies: ['海王', '海尔兄弟', '火影忍者', '进击的巨人']
+    }
+  })
+</script>
+
+</body>
+</html>

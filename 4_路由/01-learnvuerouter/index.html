@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>learnvuerouter</title>
+  </head>
+  <body>
+  <!--
+   1，路由插件的安装npm install vue-router --save
+    2，index.js里引入VueRouter，创建VueRouter的实例router
+    3，main.js里在Vue实例中挂载创建的路由实例router
+  4,
+   -->
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+
+
+
+<!--
+
+知识点，按这个顺序看：
+
+<router-link/>
+
+to
+
+tag
+
+replace
+
+active-class
+
+代码实现路由跳转替代router-link
+
+动态路由传参 path: '/user/:id'
+
+query方式传参
+
+keep-alive
+
+嵌套路由:Home,HomeNews,HomeMessage
+
+mode: 'history'
+
+(导航守卫1)全局导航守卫,监听所有的路由跳转
+
+(导航守卫2)，路由独享守卫,监听某个路由参与的跳转，在routes里的某个路由里使用
+
+(导航守卫3)：组件内的守卫，只是提一下，看官网,.vue文件里使用
+
+$route:谁处于活跃就是睡，也就是当前路由
+
+$router:整个路由对象，全局的
+
+activated()和deactivated()
+这两个函数, 只有该组件被保持了状态使用了keep-alive时, 才是有效的，说明处于活跃和非活跃
+
+
+-->
+</html>

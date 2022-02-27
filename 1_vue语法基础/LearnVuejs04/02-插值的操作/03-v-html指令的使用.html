@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <h2>{{url}}</h2>
+<!--  v-html会吧后面表达式‘url’的结果作为html标签放到<h2></h2>里，然后与浏览器会进行渲染解析标签，参考：v-htm案例.png-->
+  <h2 v-html="url"></h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      url: '<a href="http://www.baidu.com">百度一下</a>'
+    }
+  })
+</script>
+
+</body>
+</html>

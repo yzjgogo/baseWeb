@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const cpnC = Vue.extend({
+        template: `
+      <div>
+        <h2>我是标题</h2>
+        <p>我是内容,哈哈哈哈啊</p>
+      </div>
+    `
+    })
+
+
+
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊,李银河!',
+            name: 'coderwhy'
+        },
+        computed: {
+            fullName: function () {
+                return ""
+            },
+        },
+        methods: {
+            getClasses: function () {
+                return ""
+            }
+        },
+        // 用法：{{item.price | showPrice}} 根据参数，返回处理后的值
+        filters: {
+            showPrice(price) {
+                return '¥' + price.toFixed(2)
+            }
+        },
+        //watch，用于监视某个属性的改变，将属性名作为方法名，传入两个参数，第一个参数是新的属性值，第二个参数是原来的属性值
+        watch:{
+            message(newValue,oldValue){
+                console.log(newValue,oldValue);
+            },
+            //也可以只接收新的属性值
+            // message(newValue){
+            //   console.log(newValue);
+            // }
+        },
+        components: {
+            cpn: cpnC
+        },
+        props: {
+            // 1.类型限制
+            // cmovies: Array,
+            // cmessage: String,
+
+            // 2.提供一些默认值, 以及必传值
+            cmessage: {
+                type: String,
+                default: 'aaaaaaaa',
+                required: true
+            },
+            // 类型是对象或者数组时, 默认值必须是一个函数
+            cmovies: {
+                type: Array,
+                default() {
+                    return []
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

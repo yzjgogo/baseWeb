@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    .aaaaaa {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+<!--  v-bind_class_数组.png
+给标签绑定多个类
+-->
+  <h2 class="title" :class="[active, line]">{{message}}</h2>
+  <h2 class="title" :class="getClasses()">{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      active: 'aaaaaa',
+      line: 'bbbbbbb'
+    },
+    methods: {
+      getClasses: function () {
+        return [this.active, this.line]
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
