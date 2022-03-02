@@ -27,14 +27,14 @@
     }, 1000)
   }).then((data) => {
     // 1_2前面执行了resolve()，这里才会执行then()
-    console.log(data);
+    console.log(data);//Hello World
     console.log(data);
     console.log(data);
     console.log(data);
     console.log(data);
   }).catch((err) => {
     // 2_2前面执行了reject()，这里才会执行catch()
-    console.log(err);
+    console.log(err);//error message
   })
 </script>
 </body>

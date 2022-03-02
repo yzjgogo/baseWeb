@@ -15,9 +15,9 @@
       reject('error message')
     }, 1000)
   }).then(data => {
-    console.log(data);
+    console.log(data);//Hello Vuejs  前面调resolve('Hello Vuejs')走这里
   }, err => {
-    console.log(err);
+    console.log(err);//error message  前面调reject('error message')走这里
   })
 </script>
 </body>

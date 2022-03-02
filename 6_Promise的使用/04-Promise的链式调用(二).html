@@ -7,7 +7,12 @@
 <body>
 
 <script>
+  /**
+   连续请求多个接口且各个接口返回值有前后关系的问题解决
+   * */
+
   // 请求一:
+  /*
   let isResult1 = false
   let isResult2 = false
   $ajax({
@@ -33,7 +38,7 @@
       //
     }
   }
-
+  */
   // wrapped into
   // 网络请求: aaa -> 自己处理(10行)
   // 处理: aaa111 -> 自己处理(10行)
@@ -77,11 +82,14 @@
   }).then(res => {
     console.log(res, '第二层的10行处理代码');
 
-    return Promise.resolve(res + '222')
+    // return Promise.resolve(res + '222')
+    return Promise.reject("错误信息")
   }).then(res => {
     console.log(res, '第三层的10行处理代码');
+  }).catch(res =>{
+    console.log("出错了："+res)
   })
-
+/*
   // 省略掉Promise.resolve
   new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -122,6 +130,7 @@
   }).catch(err => {
     console.log(err);
   })
+  */
 </script>
 </body>
 </html>
