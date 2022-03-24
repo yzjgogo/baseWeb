@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    我们只需在这里引入main.js即可，因为main.js里会引入info.js和mathUtils.js，这样层层引入
+
+    但是我们现在运行index.html会报错，因为我们并没有引入CommonJS,所以浏览器无法识别，02里使用webpack会解决这个问题
+-->
+<script src="./src/main.js"></script>
+</body>
+</html>

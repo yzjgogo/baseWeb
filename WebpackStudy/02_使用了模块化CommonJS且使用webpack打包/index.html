@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    我们在Terminal中使用命令 " webpack ./src/main.js ./dist/bundle.js " 后会在dist目录下生成bundle.js文件
+    然后在index.html里只需要引入这个bundle.js即可，这样bundle.js会自动找到main.js，main.js再找到info.js和mathUtils.js
+    并且webpack得益于node(node里的npm)，会自动识别你在mathUtils.js里写的CommonJS代码和info.js里的es6模块化代码，这样浏览器也就支持了
+
+    以后还可以把dist文件夹交给服务器，供用户访问即可，后面会讲到如何自动把index.html也放到dist文件夹下
+-->
+<script src="./dist/bundle.js"></script>
+</body>
+</html>
