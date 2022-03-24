@@ -6,6 +6,36 @@
 </head>
 <body>
 <!--
+    前提知识：
+webpack默认支持commonJS，因为有底层的支持，因为用的Nodejs,AMD,,CMD就没有底层支撑
+
+webpack是模块化的打包工具，默认支持模块化，支持打包，打出的包里没有commonJS代码，但是你代码可以写，webpack对代码进行了优化，从而支持市面上的浏览器
+
+grunt/gulp过时了，模块化不是它的核心，现在流行webpack
+
+开发完用webpack进行打包，生成一个文件夹放到服务器，而不是直接把咱们开发的代码放到服务器，因为webpack会对代码你写的代码进行优化模块化等等，webpack必须依赖node环境，node里面有一个工具叫npm(node packages manager)来管理各种包
+
+node -v 查看node版本
+
+用node里的npm安装webpack
+cli2依赖webpack3.6.0
+npm install webpack@3.6.0 -g 全局安装
+安装完成后webpack --version查看webpack的版本
+
+全局安装：只要是在终端里无论是cmd还是terminal 只要用webpack都是全局的，
+局部安装：而在package.json里定义的就是局部的，后面会讲到
+--save-dev是开发时依赖，说明项目在打包后就不再使用了
+先cd到对应目录，再npm install webpack@3.6.0 --save-dev
+
+使用webpack构建项目：
+src源码
+dist打包后将这个文件夹给服务器
+
+
+
+   ------------------------------------------------------------------------------------------------------
+
+
     我们在Terminal中使用命令 " webpack ./src/main.js ./dist/bundle.js " 后会在dist目录下生成bundle.js文件
     然后在index.html里只需要引入这个bundle.js即可，这样bundle.js会自动找到main.js，main.js再找到info.js和mathUtils.js
     并且webpack得益于node(node里的npm)，会自动识别你在mathUtils.js里写的CommonJS代码和info.js里的es6模块化代码，这样浏览器也就支持了
