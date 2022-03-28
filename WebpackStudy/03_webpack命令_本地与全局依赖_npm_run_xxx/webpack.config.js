@@ -1,5 +1,7 @@
 /**
-    'webpack ./src/main.js ./dist/bundle.js'简化为'webpack'的方案
+ webpack.config.js到目前位置这个文件的名字固定，后面会将怎么修改这个文件的名字
+
+ 'webpack ./src/main.js ./dist/bundle.js'简化为'webpack'的方案
 
  require('path') 获取node里的path模块
 

@@ -1,15 +1,25 @@
 {
   "name": "meetwebpack",
   "version": "1.0.0",
-  "description": "my first webpack project!",
+  "description": "注释在这里：执行'npm init'命令后会生成这个package.json文件，一般都需要这个文件配置才灵活，录入02没有这个文件也是可以的",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "上行注释1": "在terminal执行npm run build与webpack的区别:执行npm run build优先在项目本地node_modules/.bin/webpack里找webpack",
+    "上行注释2": "找不到时才找全局的webpack,而在termial执行webpack则是直接使用全局的webpack",
+    "上行注释3": "建议项目使用本地的webpack，这样webpack的版本就可以跟着项目走，每一个同时clone下来的代码都会有完全相同的配置",
+    "上行注释4": "如何安装本地的webpack：terminal cd到项目目录 npm install webpack@3.6.0 --save-dev 会产生node_modules目录(存放本地安装的依赖，例如此时的webpack)，",
+    "上行注释5": "开发时依赖打包成功不再需要，webpack就是开发阶段有用用于构建打包，打包完就没有用了"
   },
   "author": "",
   "license": "ISC",
+  "devDependencies注释": "用于指定开发时依赖的工具及其版本(都是本地依赖),可通过npm install(i)安装devDependencies和dependencies下的所有依赖，然后生成node_modules目录和package-lock.json",
   "devDependencies": {
     "webpack": "^3.6.0"
-  }
+  },
+  "dependencies注释": "用于指定运行时依赖的工具及其版本(都是本地依赖),可通过mpm install(i)安装devDependencies和dependencies下的所有依赖，然后生成node_modules目录和package-lock.json",
+  "dependencies": {},
+  "总结1": "安装某个依赖(例如webpack)有两种方式：1，npm install webpack@3.6.0 --save-dev会自动在devDependencies下自动添加当前webpack版本",
+  "总结2": "2，在devDependencies或dependencies指定某个依赖的版本，然后npm install(i)安装devDependencies和dependencies下的所有依赖"
 }
