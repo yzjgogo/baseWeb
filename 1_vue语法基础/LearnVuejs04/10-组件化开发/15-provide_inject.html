@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn></cpn>
+</div>
+
+
+
+<template id="cpn">
+  <div>
+    <div @click="getInject" style="background-color: #2eaae0;width: 100px;height: 50px">获取注入的东西</div>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const cpn = {
+    template: '#cpn',
+    data() {
+      return {}
+    },
+    methods: {
+      getInject(){
+        console.log("getInject输出注入的foo：",this.foo)
+      }
+    },
+    inject:['foo'],
+    created(){
+      console.log("输出注入的foo--：",this.foo,typeof this.foo)
+      // console.log(this.foo())
+      // let mFoo = this.foo()
+      // console.log("执行了foo：",typeof mFoo)
+    }
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+    },
+    props: {
+      monkey: {
+        type: Object,
+        default() {
+          return {name:'孙悟空'}
+        }
+      },
+    },
+    computed:{
+      price(){
+        return 10086
+      }
+    },
+    components: {
+      cpn
+    },
+    method:{
+      doPrint(){
+        console.log("执行doPrint")
+        return "返回值"
+      }
+    },
+    /**
+      一、provide可以是对象，但是无法注入父组件的data，计算属性，属性值，因此不建议这种方法
+     * */
+    // provide:{
+      //可以
+      // foo:'bar'
+
+      //不可以注入父组件的data，计算属性和属性
+      // foo:this.message
+      // foo:this.price
+      // foo:this.monkey
+
+      //注入的是整个方法,子组件接收这个方法可以执行
+      // foo:()=>{
+      //   return {name:"郭德纲",age:18}
+      // }
+
+      //不可以注入父组件的函数
+      // foo:()=>this.doPrint
+    // }
+
+    /**
+      二、1，provide可以是函数，但是这个函数必须返回一个对象
+     这种方式本质上和‘一’一样，无法注入父组件的data，计算属性，属性值，因此不建议这种方法
+     * */
+    // provide:()=>{
+    //     // return {foo:'barr'}
+    //     // return {foo:this.message}
+    //     // return {foo:this.price}
+    //     return {foo:this.monkey}
+    // }
+
+    /**
+       二、2，函数的另一个写法，以后都用这种方法，可以注入父组件的data，计算属性，属性值
+     * */
+    provide(){
+      // return {foo:this.message}
+      // return {foo:this.price}
+      return {foo:this.monkey}
+    }
+  })
+</script>
+
+</body>
+</html>
