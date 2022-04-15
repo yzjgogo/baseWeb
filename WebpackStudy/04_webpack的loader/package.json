@@ -1,0 +1,18 @@
+{
+  "name": "meetwebpack",
+  "version": "1.0.0",
+  "description": "my first webpack project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies注释": "用于指定开发时依赖的工具及其版本(都是本地依赖),可通过npm install(i)安装devDependencies和dependencies下的所有依赖，然后生成node_modules目录和package-lock.json",
+  "devDependencies": {
+    "css-loader": "^2.0.2",
+    "style-loader": "^0.23.1",
+    "webpack": "^3.6.0"
+  }
+}
