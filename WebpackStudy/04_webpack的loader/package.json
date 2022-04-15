@@ -12,7 +12,11 @@
   "devDependencies注释": "用于指定开发时依赖的工具及其版本(都是本地依赖),可通过npm install(i)安装devDependencies和dependencies下的所有依赖，然后生成node_modules目录和package-lock.json",
   "devDependencies": {
     "css-loader": "^2.0.2",
+    "file-loader": "^3.0.1",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
     "webpack": "^3.6.0"
   }
 }

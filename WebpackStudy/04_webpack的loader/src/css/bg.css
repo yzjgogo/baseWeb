@@ -1,0 +1,5 @@
+body{
+    /*参考图片：小于limit大小的图片加载方式是base64.png*/
+    /*background: url("../img/elephant_7kb.jpg");*/
+    background: url("../img/monkey_14kb.jpg");
+}
