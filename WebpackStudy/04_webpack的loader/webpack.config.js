@@ -20,6 +20,7 @@ module.exports = {
             //参考图片css-loader和style-loader引入顺序.png
             //npm install --save-dev css-loader(@2.0.2) (--force) 括号代表如有必要
             //npm install --save-dev style-loader(@0.23.1) (--force) 括号代表如有必要
+            //对应package.json -> devDependencies -> style-loader,css-loader
             {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
@@ -27,6 +28,7 @@ module.exports = {
             //对比css的loader，use用的是字符串数组，less的loade，use用的是对象数组，对象数组更灵活，如果有需要可以给对象配置更多参数(下面的url-loader就用到了更多参数)
             //less需要用到三个loader：顺序是1：less-loader加载less文件；2：css-loader加载less转化的css文件；3：style-loader渲染css样式
             //less-loader的安装 npm install less(@3.9.0) less-loader(@4.1.0) --save-dev (--force) 括号代表如有必要,可见既要安装less也要安装less-loader
+            //对应package.json -> devDependencies -> style-loader,css-loader,less-loader
             {
                 test: /\.less$/,
                 use: [{
@@ -39,6 +41,7 @@ module.exports = {
             },
             // npm install --save-dev url-loader@1.1.2 --force
             // npm install file-loader@3.0.3 --save-dev --force
+            //对应package.json -> devDependencies -> url-loader和file-loader
             {
                 test: /\.(png|jpg|gif|jpeg)$/,
                 use: [
@@ -55,6 +58,26 @@ module.exports = {
                     }
                 ]
             },
+            //默认情况下，我们开发时如果使用了es6语法，则使用webpack打包后再dist/下产生的打包后的js代码仍然是es6语法，这样的话可能
+            //部分浏览器就无法兼容，因此babel-loader就出现了，babel-loader可以将我们开发时写的es6代码打包为老的js代码，这样就能
+            //兼容更多的浏览器。验证:src/main.js里用到了const，在使用babel-loader前我们打包后在dist/bundle.js里能搜索到const关
+            // 键字，使用babel-loader后，再次打包后在dist/bundle.js里就搜索不到const了，而是用var代替了
+            //npm install --save-dev babel-loader@7 babel-core babel-preset-es2015 (--force)，这里没有用webpack官网的babel-loader
+            //的安装方式，而是用视频里老师的方式，自己找官网看看\
+            //对应package.json -> devDependencies -> babel-loader,babel-core,babel-preset-es2015
+            {
+                test: /\.js$/,
+                // exclude: 排除
+                // include: 包含
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        // presets: ['@babel/preset-env'] 官网的方式
+                        presets: ['es2015']//对应安装命令里的babel-preset-es2015
+                    }
+                }
+            }
         ],
     }
 }
