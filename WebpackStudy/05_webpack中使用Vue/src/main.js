@@ -1,3 +1,7 @@
+/**
+    webpack使用vue的步骤：1234
+ * */
+
 // 1,安装vue : npm install vue@2.5.21 --save  这是运行时依赖，不应该安装命令不应该有'-dev'
 
 //2,导入Vue
