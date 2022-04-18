@@ -13,7 +13,9 @@ module.exports = {
     output:{
         path: path.resolve(__dirname,'dist'),
         filename: 'bundle.js',
-        publicPath: 'dist/'//参考url-loader和大于limit的图片加载路径问题.png，给所有的url前面追加'dist/'，适用于当前index.html不在dist里的情况
+        //html-webpack-plugin第3步,因为是在dist下生成index.html，无需指定publicPath,即无需在路径前加dist/即可访问
+        // 看考图片：打包html插件使用模板.png
+        // publicPath: 'dist/'
     },
     /**
      插件定义到plugins里
