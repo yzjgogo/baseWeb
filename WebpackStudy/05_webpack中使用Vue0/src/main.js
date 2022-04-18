@@ -1,8 +1,8 @@
 /**
-    webpack使用vue的步骤：1234
+    webpack使用vue的步骤：12345
  * */
 
-// 1,安装vue : npm install vue@2.5.21 --save  这是运行时依赖，不应该安装命令不应该有'-dev'
+//1,安装vue : npm install vue@2.5.21 --save  这是运行时依赖，不应该安装命令不应该有'-dev'
 
 //2,导入Vue
 import Vue from 'vue'
@@ -19,3 +19,9 @@ const app = new Vue({
 //4，此时npm run build运行index.html会报错，参考图片runtime-only不能编译template.png
 //目前的解决方法webpack.config.js -> module.exports -> resolve -> alias -> 'vue$':'vue/dist/vue.esm.js'
 //具体runtime-only和runtime-compiler的区别后面会讲
+
+
+
+//5，这里有个问题，参考3，随着业务的越来越复杂我们可能要频繁回到index.html里修改id='app'那个div里的内容，比如这里就在里面添加了{{message}}
+//那以后要添加button等呢都要频繁去修改，这样不好，以后我们一般都是开发单页面应用(路由跳转)，我们应该整个项目从始至终都不回去修改index.html这个
+// 文件才合理，那么怎么做呢，参考：05_webpack中使用Vue2
