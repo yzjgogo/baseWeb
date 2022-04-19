@@ -42,3 +42,12 @@ module.exports = {
     }
 
 }
+
+/**
+    这里有个问题：
+    在开发阶段我们希望实现热更新，即使用npm run dev,但开发阶段我们不喜欢压缩代码不利于调试，因此
+        开发阶段我们希望保留devServer的配置，但是去掉UglifyjsWebpackPlugin
+        而打包阶段我们希望去掉devServer配置，而保留UglifyjsWebpackPlugin
+
+    这就涉及到了配置文件分离，参考：08_配置文件开发阶段打包阶段分离
+ * */
