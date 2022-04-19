@@ -8,6 +8,13 @@ const webpack = require('webpack')
 //html-webpack-plugin第1步：安装 npm install html-webpack-plugin@3.2.0 --save-dev  package.json -> devDependencies -> html-webpack-plugin
 //html-webpack-plugin第2步：如下导入html-webpack-plugin
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+//uglifyjs-webpack-plugin用于对打包生成的js文件进行压缩，使用后查看dist/bundle.js可见已经压缩了
+//其实webpack也有自带的压缩插件，但是视频里说使用自带的报错了，因此使用了这个与CLI2匹配的版本
+//uglifyjs-webpack-plugin第1步：安装 npm install uglifyjs-webpack-plugin@1.1.1 --save-dev --force
+//uglifyjs-webpack-plugin第2步：引入
+const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin')
+
 module.exports = {
     entry: './src/main.js',
     output:{
@@ -35,6 +42,9 @@ module.exports = {
         //参考图片：打包html插件使用模板.png
         new HtmlWebpackPlugin({
             template: 'index.html'
-        })
+        }),
+
+        //uglifyjs-webpack-plugin第3步：使用
+        new UglifyjsWebpackPlugin()
     ]
 }
