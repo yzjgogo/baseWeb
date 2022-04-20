@@ -1,0 +1,20 @@
+CLI:Command-Line Interface, 翻译为命令行界面, 但是俗称脚手架
+用于搭建Vue开发项目，跟新建一个Android项目一个道理
+网站：https://cli.vuejs.org/zh/
+
+CLI使用之前，需要安装Node(npm)、全局的Webpack
+Node: http://nodejs.cn/download/
+Webpack:npm install webpack -g
+
+安装Vue CLI>=3:
+Vue CLI现在已经5.x版本了，视频里当时是3.2.1版本
+npm install -g @vue/cli
+如果需要制定版本则是：npm install -g @vue/cli@3.2.1
+
+使用CLI>=3创建Vue项目：
+vue create my-project
+
+图形化管理项目：
+vue ui  打开图形化网页界面 -> 打开项目目录
+
+
