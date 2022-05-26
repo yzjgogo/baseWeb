@@ -1,7 +1,7 @@
 {
   "name": "meetwebpack",
   "version": "1.0.0",
-  "description": "注释在这里：执行'npm init'命令后会生成这个package.json文件，一般都需要这个文件配置才灵活，录入02没有这个文件也是可以的",
+  "description": "注释在这里：执行'npm init'命令后会生成这个package.json文件，一般都需要这个文件配置才灵活，例如02没有这个文件也是可以的",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

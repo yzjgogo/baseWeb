@@ -9,7 +9,7 @@ console.log(height)
 
 /**
  使用CommonJS引入css文件，让css文件也参与模块化
- 此时就需要css-loader和style-loader来赋予webpack加载解析css的能力，看考webpack.config.js
+ 此时就需要css-loader和style-loader来赋予webpack加载解析css的能力，参考webpack.config.js
  * */
 require('./css/normal.css')
 
