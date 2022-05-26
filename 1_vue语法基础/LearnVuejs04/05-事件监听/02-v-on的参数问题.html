@@ -7,11 +7,11 @@
 <body>
 
 <div id="app">
-  <!--1.事件调用的方法没有参数时，写不写()都可以-->
+  <!--第1.事件调用的方法没有参数时，写不写()都可以-->
   <button @click="btn1Click()">按钮1</button>
   <button @click="btn1Click">按钮1</button>
 
-  <!--2.在事件定义时, 写方法时省略了小括号, 但是方法本身是需要一个参数的, 这个时候, Vue会默认将浏览器生产的event事件对象作为参数传入到方法-->
+  <!--第2.在事件定义时, 写方法时省略了小括号, 但是方法本身是需要一个参数的, 这个时候, Vue会默认将浏览器生产的event事件对象作为参数传入到方法-->
   <!--  -------- PointerEvent {isTrusted: true, pointerId: 0, width: 1, height: 1, pressure: 0, …}  -->
   <button @click="btn2Click">按钮2</button>
 <!--  -------- 123-->
@@ -22,7 +22,7 @@
 
 
 
-  <!--3.方法定义时, 我们需要event对象, 同时又需要其他参数-->
+  <!--第3.方法定义时, 我们需要event对象, 同时又需要其他参数-->
   <!-- 在调用时, 如何手动的获取到浏览器参数的event对象: $event-->
   <button @click="btn3Click(abc, $event)">按钮3</button>
 </div>
