@@ -1,0 +1,14 @@
+回忆步骤：
+main.js
+->
+store的index.js和index_copy.js结合看看
+->
+getters.js文件
+->
+mutations.js文件
+->
+actions.js文件
+->
+modules目录
+
+
