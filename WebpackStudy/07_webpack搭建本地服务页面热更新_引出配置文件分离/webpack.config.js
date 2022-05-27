@@ -24,7 +24,7 @@ module.exports = {
      以后在命令行进行npm run dev即可实现热更新，其中--open指自动打开浏览器,编译完成后terminal有浏览器地址：?http://localhost:8080
 
      npm run dev(webpack-dev-server) 与 npm run build(webpack) 的关系：
-     前者在开发阶段用于方便实时热更新调试使用，不会将代码打包到dist/bundle.js中，而是在内存中实时更新，速度更快，不信可以改点代码人后热更新后看看dist/bundle.js有没有变化
+     前者在开发阶段用于方便实时热更新调试使用，不会将代码打包到dist/bundle.js中，而是在内存中实时更新，速度更快，不信可以改点代码然后热更新后看看dist/bundle.js有没有变化
      后者在开发完成后，最终打包时使用，会将代码打包到dist/中
 
      补充：dist文件夹下要有index.html才有效，因此这里我使用了HtmlWebpackPlugin
