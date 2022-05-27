@@ -1,3 +1,6 @@
+
+5_tabbar项目只看这个'readme.txt'就行了
+
 如果是导入的目录(文件夹)，则系统自动寻找这个目录里的index.js导入，同直接导入 ./目录/index.js一样
 参考main.js里的import router from './router'，实际上是导入./router/index.js
 
