@@ -9,7 +9,7 @@ Webpack:npm install webpack -g
 安装Vue CLI3+:
 Vue CLI现在已经5.x版本了，视频里当时是3.2.1版本
 npm install -g @vue/cli
-如果需要制定版本则是：npm install -g @vue/cli@3.2.1
+如果需要指定版本则是：npm install -g @vue/cli@3.2.1
 
 如果想通过Vue CLI2创建项目怎么办：拉取CLI2.x的模板
 Vue CLI >= 3 和旧版使用了相同的 vue 命令，所以 Vue CLI 2 (vue-cli) 被覆盖了。如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具：
