@@ -33,7 +33,7 @@ new Vue({
 
 
 
-/**----------一下是对runtimeonly的解释，下面这些代码本来应该放到runtimeonly模式的项目里，放到runtime+compiler项目也是支持runtimeonly的---------------------*/
+/**----------以下是对runtimeonly的解释，下面这些代码本来应该放到runtimeonly模式的项目里，放到runtime+compiler项目也是支持runtimeonly的---------------------*/
 
 
 
