@@ -37,7 +37,7 @@ export default {
 
     // 2.特殊的提交封装，this.$store.commit(payload)
   //   this.$store.commit({
-  //     type: 'incrementCount', 时间类型(mutations里定义的方法名)
+  //     type: 'incrementCount', 事件类型(mutations里定义的方法名)
   //     count,参数数据
   //   })
   // },
