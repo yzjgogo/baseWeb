@@ -22,7 +22,7 @@ const App = {
     }
 }
 new Vue({
-    //4，<App/>会替换掉#app
+    //4，<App/>(App下的template)会替换掉#app
     el: '#app',
     //3，template的模板使用在root里注册(引入)得这个子组件，
     template: '<App/>',
