@@ -1,5 +1,5 @@
 /**
- webpack.config.js到目前位置这个文件的名字固定，后面会将怎么修改这个文件的名字
+ webpack.config.js到目前为止这个文件的名字固定，后面会讲怎么修改这个文件的名字
 
  'webpack ./src/main.js ./dist/bundle.js'简化为'webpack'的方案
 
