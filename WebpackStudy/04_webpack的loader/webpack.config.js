@@ -25,7 +25,7 @@ module.exports = {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
             },
-            //对比css的loader，use用的是字符串数组，less的loade，use用的是对象数组，对象数组更灵活，如果有需要可以给对象配置更多参数(下面的url-loader就用到了更多参数)
+            //对比css的loader，use用的是字符串数组，less的loader，use用的是对象数组，对象数组更灵活，如果有需要可以给对象配置更多参数(下面的url-loader就用到了更多参数)
             //less需要用到三个loader：顺序是1：less-loader加载less文件；2：css-loader加载less转化的css文件；3：style-loader渲染css样式
             //less-loader的安装 npm install less(@3.9.0) less-loader(@4.1.0) --save-dev (--force) 括号代表如有必要,可见既要安装less也要安装less-loader
             //对应package.json -> devDependencies -> style-loader,css-loader,less-loader
@@ -48,7 +48,7 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            //limit：10000，如果要访问的图片小于10000bite则这个图片以base64的方式加载，不会参与打包被打包到dist里(看考图片小于limit大小的图片加载方式是base64.png)
+                            //limit：10000，如果要访问的图片小于10000bite则这个图片以base64的方式加载，不会参与打包被打包到dist里(参考图片'小于limit大小的图片加载方式是base64.png')
                             //如果要访问的图片大于10000bite，则这个图片不会以base64的方式加载，而是会被打包到dist目录下，且需要依赖file-loader(安装即可),又因为目前index.html不在dist里
                             //因此可参考图片'大于limit的图片加载路径问题.png'解决
                             limit: 10000,
