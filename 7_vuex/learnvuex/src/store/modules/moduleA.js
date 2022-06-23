@@ -42,6 +42,7 @@ export default {
     //commit：就是commit()方法了
     //rootState：是store的state
     //aUpdateName({state,commit,rootState})
+
     //这里的context就不是store对象了，因此其commit方法只能commit所在moduleA的mutations里的方法，不能commit
     //store里的方法
     //上面的state，commit，rootState都是context的属性
