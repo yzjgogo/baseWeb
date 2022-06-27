@@ -39,9 +39,16 @@ module.exports = {
                     loader: "less-loader", // compiles Less to CSS
                 }]
             },
+
+            /**
+             图片打包关键要用到 file-loader 或url-loader，其中 url-loader 与 file-loader 功能基本一致，只不过 url-loader 能将小于某个大小的图片进行base64格式的转化处理
+             * */
             // npm install --save-dev url-loader@1.1.2 --force
             // npm install file-loader@3.0.3 --save-dev --force
             //对应package.json -> devDependencies -> url-loader和file-loader
+
+            //这里演示的是加载CSS中的图片，加载js中的图片请参考'101_在js中加载图片_先看04在css中用url-loader加载图片'
+            //参考：https://blog.csdn.net/shrimp6/article/details/123967239
             {
                 test: /\.(png|jpg|gif|jpeg)$/,
                 use: [
@@ -55,7 +62,15 @@ module.exports = {
                             //给开发时的图片打包到dist里后的图片命名，看考'大于limit的图片加载路径问题.png'和'大于limit值的图片命名.png'
                             name: 'img/[name].[hash:8].[ext]'
                         },
-                    }
+                    },
+                    //file-loader也可以
+                    // {
+                    //     loader: 'file-loader',
+                    //     options: {
+                    //         // limit: 10000,file-loader没有limit这个用法
+                    //         name: 'img/[name].[hash:8].[ext]'
+                    //     },
+                    // }
                 ]
             },
             //默认情况下，我们开发时如果使用了es6语法，则使用webpack打包后再dist/下产生的打包后的js代码仍然是es6语法，这样的话可能
