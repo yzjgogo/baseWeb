@@ -30,6 +30,12 @@ module.exports = {
      补充：dist文件夹下要有index.html才有效，因此这里我使用了HtmlWebpackPlugin
 
      参考图片：本地服务器.png
+
+     2022.6.27补充
+     默认本地服务都是通过localhost访问，想通过ip访问怎么办呢(比如手机也要访问)
+     参考：http://t.zoukankan.com/jkr666666-p-13296458.html
+     在package.json -> scripts -> "dev": "webpack-dev-server --open --host 192.168.2.27"
+     添加 --host 192.xxx.x.xx即可
      * */
     devServer: {
         //为哪一个文件夹提供本地服务，默认是根文件夹，我们这里要填写./dist
