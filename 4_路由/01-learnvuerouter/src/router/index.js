@@ -33,7 +33,7 @@ const routes = [
     component: Home,
     //// (导航守卫1)，全局导航守卫_1 :元数据，可以添加一些描述路由的相关信息
     meta: {
-      title: '首页'
+      title: '首页'//对于非嵌套路由，route对象.mete.title可取到，例如$route.meta.title
     },
     children: [
       //嵌套路由4：加载首页，默认显示新闻,这里之所以注释掉是因为Home.vue中的activated()方法里实现了默认加载news，进去看一下
