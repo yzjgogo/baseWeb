@@ -10,5 +10,8 @@ mutations.js文件
 actions.js文件
 ->
 modules目录
+->
+mapState的用法：App.vue -> computed
+
 
 

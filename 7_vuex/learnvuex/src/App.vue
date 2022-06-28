@@ -30,11 +30,18 @@
 
     <h2>----------Hello Vuex内容----------</h2>
     <hello-vuex/>
+
+    <h2 style="background-color: #FA5A55">-------------...mapXXX内容---------------</h2>
+    <h2>-------------...mapState---------------</h2>
+    <h2>{{info.name}},{{counter}} --</h2>
+    <h2>{{getMapStateName()}}</h2>
+    <h2>{{bname}} -------*</h2>
   </div>
 </template>
 
 <script>
   import HelloVuex from './components/HelloVuex'
+  import {mapState} from 'vuex'
 
   import {
     INCREMENT
@@ -50,11 +57,41 @@
         message: '我是App组件'
       }
     },
-    // computed: {
-    //   more20stu() {
-    //     return this.$store.state.students.filter(s => s.age > 20)
-    //   }
-    // },
+    computed: {
+      /**mapState用法1： store里的state(非module里的state) */
+      //用法1：直接饮用state里的属性，作为数组传入，注意用引号包裹
+      ...mapState(['counter','info']),
+
+      //用法2：饮用state里的属性，同时重新定义别名，组成对象传入
+      // ...mapState({
+      //   counter1:'counter',
+      //   info1:'info'
+      // })
+
+      //用法3：自定义方法，方法的参数是state，返回要使用的state里的属性
+      // ...mapState({
+      //   counter1:state=>state.counter,
+      //   info1:state=>state.info
+      // })
+
+
+      /**mapState用法2： module里的state
+          前提：在对应module里设置namespaced:true，例如moduleB.js里的namespaced:true
+
+       下面三种方法的第一个参数说明：
+       如果在store -> modules{b:moduleB}则第一个参数传'b';
+       如果在store -> modules{moduleB}则第一个参数传'moduleB';
+       * */
+      //用法1：第2个参数同上
+      // ...mapState('b',['bname'])
+      //用法2：第2个参数同上
+      // ...mapState('b', {bnam:1:'bname'})
+      //用法3：第2个参数同上
+      ...mapState('b',{bname:state=>state.bname})
+
+
+      /** mapGetters、mapActions等等，用法类似mapState，也可参考有道云笔记 */
+    },
     methods: {
       addition() {
         //调用store里mutations里定义的方法，通过commit的方式
@@ -98,6 +135,9 @@
       },
       asyncUpdateName() {
         this.$store.dispatch('aUpdateName')
+      },
+      getMapStateName(){
+        return this.info.name
       }
     }
   }
