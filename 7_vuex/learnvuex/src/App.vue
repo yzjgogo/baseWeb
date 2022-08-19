@@ -31,11 +31,13 @@
     <h2>----------Hello Vuex内容----------</h2>
     <hello-vuex/>
 
-    <h2 style="background-color: #FA5A55">-------------...mapXXX内容---------------</h2>
+    <h2 style="background-color: #FA5A55">-------------module内容---------------</h2>
     <h2>-------------...mapState---------------</h2>
     <h2>{{info.name}},{{counter}} --</h2>
     <h2>{{getMapStateName()}}</h2>
     <h2>{{bname}} -------*</h2>
+
+    <button @click="doModuleAction">执行moudleA里的actions</button>
   </div>
 </template>
 
@@ -138,6 +140,9 @@
       },
       getMapStateName(){
         return this.info.name
+      },
+      doModuleAction(){
+        this.$store.dispatch('doSomeActionMethod','我是发送到module里的内容')
       }
     }
   }

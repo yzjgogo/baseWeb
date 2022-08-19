@@ -52,6 +52,9 @@ export default {
         //这个updateName()只能是当前moduleA里的mutations里的方法
         context.commit('updateName', 'wangwu')
       }, 1000)
+    },
+    doSomeActionMethod(context,value){
+      console.log(`收到数据了吗：${value}`)
     }
   }
 }
