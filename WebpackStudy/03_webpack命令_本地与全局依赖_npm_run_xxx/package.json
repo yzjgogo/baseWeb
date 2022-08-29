@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --config webpack.config.js",
+    "build2": "webpack --config webpack.config.js  如果想不使用webpack.config.js这个文件名，则可以通过--config的方式指定配置文件",
     "上行注释1": "在terminal执行npm run build与webpack的区别:执行npm run build优先在项目本地node_modules/.bin/webpack里找webpack",
     "上行注释2": "找不到时才找全局的webpack,而在termial执行webpack则是直接使用全局的webpack",
     "上行注释3": "建议项目使用本地的webpack，这样webpack的版本就可以跟着项目走，每一个同时clone下来的代码都会有完全相同的配置",
