@@ -15,7 +15,7 @@ Vue.config.productionTip = false
  alias -> 'vue$': 'vue/dist/vue.esm.js'
 
  runtimeonly无需在resolve里指定alias,默认是'vue/dist/vue.runtime.js'
- 参考WebpackStudy -> 05_webpack中使用Vue0 -> webpack.config.js里的注释
+ 参考WebpackStudy -> 05_webpack中使用Vue0_直接使用el指定的默认模板 -> webpack.config.js里的注释
 
  * */
 /**
