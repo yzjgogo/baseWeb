@@ -1,4 +1,6 @@
 
+只看readme-导入index.js-导入css-div包裹slot实现样式-省略后缀-路径起别名
+
 5_tabbar项目只看这个'readme.txt'就行了
 
 如果是导入的目录(文件夹)，则系统自动寻找这个目录里的index.js导入，同直接导入 ./目录/index.js一样
