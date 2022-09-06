@@ -8,24 +8,22 @@
     <title>Document</title>
     <style>
         div {
-            /* 给父级添加flex属性 */
             display: flex;
-            width: 800px;
-            height: 300px;
+            width: 600px;
+            height: 400px;
             background-color: pink;
-            /* 默认的主轴是 x 轴 行 row  那么y轴就是侧轴喽 */
-            /* 我们的元素是跟着主轴来排列的 */
-            /* flex-direction: row; */
-            /* 简单了解 翻转 */
-            /* flex-direction: row-reverse; */
-            /* 我们可以把我们的主轴设置为 y轴 那么 x 轴就成了侧轴 */
-            flex-direction: column;
+            /* flex布局中，默认的子元素是不换行的， 如果装不开，会缩小子元素的宽度，放到父元素里面  */
+             flex-wrap: nowrap;
+            /*一行装不下子元素就自动换行*/
+            /*flex-wrap: wrap;*/
         }
         
         div span {
             width: 150px;
             height: 100px;
             background-color: purple;
+            color: #fff;
+            margin: 10px;
         }
     </style>
 </head>
@@ -35,6 +33,7 @@
         <span>1</span>
         <span>2</span>
         <span>3</span>
+        <span>4</span>
     </div>
 </body>
 

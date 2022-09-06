@@ -12,14 +12,16 @@
             width: 800px;
             height: 400px;
             background-color: pink;
-            /* 默认的主轴是 x 轴 row */
-            flex-direction: column;
-            justify-content: center;
-            /* 我们需要一个侧轴居中 */
-            /* 拉伸，但是子盒子不要给高度 */
-            /* align-items: stretch; */
-            align-items: center;
-            /* align-content: center; */
+            /* 1:例如当前主轴是X轴，则侧轴是Y轴 */
+            flex-direction: row;
+            /*默认值,靠上展示*/
+            /*align-items: flex-start;*/
+            /*靠下展示*/
+            /*align-items: flex-end;*/
+            /*居中展示*/
+            /*align-items: center;*/
+            /*拉伸侧轴方向的高度，使所有子元素高度填充父元素，要求子元素没有设置height,否则无效*/
+            align-items: stretch;
         }
         
         div span {
