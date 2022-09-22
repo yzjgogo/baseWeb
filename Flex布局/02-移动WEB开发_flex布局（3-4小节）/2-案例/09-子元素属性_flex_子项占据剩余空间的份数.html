@@ -8,6 +8,7 @@
     <title>Document</title>
     <style>
         section {
+            /*设置section是一个flex布局*/
             display: flex;
             width: 60%;
             height: 150px;
@@ -22,6 +23,10 @@
         }
         
         section div:nth-child(2) {
+            /*剩余空间 = section的width - 100px - 100px
+            只有这个div设置了flex属性且是1，因此剩余空间一共分了1分
+            所以这个div占据所有剩余空间
+            */
             flex: 1;
             background-color: green;
         }
@@ -39,7 +44,12 @@
             background-color: pink;
             margin: 100px auto;
         }
-        
+
+        /*一共第一个flex == 1；第二个flex == 2 第三个flex == 1
+        剩余空间 == 整个<p/>的宽
+        剩余空间总共被分为1+2+1 == 4份
+        其中第二个span站2份
+        */
         p span {
             flex: 1;
         }

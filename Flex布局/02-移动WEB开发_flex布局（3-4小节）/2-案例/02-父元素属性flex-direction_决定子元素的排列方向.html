@@ -8,26 +8,28 @@
     <title>Document</title>
     <style>
         div {
+            /* 给父级添加flex属性 */
             display: flex;
             width: 800px;
-            height: 400px;
+            height: 300px;
             background-color: pink;
-            /* 默认的主轴是 x 轴 row */
-            flex-direction: column;
-            justify-content: center;
-            /* 我们需要一个侧轴居中 */
-            /* 拉伸，但是子盒子不要给高度 */
-            /* align-items: stretch; */
-            align-items: center;
-            /* align-content: center; */
+            /*flex-direction用于指定主轴方向：决定了子元素的排列方向
+            默认值是row,X轴且子元素从左向右排列
+            row-reverse:X轴且子元素从右向左排列
+            column:Y轴且子元素从上向下排列
+            column-reverse:Y轴且子元素从下向上排列
+             */
+            /*flex-direction: row;*/
+            /*flex-direction: row-reverse;*/
+            /*flex-direction: column;*/
+            flex-direction: column-reverse;
         }
         
         div span {
             width: 150px;
             height: 100px;
             background-color: purple;
-            color: #fff;
-            margin: 10px;
+            /*margin: 1px;*/
         }
     </style>
 </head>
