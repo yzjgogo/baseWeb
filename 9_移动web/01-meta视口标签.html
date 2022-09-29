@@ -25,7 +25,7 @@ window.devicePixelRatio == 物理像素/独立像素；就是1css像素等于多
 
 3：视口的分类:
 layout viewport布局视口：就是前面讲的移动端浏览器为了加载专为PC设计的网站的默认视口，例如980px,1024px等，这种视口有很大一部分区域在屏幕之外，需要用户通过横向滚动条或缩放才能完整的看到网站内容；
-    这个layout viewport的宽度可以通过 document.documentElement.clientWidth 来获取。
+    这个在移动端浏览器默认的layout viewport的宽度可以通过在不设置viewport的meta标签时在移动端浏览器通过document.documentElement.clientWidth 来获取。例如chrome获取到980px
 visual viewport视觉视口：就是浏览器的可视区域，浏览器用于加载网站的那部分有效区域；
     visual viewport的宽度可以通过window.innerWidth 来获取
 ideal viewport理想视口：就是专为移动端设计的，能够将布局视口整好放到视觉视口里面的视口(手机屏幕整好能完全显示整个网站内容，无需滚动和缩放)，此时元素的width == 100%就是屏幕的宽(浏览器显示区域的宽)
@@ -52,6 +52,33 @@ user-scalable:是否允许用户进行缩放，值为"no"或"yes", no 代表不�
 当width 和 initial-scale=1同时出现，并且还出现了冲突时：取二者的最大值，例如对于iphone3，此时width=400 理想视口宽等于屏幕宽是320csspx，则最终的视口宽度是400px；
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
 综合使用二者，使width=device-width, initial-scale=1可解决二者分别单独使用的小缺点，例如iphone和ipad的横竖屏问题
+
+6:关于initial-scale
+前面说过initial-scale是相对于理想视口来缩放的，可理解为相对于屏幕原始的csspx宽度来缩放的，比如iphone3的理想视口是320px,设置initial-scale=2，因为是放大了，则相当于原来的1csspx变得跟
+2csspx那么长了，因此原来需要320csspx才能撑满的屏幕，现在只需要160csspx就能撑满了；此时浏览器可视区域的宽度变为160csspx了
+公式：可视区域的宽度 = 理想视口宽度 / 当前缩放值；即160 = 320 / 2;
+设置了viewport的meta标签时在移动端设备浏览器上可视区域的宽度 = document.documentElement.clientWidth
+包括滚动区域的宽度 = window.innerWidth
+
+注意：下面几个属性的用法
+document.documentElement.clientWidth 设置了viewport的meta标签时在移动端设备浏览器上可视区域的宽度 或者 没设置meta时移动端浏览器默认布局视口的宽度
+window.innerWidth 包括滚动区域整个的宽度
+window.screen.width 屏幕分辨率的宽
+window.screen.availWidth  屏幕可用工作区高度？
+
+7：动态改变meta viewport标签
+第一种方法
+可以使用document.write来动态输出meta viewport标签，例如：
+<!--document.write('<meta name="viewport" content="width=device-width,initial-scale=1">')-->
+
+第二种方法
+通过setAttribute来改变
+<!--<meta id="testViewport" name="viewport" content="width = 380">-->
+<!--<script>-->
+<!--    var mvp = document.getElementById('testViewport');-->
+<!--    mvp.setAttribute('content','width=480');-->
+<!--</script>-->
+
 
 </body>
 
