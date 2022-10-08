@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*
+        没有媒体查询参与时使用rem的情况：
+        此时html的font-size是写死的100px，那么1rem的尺寸无论在任何屏幕任何浏览器下都是100px，通过拖拽改变PC浏览器的大小，1rem也是定死的100px；
+        这样就无法根据不同的屏幕尺寸动态等比适配样式了，会导致不同屏幕尺寸样式参差不齐，因此我们引入媒体查询，动态监听屏幕尺寸，从而动态改变html的
+        font-size的值，也就动态改变了1rem的尺寸，那么当整个页面都使用rem作为尺寸单位时，随着屏幕尺寸的不同，始终都能始终保持尺寸的等比变化，样式的统一
+        */
+        /* html {
+            font-size: 100px;
+        } */
+
+
+        /*
+        引入媒体查询配合rem的情况：这样动态监听屏幕尺寸，动态改变html的font-size，也就实现了1rem尺寸的动态改变，可以通过在PC端拖拽浏览器尺寸来演示
+        从小到大的顺序
+        参考图片：媒体查询动态改变rem.png*/
+        /*屏幕尺寸在320-640px时指定html的font-size为50px*/
+        @media screen and (min-width: 320px) {
+            html {
+                font-size: 50px;
+            }
+        }
+        /*屏幕尺寸大于640px时指定html的font-size为100px*/
+        @media screen and (min-width: 640px) {
+            html {
+                font-size: 100px;
+            }
+        }
+        
+        .top {
+            height: 1rem;
+            font-size: .5rem;
+            background-color: green;
+            color: #fff;
+            text-align: center;
+            line-height: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">购物车</div>
+</body>
+
+</html>
