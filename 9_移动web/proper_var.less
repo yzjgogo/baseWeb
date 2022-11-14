@@ -1,0 +1,13 @@
+/*
+less 3.00 开始，你可以使用$prop语法可以很容易地将属性当作变量来处理。有时，这可以使您的代码更轻松。
+*/
+
+.test{
+  //1,这里有个color属性
+  color: #efefef;
+  //2,这里直接将上面的color属性作为变量使用，用法是：$属性名
+  background-color: $color;
+
+  width: 300px;
+  height: 300px;
+}
