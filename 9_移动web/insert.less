@@ -16,6 +16,8 @@
 }
 
 
+
+
 //路径变量，变量名是image
 @image:"./file/";
 div.bg{
@@ -23,6 +25,8 @@ div.bg{
   height: 500px;
   background-image: url("@{image}dog.jpeg");//把变量插入路径,最终拼凑成 ./file/dog.jpeg
 }
+
+
 
 
 //定义属性变量
@@ -34,4 +38,18 @@ div.proper{
   @{colorstr}:red;//引入代表属性名的变量colorstr,最终color:red;
   background-@{colorstr}: yellow;//变量可以参与属性名的拼接，最终background-color:yellow
   border-@{bottomstr}-left-radius:20px;//变量可以参与属性名的拼接，最终border-bottom-left-radius:20px
+}
+
+
+
+
+/*一个变量引用另一个变量*/
+//1，定义第一个变量
+@names:'这是before内容';
+//2，定义第二个变量，变量值指向另一个变量
+@var:names;
+.other::before{
+  //3，使用引用了变量的变量
+  //@var==names => @@var=@names
+  content: @@var;//content: @names;  => content: '这是before内容'
 }
