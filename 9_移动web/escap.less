@@ -1,0 +1,24 @@
+//https://www.cnblogs.com/keyeking/p/15490652.html
+//https://zhuanlan.zhihu.com/p/242266831
+
+
+@min768: ~"(min-width: 768px)";
+
+@color123: ~"red";  //等价@color123: red;就是脱掉括号
+
+@colortitle:~"color"; //等价@@colortitle: color;就是脱掉括号
+
+@media @min768 {
+  .element{
+    background-color: #2eaae0;
+    @{colortitle}: @color123;
+  }
+}
+
+//下面这样写也可以
+//.element {
+//  @media @min768 {
+//    background-color: #6CD559;
+//    color: @{color123};
+//  }
+//}
