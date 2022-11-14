@@ -1,0 +1,9 @@
+.g_father{
+  color: red;//father继承了g_father,因此father也有这个属性;child继承了father，因此child也有这个属性
+}
+.father:extend(.g_father){
+  background: green;//child继承了father，因此child也有这个属性
+}
+.child:extend(.father){
+  border: 1px solid #000;
+}
