@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        section {
+            /*设置section是一个flex布局*/
+            display: flex;
+            width: 60%;
+            height: 150px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+        
+        section div:nth-child(1) {
+            width: 100px;
+            height: 150px;
+            background-color: red;
+        }
+        
+        section div:nth-child(2) {
+            /*剩余空间 = section的width - 100px - 100px
+            只有这个div设置了flex属性且是1，因此剩余空间一共分了1分
+            所以这个div占据所有剩余空间
+            */
+            flex: 1;
+            background-color: green;
+        }
+        
+        section div:nth-child(3) {
+            width: 100px;
+            height: 150px;
+            background-color: blue;
+        }
+        
+        p {
+            display: flex;
+            width: 60%;
+            height: 150px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+
+        /*一共第一个flex == 1；第二个flex == 2 第三个flex == 1
+        剩余空间 == 整个<p/>的宽
+        剩余空间总共被分为1+2+1 == 4份
+        其中第二个span站2份
+        */
+        p span {
+            flex: 1;
+        }
+        
+        p span:nth-child(2) {
+            flex: 2;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <p>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </p>
+</body>
+
+</html>

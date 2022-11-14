@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            width: 800px;
+            height: 400px;
+            background-color: pink;
+            /* 假设主轴方向就是默认的row */
+
+            /*wrap：换行，因为align-content适用于多行的情况*/
+            flex-wrap: wrap;
+            /*所有子元素整体靠左上显示*/
+            /* align-content: flex-start;*/
+            /*所有子元素整体靠左下显示*/
+            /* align-content: flex-end;*/
+            /*左右子元素整体在侧轴方向居中，且侧轴方向紧挨着显示*/
+            /* align-content: center;*/
+            /*侧轴方向两边贴边，中间分隔*/
+            /* align-content: space-between;*/
+            /*侧轴方向不贴边，分隔显示*/
+            /*align-content: space-around;*/
+            /*拉伸侧轴的尺寸，充满父元素，要求没有设置height*/
+            align-content: stretch;
+        }
+        
+        div span {
+            width: 150px;
+            height: 100px;
+            background-color: purple;
+            color: #fff;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+    </div>
+</body>
+
+</html>

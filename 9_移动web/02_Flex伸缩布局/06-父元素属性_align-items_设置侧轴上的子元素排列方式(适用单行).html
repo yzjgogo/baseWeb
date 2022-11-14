@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            width: 800px;
+            height: 400px;
+            background-color: pink;
+            /* 1:例如当前主轴是X轴，则侧轴是Y轴 */
+            flex-direction: row;
+
+            /*align-items适用于单行(没有换行的情况)，但是多行似乎也有效果，自己留意下*/
+
+            /*默认值,靠上展示*/
+            /*align-items: flex-start;*/
+            /*靠下展示*/
+            /*align-items: flex-end;*/
+            /*居中展示*/
+            /*align-items: center;*/
+            /*拉伸侧轴方向的高度，使所有子元素高度填充父元素，要求子元素没有设置height,否则无效*/
+            align-items: stretch;
+        }
+        
+        div span {
+            width: 150px;
+            height: 100px;
+            background-color: purple;
+            color: #fff;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+</body>
+
+</html>
