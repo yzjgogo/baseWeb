@@ -1,0 +1,28 @@
+
+/*
+Less 内置了多种函数用于转换颜色、处理字符串、算术运算等。这些函数在Less 函数手册中有详细介绍。
+
+函数的用法非常简单。下面这个例子将介绍如何利用 percentage 函数将 0.5 转换为 50%，将颜色饱和度增加 5%，以及颜色亮度降低 25% 并且色相值增加 8 等用法：
+
+看看这个官方文档就知道咋回事了
+https://less.bootcss.com/functions/#misc-functions
+https://www.w3cschool.cn/less/functions.html
+https://blog.csdn.net/chen__cheng/article/details/117090993
+
+以上应该都是less自带的函数的使用
+
+
+
+自己实现less函数：再多了解下
+https://www.jianshu.com/p/df1ad9ddd9f0
+*/
+
+@base: #f04615;
+@width: 0.5;
+
+.element {
+  width: percentage(@width); // returns `50%`
+  color: saturate(@base, 5%);
+  background-color: spin(lighten(@base, 25%), 8);
+}
+
