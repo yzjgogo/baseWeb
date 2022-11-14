@@ -1,0 +1,37 @@
+//a1：定义一个变量
+@divname:banner;
+
+//a2：使用这个变量作为类名，相当于.banner{},这样就匹配到了class="banner"的元素
+.@{divname}{
+  background-color: #2eaae0;
+}
+
+
+
+//b1：同样定义一个变量
+@divname2:second;
+//b2：使用这个变量作为id，相当于#second{},这样就匹配到了id="second"的元素
+#@{divname2}{
+  background-color: #6CD559;
+}
+
+
+//路径变量，变量名是image
+@image:"./file/";
+div.bg{
+  width: 500px;
+  height: 500px;
+  background-image: url("@{image}dog.jpeg");//把变量插入路径,最终拼凑成 ./file/dog.jpeg
+}
+
+
+//定义属性变量
+@colorstr:color;
+@bottomstr:bottom;
+div.proper{
+  width: 300px;
+  height: 300px;
+  @{colorstr}:red;//引入代表属性名的变量colorstr,最终color:red;
+  background-@{colorstr}: yellow;//变量可以参与属性名的拼接，最终background-color:yellow
+  border-@{bottomstr}-left-radius:20px;//变量可以参与属性名的拼接，最终border-bottom-left-radius:20px
+}
