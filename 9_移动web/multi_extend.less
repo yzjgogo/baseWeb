@@ -1,0 +1,15 @@
+.father{
+  background: green;
+}
+.mother{
+  color: red;
+}
+.child:extend(.father):extend(.mother){//多继承，即继承了fater的又继承了mother的
+  border: 1px solid #F0F0F0;
+}
+
+/*
+最终
+father和child都有background: green;
+mother和child都有color: red;
+*/
