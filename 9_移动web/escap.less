@@ -1,6 +1,6 @@
 //https://www.cnblogs.com/keyeking/p/15490652.html
 //https://zhuanlan.zhihu.com/p/242266831
-
+//这个转义还不是特别理解，后面再说
 
 @min768: ~"(min-width: 768px)";//从 Less 3.5 开始，可以简写为(min-width: 768px),如下一行
 //@min768: (min-width: 768px); ，但是报错了，不知道为什么，在 Less 3.5+ 版本中，许多以前需要“引号转义”的情况就不再需要了。这句话现在没理解
@@ -8,11 +8,13 @@
 @color123: ~"red";  //等价@color123: red;就是脱掉括号
 
 @colortitle:~"color"; //等价@@colortitle: color;就是脱掉括号
+//@ttt:~"color: red"; //这样用不行
 
 @media @min768 {
   .element{
     background-color: #2eaae0;
     @{colortitle}: @color123;
+    //@ttt;这样用不行
   }
 }
 
