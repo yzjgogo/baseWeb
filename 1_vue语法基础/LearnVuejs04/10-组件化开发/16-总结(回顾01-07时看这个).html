@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  // 1.创建组件构造器对象
+  const sujian = Vue.extend({
+    template: `
+      <div style="background-color: #2eaae0">
+        <h2>我是标题</h2>
+        <p>我是内容, 哈哈哈哈</p>
+        <p>我是内容, 呵呵呵呵</p>
+      </div>`
+  })
+
+
+
+
+
+  // 2.注册组件,(全局组件，可以在多个Vue实例下适用)
+  Vue.component('my-sujian', sujian)
+
+
+
+
+
+  // 3.注册局部组件，
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    components: {
+      // jubuzujian是使用组件时的标签名，jubuzujian是局部组件只能在app这个组件实例下适用
+      jubuzujian: sujian
+    }
+  })
+
+
+
+
+
+  //4.组件的语法糖写法,就是把extend({...})里的大括号拿出来
+  //a:
+  Vue.component('cpn1', {
+    template: `
+      <div style="background-color: #2eaae0">
+        <h2>我是标题1</h2>
+        <p>我是内容, 哈哈哈哈</p>
+      </div>
+    `
+  })
+  //b:
+  const sujian1 = {
+    template: `
+      <div style="background-color: #2eaae0">
+        <h2>我是标题1</h2>
+        <p>我是内容, 哈哈哈哈</p>
+      </div>
+    `
+  }
+  Vue.component('cpn2',sujian1)
+
+
+
+
+
+  //5.组件模板的分离写法，把template提取出来
+  Vue.component('cpn3', {
+    template: '#cpn3'
+  })
+
+
+
+
+
+  //6.组件中的data是函数，这与 new Vue({data:{}})里的data是一个对象不同
+  //a:全局的组件
+  Vue.component('cpn4', {
+    template: '#cpn3',
+    data() {//这个data()是个函数
+      return {
+        counter: 0
+      }
+    },
+  })
+  // b:局部的组件
+  const app6 = new Vue({
+    el: '#app6',
+    data: {
+      message: '你好啊'
+    },
+    components: {
+      'cpn6': {
+        template: `
+          <div style="background-color: #6CD559">
+            <h2>我是标题2</h2>
+            <p>我是内容, 呵呵呵</p>
+          </div>
+    `,
+        data(){//这个data()是个函数
+          return {
+            counter:0
+          }
+        }
+      }
+    }
+  })
+</script>
+
+<!--template标签-->
+<template id="cpn3">
+  <div style="background-color: #6CD559">
+    <h2>我是标题</h2>
+    <p>我是内容,呵呵呵</p>
+  </div>
+</template>
+
+</body>
+</html>
