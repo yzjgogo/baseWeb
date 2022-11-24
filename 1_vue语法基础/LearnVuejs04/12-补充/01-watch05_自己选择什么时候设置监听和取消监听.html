@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+    <cpn></cpn>
+</div>
+
+
+<template id="cpn">
+    <div>
+        <h2>{{mydata.a}}</h2>
+        <button @click="setWatch">1：此时我要监听对象了</button>
+        <button @click="changeData">2：点我改变mydata</button>
+        <button @click="cancelWatch">3：点我取消监听</button>
+    </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+    const cpn = {
+        template: '#cpn',
+        data() {
+            return {
+                mydata: {
+                    a:1,
+                    b:{
+                        c:2
+                    }
+                },
+
+                unwatch:undefined//存放$watch()返回的函数，方便随时取消监听
+            }
+        },
+        methods:{
+            //https://cn.vuejs.org/guide/essentials/watchers.html#this-watch
+            setWatch(){
+                //1,监听mydata,但是属性改变无法监听,$watch()会返回一个函数，用于取消监听，一般不需要
+                 this.unwatch = this.$watch('mydata',(newValue)=>{
+                    console.log("此时监听到数据变化：",newValue)
+                })
+                //2,监听mydata的属性a
+                // this.$watch('mydata.a',(newValue)=>{
+                //     console.log("此时监听到数据变化：",newValue)
+                // })
+          },
+            changeData(){
+
+                this.mydata={
+                    ee:"ee"
+                }
+
+                // this.mydata.a=111
+            },
+            cancelWatch(){
+                if(this.unwatch){
+                    this.unwatch()
+                }
+            }
+        }
+    }
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊'
+        },
+        components: {
+            cpn
+        }
+    })
+</script>
+
+</body>
+</html>
