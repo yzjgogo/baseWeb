@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+
+  <cpn :cmessage="message" :cmovies="movies"></cpn>
+</div>
+
+
+
+<template id="cpn">
+  <div>
+    <ul>
+      <li v-for="item in cmovies">{{item}}</li>
+    </ul>
+    <h2>{{cmessage}}</h2>
+<!--    <input type="text" v-model="mydata">-->
+    <div @click="changeData">点我触发data内数据变化</div>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const cpn = {
+    template: '#cpn',
+    props: {
+      cmessage: {
+        type: String,
+        default: 'aaaaaaaa',
+        required: true
+      },
+      cmovies: {
+        type: Array,
+        default() {
+          return []
+        }
+      }
+    },
+    data() {
+      return {
+        mydata:"我是数据"
+      }
+    },
+    methods: {
+      changeData(){
+        this.mydata = "我改变data"
+        console.log("新的data:"+this.mydata)
+      }
+    },
+    watch:{
+      cmessage:{
+        handler(newValue,oldValue){
+            console.log("属性的数据发生变化--:"+newValue+" , "+oldValue);
+          },
+        immediate:true
+      },
+      mydata:{
+        handler(newValue,oldValue){
+            console.log("data的数据发生变化--："+newValue+" , "+oldValue);
+          },
+        immediate: true
+      }
+    }
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      movies: ['海王', '海贼王', '海尔兄弟']
+    },
+    components: {
+      cpn
+    }
+  })
+</script>
+
+</body>
+</html>
