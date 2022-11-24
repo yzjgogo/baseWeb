@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+
+  <cpn :cmessage="message" :cmovies="movies"></cpn>
+</div>
+
+
+
+<template id="cpn">
+  <div>
+    <ul>
+      <li v-for="item in cmovies">{{item}}</li>
+    </ul>
+    <h2>{{cmessage}}</h2>
+<!--    <input type="text" v-model="mydata">-->
+    <div @click="changeData">点我触发data内数据变化</div>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const cpn = {
+    template: '#cpn',
+    props: {
+      cmessage: {
+        type: String,
+        default: 'aaaaaaaa',
+        required: true
+      },
+      cmovies: {
+        type: Array,
+        default() {
+          return []
+        }
+      }
+    },
+    data() {
+      return {
+        mydata:"我是数据"
+      }
+    },
+    methods: {
+      changeData(){
+        this.mydata = "我改变data"
+        console.log("新的data:"+this.mydata)
+      }
+    },
+    watch:{
+      //1，监听属性的变化，可以通过在浏览器F12，app.message="anything",触发cmessage，但是不能通过cpn.cmessage="anything"出发，不知为啥
+      cmessage(newValue,oldValue){
+        console.log("属性的数据发生变化"+newValue+" , "+oldValue);
+      },
+      //2，监听data里数据的变化，可以通过点击执行changeData()触发this.mydata变化，也可以通过<input type="text" v-model="mydata">触发，
+      //但是不知道为什么在浏览器F12，cpn.mydata="anything",不会出发mydata(newValue,oldValue)的执行
+      mydata(newValue,oldValue){
+        console.log("data的数据发生变化："+newValue+" , "+oldValue);
+      }
+    }
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      movies: ['海王', '海贼王', '海尔兄弟']
+    },
+    components: {
+      cpn
+    }
+  })
+</script>
+
+</body>
+</html>
