@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+    <cpn></cpn>
+</div>
+
+
+<template id="cpn">
+    <div>
+        <h2>{{mydata.a}}</h2>
+        <button @click="changeA">点我改变mydata的a属性</button>
+        <button @click="changeC">点我改变mydata的a的b的c属性</button>
+    </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+    const cpn = {
+        template: '#cpn',
+        data() {
+            return {
+                mydata: {
+                    a:1,
+                    b:{
+                        c:2
+                    }
+                }
+            }
+        },
+        methods:{
+          changeA(){
+              this.mydata.a = 111
+              //如此不用deep也能监听，因为不是改变的mydata的属性，而是重新赋值，这涉及到内存地址的问题
+              // this.mydata = {
+              //     ee:"ee"
+              // }
+          },
+          changeC(){
+              this.mydata.b.c = 222
+          }
+        },
+        watch: {
+            //http://t.zoukankan.com/lanleiming-p-13256099.html
+            //https://cn.vuejs.org/guide/essentials/watchers.html
+            //https://cn.vuejs.org/api/options-state.html#watch
+            //通过deep实现，监听对象的所有属性，无论多深，否则不能监听属性，只能监听this.mydata={}这种改变内存地址的情况
+            //它会一层层遍历，给这个对象的所有属性都加上这个监听器。但是这样性能开销会比较大，修改任何一个属性，都会出发这个监听器里的handler.
+            mydata: {
+                // handler(newValue, oldValue) {//发现这样newValue和oldValue一样
+                handler(value) {//value就是改变后的值
+                    console.log("data的数据发生变化--：" , value);
+                },
+                deep: true
+            }
+        }
+    }
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊'
+        },
+        components: {
+            cpn
+        }
+    })
+</script>
+
+</body>
+</html>
