@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+    <p style="background-color: #6CD559">1：对象实现响应式添加属性</p>
+    <div>{{dog}}</div>
+    <button @click="addAge1">直接给dog添加age属性：直接给对象添加属性并不是触发vue的响应式</button>
+    <br/>
+    <button @click="addAge2">通过Vue.set()给dog添加age属性：这样会触发vue的响应式</button>
+
+
+    <p style="background-color: #6CD559">2：数组或集合实现响应式修改某个索引的元素</p>
+<!--    参考：04-哪些数组的方法是响应式的.html-->
+    <div>{{items}}</div>
+    <button @click="modify1">直接修改数组某个位置的元素：并不会触发vue的响应式</button>
+    <br/>
+    <button @click="modify2">通过Vue.set()修改数组或集合某个位置的元素：这样会触发vue的响应式</button>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            dog: {
+                name: "柯基"
+            },
+            items: ['a', 'b', 'c']
+        },
+        methods: {
+            addAge1() {
+                //这样不会触发响应式{{dog}}不会刷新
+                this.dog.age = 3
+            },
+            addAge2() {
+                //这种方式是响应式的
+                Vue.set(this.dog, "age", 4)
+                //下面这种写法也可以，这是全局的Vue.set()方法的别名
+                // this.$set(this.dog,"age",5)
+            },
+
+
+            modify1() {
+                //这样不是响应式的
+                this.items[1] = "bb"
+            },
+            modify2() {
+                //这样能触发响应式
+                Vue.set(this.items, 1, "bb")
+                // this.$set(this.items,1,"bb")
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
