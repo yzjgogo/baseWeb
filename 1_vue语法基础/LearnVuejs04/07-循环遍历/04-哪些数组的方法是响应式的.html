@@ -53,8 +53,8 @@
 
         // 注意: 通过索引值修改数组中的元素不是响应式的，vue就检测不到数组元素的改变
         // this.letters[0] = 'bbbbbb';
-        // this.letters.splice(0, 1, 'bbbbbb')
-        // set(要修改的对象, 索引值, 修改后的值)
+        // this.letters.splice(0, 1, 'bbbbbb')//解决方案1：响应式的
+        // set(要修改的对象, 索引值, 修改后的值)//解决方案2：响应式的
         Vue.set(this.letters, 0, 'bbbbbb')//这样修改指定索引的元素，仍然是响应式的，vue仍然能够监听的到
       }
     }
