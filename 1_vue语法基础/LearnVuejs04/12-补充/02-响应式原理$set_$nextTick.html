@@ -17,10 +17,10 @@
 
     <p style="background-color: #6CD559">2：数组或集合实现响应式修改某个索引的元素</p>
 <!--    参考：04-哪些数组的方法是响应式的.html-->
-    <div>{{items}}</div>
+    <div ref="shuzu">{{items}}</div>
     <button @click="modify1">直接修改数组某个位置的元素：并不会触发vue的响应式</button>
     <br/>
-    <button @click="modify2">通过Vue.set()修改数组或集合某个位置的元素：这样会触发vue的响应式</button>
+    <button @click="modify2">通过Vue.set()修改数组或集合某个位置的元素：这样会触发vue的响应式_Vue是异步更新DOM的</button>
 </div>
 
 
@@ -56,6 +56,12 @@
                 //这样能触发响应式
                 Vue.set(this.items, 1, "bb")
                 // this.$set(this.items,1,"bb")
+                console.log("输出1："+this.$refs.shuzu.textContent)//还没有刷新
+                // Vue.nextTick(function () {
+                this.$nextTick(function(){
+                    //已经刷新，因为Vue 在更新 DOM 时是异步执行的
+                    console.log("输出2："+this.$refs.shuzu.textContent)
+                })
             }
         }
     })
