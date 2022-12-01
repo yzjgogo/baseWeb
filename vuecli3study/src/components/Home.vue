@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="home-d">
     <div style="background-color: #2eaae0;text-align: left">
       <button @click="toElementUI">Element UI</button>
     </div>
@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style>
-#app {
+#home-d {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
