@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!--
+
+sync使用场景：
+1,子组件定义属性show;
+2,父组件向子组件的属性show提供数据(:show="isShow"; isShow=true)
+3,如果此时子组件希望修改这个属性值show (this.show=false),则虽然有效果但是F12看到会报错，报错如图“子组件修改属性值报错.png”，大概意思就是属性数据必须是单向
+  流动的，只能由父子局提供给子组件属性值或修改属性值，子组件只能被动的接受，而不能直接修改
+4,正确的做法是：
+  a:父组件使用sync修饰符：(:show.sync="isShow")
+  b:在子组件需要修改属性值时，使用this.$emit('update:show', false)
+  则父组件就能直接接收到新的属性值false同时赋值给isShow,同时子组件的show也就更新了
+
+-->
+
+<div id="app">
+<!--  配合子组件里的update:使用-->
+  <cpn :show.sync="isShow"></cpn>
+</div>
+
+
+
+<template id="cpn">
+  <div>
+    <div v-if="show" style="width: 500px;height: 100px;background-color: #6CD559">上面</div>
+    <div style="width: 500px;height: 100px;background-color: red">下面</div>
+    <button @click="switchShow">点击更新属性</button>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const cpn = {
+    template: '#cpn',
+    props: {
+      show: {
+        type: Boolean,
+        default: false
+      }
+    },
+    data() {
+      return {}
+    },
+    methods: {
+      switchShow(){
+        this.$emit('update:show', false) //配合sync修饰符使用
+        // this.show = false 这样会报错：参考“子组件修改属性值报错.png”
+      }
+    }
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      isShow:true
+    },
+    components: {
+      cpn
+    }
+  })
+</script>
+
+</body>
+</html>
