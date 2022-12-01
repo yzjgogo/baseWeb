@@ -27,6 +27,28 @@ npm install webpack@3.6.0 -g 全局安装
 --save-dev是开发时依赖，说明项目在打包后就不再使用了
 先cd到对应目录，再npm install webpack@3.6.0 --save-dev
 
+
+
+20221201更新
+关于npm命令的扩展：
+https://blog.csdn.net/m0_66983971/article/details/126856080
+https://www.npmjs.com/package/npm
+
+-S 等价于 --save 开发时和运行时都需要依赖
+eg:
+npm i jQuery -S
+等价于
+npm i jQuery --save
+----------------------------------------------
+-D 等价于 --save-dev 开发时依赖
+eg:
+npm i webpack@5.42.1 webpack-cli@4.7.2 -D
+就等于
+npm i webpack@5.42.1 webpack-cli@4.7.2 --save-dev
+
+
+
+
 使用webpack构建项目：
 src源码
 dist打包后将这个文件夹给服务器
