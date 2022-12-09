@@ -26,7 +26,7 @@
         </el-dialog>
 
         <div style="background-color: yellow;width: 600px;color: green;margin: 10px">Checkbox多选框</div>
-        <p>单独使用一个el-checkbox:两种状态之间的切换：</p>
+        <p>1、单独使用一个el-checkbox:两种状态之间的切换：</p>
         <!--
          `checked` 为 true 或 false
          单独使用可以表示两种状态之间的切换，写在标签中的内容为 checkbox 按钮后的介绍。
@@ -37,7 +37,8 @@
 
 
 
-        <p>禁用el-checkbox:设置disabled</p>
+        <p>2、禁用el-checkbox:设置disabled</p>
+<!--        所谓禁用，只是不能再通过鼠标点击改变选中状态，不影响checkbox当前是否选中，以及checkbox的值-->
 <!--        没选择状态下禁用-->
         <el-checkbox v-model="checked2" disabled>备选项2</el-checkbox>
 <!--        选中状态下禁用-->
@@ -48,7 +49,7 @@
 
 
 
-        <p>多选框组</p>
+        <p>3、多选框组</p>
 <!--
 适用于多个勾选框绑定到同一个数组的情景，通过是否勾选来表示这一组选项中选中的项。
 checkbox-group元素能把多个 checkbox 管理为一组，只需要在 Group 中使用v-model绑定Array类型的变量即可。
