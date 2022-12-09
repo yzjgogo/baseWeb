@@ -6,6 +6,8 @@
                     每次回忆都看看看看官方文档，因为这里的内容不全，只是为了方便入手，官方文档很全(属性、插槽、事件等)
         -->
 
+
+        <div style="background-color: yellow;width: 600px;color: green;margin: 10px">dialog弹窗</div>
         <!--        dialog的官方文档：https://element.eleme.cn/2.13/#/zh-CN/component/dialog
         visible.sync:决定dialog的显示和隐藏
         open:是dialog打开的回调
