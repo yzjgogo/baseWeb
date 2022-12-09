@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
+// 下面两行是elementUI的配置
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
