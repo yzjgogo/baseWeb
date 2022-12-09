@@ -4,6 +4,7 @@ import Vue from 'vue'
 
 const Home = () => import('../components/Home')
 const MyElementUi = () => import('../components/elementui/MyElementUi')
+const MyLodash = () => import('../components/lodash/MyLodash')
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,10 @@ const routes = [
     {
         path: '/elementui',
         component:MyElementUi,
+    },
+    {
+        path: '/lodash',
+        component:MyLodash,
     }
 ]
 
