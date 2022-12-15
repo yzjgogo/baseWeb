@@ -28,7 +28,8 @@ export default {
 }
 </script>
 
-<style>
+<!--<style>-->
+  <style lang="less" scoped>
 #home-d {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -36,5 +37,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+button{
+  display: block;
+  margin: 20px;
 }
 </style>
