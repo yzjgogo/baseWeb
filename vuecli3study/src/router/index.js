@@ -2,7 +2,7 @@ import VueRouter from 'vue-router'
 import Vue from 'vue'
 
 
-const Home = () => import('../components/Home')
+const Home = () => import('../views/home/Home')
 const MyElementUi = () => import('../views/elementui/MyElementUi')
 const MyLodash = () => import('../views/lodash/MyLodash')
 

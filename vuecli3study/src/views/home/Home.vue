@@ -4,7 +4,7 @@
       <button @click="toElementUI">Element UI</button>
       <button @click="toLodash">lodash</button>
     </div>
-    <img alt="Vue logo" src="../assets/logo.png">
+    <img alt="Vue logo" src="../../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
