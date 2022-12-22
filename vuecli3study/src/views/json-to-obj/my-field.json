@@ -1,0 +1,771 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "基础数据",
+      "disabled": true,
+      "fields": [
+        {
+          "name": " 学生名称",
+          "alias": "StudentName(1)",
+          "type_id": 1,
+          "disabled": true,
+          "export_type": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": " 考号",
+          "alias": "ExamNo(2)",
+          "type_id": 2,
+          "disabled": true,
+          "export_type": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": " 学号",
+          "alias": "StudentNo(3)",
+          "type_id": 3,
+          "disabled": true,
+          "export_type": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": " 考试场次",
+          "alias": "SessionSort(4)",
+          "type_id": 4,
+          "disabled": true,
+          "export_type": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": " 所属学校",
+          "alias": "SchoolName(5)",
+          "type_id": 5,
+          "disabled": true,
+          "export_type": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": " 所属年级",
+          "alias": "Grade(6)",
+          "type_id": 6,
+          "disabled": true,
+          "export_type": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": " 所属班级",
+          "alias": "ClassNo(7)",
+          "type_id": 7,
+          "disabled": true,
+          "export_type": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "文理属性",
+          "alias": "SubjectGroupType(8)",
+          "type_id": 8,
+          "disabled": true,
+          "export_type": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "参与人数",
+          "alias": "ExaminedStudentCount(9)",
+          "type_id": 9,
+          "disabled": true,
+          "export_type": [
+            6,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "概览数据",
+      "fields": [
+        {
+          "name": "试题题号",
+          "alias": "QuestionNo(54)",
+          "type_id": 54,
+          "export_type": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": " 科目",
+          "ps": " 科目排名里的，实际上必选，因为没科目的话排名没有意义.",
+          "alias": "Subject(38)",
+          "type_id": 38,
+          "export_type": [
+            4,
+            5,
+            6,
+            7,
+            9,
+            10
+          ]
+        },
+        {
+          "name": " 难度",
+          "alias": "Difficulty(39)",
+          "type_id": 39,
+          "export_type": [
+            6,
+            9
+          ]
+        },
+        {
+          "name": "区分度",
+          "alias": "Discrimination(30)",
+          "type_id": 30,
+          "export_type": [
+            9
+          ]
+        },
+        {
+          "name": "分数段",
+          "alias": "ScoreRange(36)",
+          "type_id": 36,
+          "export_type": [
+            2,
+            5
+          ]
+        },
+        {
+          "name": "分数段人数",
+          "alias": "StudentCountInScoreRange(37)",
+          "type_id": 37,
+          "export_type": [
+            2,
+            5
+          ]
+        },
+        {
+          "name": " 总分",
+          "alias": "TotalScore(40)",
+          "type_id": 40,
+          "export_type": [
+            1
+          ]
+        },
+        {
+          "name": " 全体名次",
+          "alias": "Rank(41)",
+          "type_id": 41,
+          "export_type": [
+            1,
+            8
+          ]
+        },
+        {
+          "name": " 校名次",
+          "alias": "RankInSchool(42)",
+          "type_id": 42,
+          "export_type": [
+            1
+          ]
+        },
+        {
+          "name": " 班名次",
+          "alias": "RankInClass(43)",
+          "type_id": 43,
+          "export_type": [
+            1
+          ]
+        },
+        {
+          "name": " 科目得分",
+          "ps": "ps:每个科目的分数，具体语文详情是具体的题目",
+          "alias": "SubjectScore(45)",
+          "type_id": 45,
+          "export_type": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": " 科目全体名次",
+          "alias": "SubjectScoreRank(46)",
+          "type_id": 46,
+          "export_type": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": " 科目校名次",
+          "alias": "SubjectScoreRankInSchool(47)",
+          "type_id": 47,
+          "export_type": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": " 科目班名次",
+          "alias": "SubjectScoreRankInClass(48)",
+          "type_id": 48,
+          "export_type": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": " 累计人数 ",
+          "ps": "到这个段结尾的累计人数,分数段和排名段通用",
+          "alias": "StudentCountBeforeRangeEnd(44)",
+          "type_id": 44,
+          "export_type": [
+            2,
+            5
+          ]
+        },
+        {
+          "name": " 最高分",
+          "alias": "HighestScore(10)",
+          "type_id": 10,
+          "export_type": [
+            2,
+            3,
+            5,
+            7,
+            9
+          ]
+        },
+        {
+          "name": " 最低分",
+          "alias": "LowestScore(11)",
+          "type_id": 11,
+          "export_type": [
+            2,
+            3,
+            5,
+            7,
+            9
+          ]
+        },
+        {
+          "name": " 平均分",
+          "alias": "AverageScore(12)",
+          "type_id": 12,
+          "export_type": [
+            2,
+            3,
+            5,
+            7,
+            9
+          ]
+        },
+        {
+          "name": " 标准差",
+          "alias": "StandardDeviation(18)",
+          "type_id": 18,
+          "export_type": [
+            2,
+            3,
+            5,
+            7,
+            9
+          ]
+        },
+        {
+          "name": " 名次段",
+          "alias": "RankRange(49)",
+          "type_id": 49,
+          "export_type": [
+            3,
+            7
+          ]
+        },
+        {
+          "name": " 名次段人数",
+          "alias": "StudentCountInRankRange(50)",
+          "type_id": 50,
+          "export_type": [
+            3,
+            7
+          ]
+        },
+        {
+          "name": " 总分均分",
+          "alias": "TotalScoreAverage(51)",
+          "type_id": 51,
+          "export_type": [
+            8
+          ]
+        },
+        {
+          "name": " 科目均分",
+          "alias": "SubjectScoreAverage(52)",
+          "type_id": 52,
+          "export_type": [
+            8
+          ]
+        },
+        {
+          "name": " 科目名次",
+          "alias": "SubjectRank(78)",
+          "type_id": 78,
+          "export_type": [
+            8
+          ]
+        },
+        {
+          "name": " 总分名次差",
+          "alias": "DifferenceBetweenTotalAndSubjectRank(53)",
+          "type_id": 53,
+          "export_type": [
+            8
+          ]
+        },
+        {
+          "name": " 满分率",
+          "alias": "FullMarkPercentage(31)",
+          "type_id": 31,
+          "export_type": [
+            6,
+            9
+          ]
+        },
+        {
+          "name": " 优秀率",
+          "alias": "ExcellentPercentage(32)",
+          "type_id": 32,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": " 良好率",
+          "alias": "GoodPercentage(33)",
+          "type_id": 33,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": "及格率",
+          "alias": "PassPercentage(34)",
+          "type_id": 34,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": "低分率",
+          "alias": "LowScorePercentage(35)",
+          "type_id": 35,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": " 得分率",
+          "ps": " 主要用于单个题目是否得分",
+          "alias": "GetPointPercentage(55)",
+          "type_id": 55,
+          "export_type": [
+            9
+          ]
+        },
+        {
+          "name": " 零分率",
+          "alias": "NotGetPointPercentage(56)",
+          "type_id": 56,
+          "export_type": [
+            9
+          ]
+        },
+        {
+          "name": " 试题均分",
+          "alias": "QuestionAverageScore(68)",
+          "type_id": 68,
+          "export_type": [
+            10
+          ]
+        },
+        {
+          "name": " 试题排名",
+          "ps": "维度下每行试题均分在总行数下的排名",
+          "alias": "QuestionRank(69)",
+          "type_id": 69,
+          "export_type": [
+            10
+          ]
+        },
+        {
+          "name": "超均",
+          "ps": " 超均为当前维度下一行的某个值（一般是平均分数）超出维度下所有行这一属性的平均的值 除以 平均分 的百分比",
+          "alias": "ExceedAverageRatio(73)",
+          "type_id": 73,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": "比均",
+          "ps": "比均为当前维度下一行的某个属性相对于所有行的这个属性的平均值的百分比",
+          "alias": "AverageRatio(74)",
+          "type_id": 74,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": "综合水平",
+          "alias": "AggregationLevel(75)",
+          "type_id": 75,
+          "export_type": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "详细数据",
+      "fields": [
+        {
+          "name": " 最高分",
+          "alias": "HighestScore(10)",
+          "type_id": 10,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": " 最低分",
+          "alias": "LowestScore(11)",
+          "type_id": 11,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": " 平均分",
+          "alias": "AverageScore(12)",
+          "type_id": 12,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": " I卷平均分",
+          "alias": "Version1AverageScore(13)",
+          "type_id": 13,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": " II卷平均分",
+          "alias": "Version2AverageScore(14)",
+          "type_id": 14,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": " 前3%平均分",
+          "alias": "Top3PercentAverageScore(15)",
+          "type_id": 15,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": " 前27%平均分",
+          "alias": "Top27PercentageAverageScore(16)",
+          "type_id": 16,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": " 后27%平均分",
+          "alias": "Last27PercentageAverageScore(17)",
+          "type_id": 17,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": "平均分排名",
+          "alias": " AverageScoreRank(76)",
+          "type_id": 76,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": "前3%平均分排名",
+          "alias": "Top3PercentAverageScoreRank(70)",
+          "type_id": 70,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": "前27%平均分排名",
+          "alias": "Top27PercentAverageScoreRank(71)",
+          "type_id": 71,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": "后27%平均分排名",
+          "alias": "Last27PercentAverageScoreRank(72)",
+          "type_id": 72,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": " 标准差",
+          "alias": "StandardDeviation(18)",
+          "type_id": 18,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": " I卷标准差",
+          "alias": "Version1StandardDeviation(19)",
+          "type_id": 19,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": " II卷标准差",
+          "alias": "Version2StandardDeviation(20)",
+          "type_id": 20,
+          "export_type": [
+            6
+          ]
+        },
+        {
+          "name": "语文得分详情",
+          "alias": "ChineseQuesScore(21)",
+          "type_id": 21,
+          "export_type": [
+            1
+          ]
+        },
+        {
+          "name": " 数学得分详情",
+          "alias": "MathQuesScore(22)",
+          "type_id": 22,
+          "export_type": [
+            1
+          ]
+        },
+        {
+          "name": " 英语得分详情",
+          "alias": "EnglishQuesScore(23)",
+          "type_id": 23,
+          "export_type": [
+            1
+          ]
+        },
+        {
+          "name": " 物理得分详情",
+          "alias": "PhysicQuesScore(24)",
+          "type_id": 24,
+          "export_type": [
+            1
+          ]
+        },
+        {
+          "name": " 化学得分详情",
+          "alias": "ChemistryQuesScore(25)",
+          "type_id": 25,
+          "export_type": [
+            1
+          ]
+        },
+        {
+          "name": " 生物得分详情",
+          "alias": "BiologyQuesScore(26)",
+          "type_id": 26,
+          "export_type": [
+            1
+          ]
+        },
+        {
+          "name": " 政治得分详情",
+          "alias": "PoliticalQuesScore(27)",
+          "type_id": 27,
+          "export_type": [
+            1
+          ]
+        },
+        {
+          "name": " 历史得分详情",
+          "alias": "HistoryQuesScore(28)",
+          "type_id": 28,
+          "export_type": [
+            1
+          ]
+        },
+        {
+          "name": " 地理得分详情",
+          "alias": "GeographyQuesScore(29)",
+          "type_id": 29,
+          "export_type": [
+            1
+          ]
+        },
+        {
+          "name": " 正确答案",
+          "alias": "StandardAnswer(57)",
+          "type_id": 57,
+          "export_type": [
+            9
+          ]
+        },
+        {
+          "name": " 留空人数",
+          "alias": "NoAnswerStudentCount(58)",
+          "type_id": 58,
+          "export_type": [
+            9
+          ]
+        },
+        {
+          "name": " 留空占比",
+          "alias": "NoAnswerPencentage(59)",
+          "type_id": 59,
+          "export_type": [
+            9
+          ]
+        },
+        {
+          "name": " A选项人数",
+          "alias": "ChooseACount(60)",
+          "type_id": 60,
+          "export_type": [
+            9
+          ]
+        },
+        {
+          "name": " A选项占比",
+          "alias": "ChooseAPercentage(61)",
+          "type_id": 61,
+          "export_type": [
+            9
+          ]
+        },
+        {
+          "name": " B选项人数",
+          "alias": "ChooseBCount(62)",
+          "type_id": 62,
+          "export_type": [
+            9
+          ]
+        },
+        {
+          "name": " B选项占比",
+          "alias": "ChooseBPercentage(63)",
+          "type_id": 63,
+          "export_type": [
+            9
+          ]
+        },
+        {
+          "name": " C选项人数",
+          "alias": "ChooseCCount(64)",
+          "type_id": 64,
+          "export_type": [
+            9
+          ]
+        },
+        {
+          "name": " C选项占比",
+          "alias": "ChooseCPercentage(65)",
+          "type_id": 65,
+          "export_type": [
+            9
+          ]
+        },
+        {
+          "name": " D选项人数",
+          "alias": "ChooseDCount(66)",
+          "type_id": 66,
+          "export_type": [
+            9
+          ]
+        },
+        {
+          "name": " D选项占比",
+          "alias": "ChooseDPercentage(67)",
+          "type_id": 67,
+          "export_type": [
+            9
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@
     <div style="background-color: #2eaae0;text-align: left">
       <button @click="toElementUI">Element UI</button>
       <button @click="toLodash">lodash</button>
+      <button @click="toJsonToObj">本地json文件解析为对象接收</button>
     </div>
     <img alt="Vue logo" src="../../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
@@ -23,6 +24,9 @@ export default {
     },
     toLodash(){
       this.$router.push("/lodash")
+    },
+    toJsonToObj(){
+      this.$router.push("/jsontoobj")
     }
   }
 }
