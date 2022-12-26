@@ -5,10 +5,11 @@
 </template>
 
 <script>
-    // import exportFieldDatas from './my-field.json'
-    import exportFieldDatas from './booklist.json'
+    // 不能省略‘./’
+    import exportFieldDatas from './my-field.json'
+    // import exportFieldDatas from './booklist.json'
     function deepFreeze(obj) {
-        console.log("哈哈哈------我看看")
+        console.log("哈哈哈------我看看",obj)
         var propNames = Object.getOwnPropertyNames(obj);
         propNames.forEach(function (name) {
             var prop = obj[name];
