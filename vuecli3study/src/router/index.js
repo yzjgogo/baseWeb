@@ -1,5 +1,6 @@
 import VueRouter from 'vue-router'
 import Vue from 'vue'
+import routes2 from './modules'  //./modules/index.js
 
 
 const Home = () => import('../views/home/Home')
@@ -9,7 +10,7 @@ const JsonObj = () => import('../views/json-to-obj/JsonObj')
 
 Vue.use(VueRouter)
 
-const routes = [
+const routes1 = [
     {
         path:'',
         redirect:'/home'
@@ -31,9 +32,11 @@ const routes = [
         component:JsonObj,
     }
 ]
+//把两个数组拼接起来，构成所有路由的组合
+const routes = routes1.concat(routes2)
 
 const router = new VueRouter({
-    routes,
+    routes,//这里必须用routes，不能换别的单词
     mode:'history'
 })
 

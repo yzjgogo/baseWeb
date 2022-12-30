@@ -4,6 +4,7 @@
       <button @click="toElementUI">Element UI</button>
       <button @click="toLodash">lodash</button>
       <button @click="toJsonToObj">本地json文件解析为对象接收--</button>
+      <button @click="toMZYD">名著阅读</button>
     </div>
     <img alt="Vue logo" src="../../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
@@ -27,6 +28,9 @@ export default {
     },
     toJsonToObj(){
       this.$router.push("/jsontoobj")
+    },
+    toMZYD(){
+      this.$router.push("/classicsreadbooklist")
     }
   }
 }

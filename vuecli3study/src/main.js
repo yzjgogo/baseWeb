@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store'
 
 // 下面两行是elementUI的配置
 import ElementUI from 'element-ui';
@@ -20,6 +21,7 @@ Vue.prototype._ = lodash
 /**可见CLI3创建的项目默认就是runtimeonly的方式*/
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
 
