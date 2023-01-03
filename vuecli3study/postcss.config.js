@@ -32,6 +32,7 @@ module.exports = {
       使用postcss-pxtorem时，虽然没有在vuecli3study\package.json里引入"postcss": "8.3.6", "postcss-loader": "6.1.1",
       但是实际上vue的cli3已经自动引入了，参考：vuecli3study/node_modules/@vue/cli-service/package.json里的"postcss": "^8.2.6","postcss-loader": "^6.1.1",
       一般使用postcss下的某个插件，都要引入"postcss": "x.x.x"
+      postcss下的每一个插件的配置，都写在postcss.config.js里
 
 
     * */
