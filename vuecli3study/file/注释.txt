@@ -18,3 +18,50 @@ vue create my-project
 vue ui  打开图形化网页界面 -> 打开项目目录
 
 
+====================================
+
+第1:element-ui
+1：package.json里
+    "element-ui": "^2.13.0"
+
+2：main.js里
+   import ElementUI from 'element-ui';
+   import 'element-ui/lib/theme-chalk/index.css';
+
+   Vue.use(ElementUI)
+
+3：MyElementUi.vue使用
+
+第2：lodash
+1：package.json里
+"lodash": "^4.17.21"
+
+2：main.js里
+import lodash from 'lodash'
+Vue.prototype._ = lodash
+
+3：MyLodash.vue使用lodash
+
+第3：px自动转rem步骤：参考：px转rem.png
+      https://www.jianshu.com/p/7acdb535fcd5
+      https://www.jianshu.com/p/4d3b97f7a48b
+      1：package.json里引入 "amfe-flexible": "2.2.1", "postcss-pxtorem": "5.1.1"
+      2：main.js里import 'amfe-flexible'
+      3：postcss.config.js文件配置postcss-pxtorem
+      4：public/index.html里配置<meta name="viewport"/>
+
+      postcss-pxtorem：
+      https://www.npmjs.com/package/postcss-pxtorem
+      将px转换为px，行内样式无效，因此建议样式都写到<style></style>里，参考：https://blog.csdn.net/guixin12345/article/details/125920852
+
+      amfe-flexible：
+      https://www.npmjs.com/package/amfe-flexible
+      https://github.com/amfe/lib-flexible/tree/master
+      为html、body添加font-size，窗口调整时候重新设置font-size，这是rem自适应屏幕的核心
+
+
+第4：遍历某个文件夹下的指定文件类型，获取文件的内容，webpack的require.context("要遍历的文件夹",是否遍历子文件夹,要遍历的文件类型)
+    vuecli3study\src\router\modules\index.js
+
+第5：给路径起别名，以及path.join(path1,path2,...) 和 path.resolve(path1,path2,...)的理解
+     vuecli3study\vue.config.js
