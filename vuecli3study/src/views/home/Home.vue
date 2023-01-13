@@ -5,6 +5,7 @@
       <button @click="toLodash">lodash</button>
       <button @click="toJsonToObj">本地json文件解析为对象接收--</button>
       <button @click="toMZYD">名著阅读</button>
+      <button @click="toVueData">Vue的$data</button>
     </div>
     <img alt="Vue logo" src="../../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
@@ -31,6 +32,9 @@ export default {
     },
     toMZYD(){
       this.$router.push("/classicsreadbooklist")
+    },
+    toVueData(){
+      this.$router.push("/vuedata")
     }
   }
 }
