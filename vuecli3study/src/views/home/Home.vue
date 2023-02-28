@@ -8,7 +8,10 @@
       <button @click="toVueData">Vue的$data和$options的用法</button>
       <button @click="toDeep">Scoped,/deep/,::v-deep的用法</button>
       <button @click="toSlot">Slot的用法</button>
-      <button @click="toPinyin">汉字获取拼音</button>
+      <button @click="toPinyin">
+        汉字获取拼音(js-pinyin);<br/>
+        时间日期格式化(moment)
+      </button>
     </div>
     <img alt="Vue logo" src="../../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
