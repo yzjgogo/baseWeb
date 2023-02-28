@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 800px;
+            margin: 30px;
+            display: flex;
+        }
+        .son{
+
+        }
+    </style>
+</head>
+
+<body>
+
+<!--
+flex-shrink:
+前提father是弹性盒子，例如flex，好像flex-shrink不是只要在flex下才有效，还有其他的弹性盒子吗？
+当father的width(800)小于所有子元素的width之和(200+400+600=1200)时，flex-shrink才发挥作用,
+决定了各个子元素需要压缩多少来满足800的宽度显示所有子元素
+如果某个子元素的flex-shrink=0，则这个子元素不被压缩
+-->
+
+
+<!--参考：flex-shrink解析.png 第1个表格-->
+<div class="father">
+    <div class="son" style="flex-shrink:1; width: 200px; height:30px; background: gray; "></div>
+    <div class="son" style="flex-shrink:1; width: 400px; height:30px; background: pink; "></div>
+    <div class="son" style="flex-shrink:1; width: 600px; height:30px; background: rgb(182, 182, 78); "></div>
+</div>
+
+<!--参考：flex-shrink解析.png 第2个表格-->
+<div class="father">
+    <div class="son" style="flex-shrink:1; width: 200px; height:30px; background: gray; "></div>
+    <div class="son" style="flex-shrink:1; width: 400px; height:30px; background: pink; "></div>
+    <div class="son" style="flex-shrink:2; width: 600px; height:30px; background: rgb(182, 182, 78); "></div>
+</div>
+
+<!--参考：flex-shrink解析.png 第3个表格-->
+<div class="father">
+    <div class="son" style="flex-shrink:1; width: 200px; height:30px; background: gray; "></div>
+    <div class="son" style="flex-shrink:0; width: 400px; height:30px; background: pink; "></div>
+    <div class="son" style="flex-shrink:2; width: 600px; height:30px; background: rgb(182, 182, 78); "></div>
+</div>
+
+</body>
+
+</html>
