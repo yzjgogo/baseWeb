@@ -53,6 +53,11 @@
         console.log("新的data:"+this.mydata)
       }
     },
+    computed:{
+      getFullName() {
+        return this.mydata
+      }
+    },
     watch:{
       //1，监听属性的变化，可以通过在浏览器F12，app.message="anything",触发cmessage，但是不能通过cpn.cmessage="anything"出发，不知为啥
       cmessage(newValue,oldValue){
@@ -62,6 +67,10 @@
       //但是不知道为什么在浏览器F12，cpn.mydata="anything",不会出发mydata(newValue,oldValue)的执行
       mydata(newValue,oldValue){
         console.log("data的数据发生变化："+newValue+" , "+oldValue);
+      },
+      //3，监听计算属性的变化
+      getFullName(newValue,oldValue){
+        console.log("计算属性发生变化："+newValue+" , "+oldValue);
       }
     }
   }

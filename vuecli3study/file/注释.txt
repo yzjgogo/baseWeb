@@ -16,6 +16,11 @@ vue create my-project
 
 图形化管理项目：
 vue ui  打开图形化网页界面 -> 打开项目目录
+====================================
+
+
+WebSocket:
+校本云：E:\web\XBY\teacher\src\views\pages\teachManagement\taskManage\comp\preview.vue
 
 
 ====================================
