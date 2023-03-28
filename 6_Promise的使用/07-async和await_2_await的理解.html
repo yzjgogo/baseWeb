@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  /**
+
+   https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise
+   在调用一个返回 Promise 的函数(一般是耗时的)之前使用 await 关键字，这样，代码就会在此处等待，直到Promise完成(耗时操作完成)
+   * */
+
+  async function fetchProducts() {
+    try {
+      //在调用一个返回 Promise 的函数(一般是耗时的)之前使用 await 关键字，这样，代码就会在此处等待，直到Promise完成(耗时操作完成)
+      //因为使用了await这个response不再是Promise<Response>类型，而是直接取出了Promise里的response返回
+      //这样就实现了异步代码的同步写法
+      const response = await fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+      if (!response.ok) {
+        throw new Error(`HTTP 请求错误：${response.status}`);
+      }
+      //这里的json()函数也是返回Promise类型，因此可以用await修饰
+      const json = await response.json();
+      console.log(json[0].name);
+    }
+    catch(error) {
+      console.error(`无法获取产品列表：${error}`);
+    }
+  }
+
+  fetchProducts();
+  console.log("调用async异步函数后")//先执行这里，再执行异步函数里的log，因为异步函数是耗时的
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  /**
+
+   https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+   1：经过'async'修饰的函数就变成一个异步函数
+   2：异步函数的返回值会自动被包装成Promise<Result>
+   * */
+
+  async function fetchProducts() {
+    console.log("我本来是一个普通函数，但是经过async修饰我变成了异步函数")
+    //看似返回一个字符串，实际返回的是Promise<String>
+    return "我是结果"
+  }
+
+  let result = fetchProducts()
+  console.log("调用async异步函数后--",result)
+  //因为result是一个Promise<String>类型的值
+  result.then(data => {
+    console.log("处理结果",data)
+  })
+
+
+
+</script>
+</body>
+</html>
