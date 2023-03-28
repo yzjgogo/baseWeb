@@ -14,7 +14,6 @@
 
   // 什么情况下会用到Promise?
   // 一般情况下是有异步操作时,使用Promise对这个异步操作进行封装
-  // new -> 构造函数(1.保存了一些状态信息  2.执行传入的函数)
   // 在执行传入的回调函数时, 会传入两个参数, resolve, reject.本身又是函数
   new Promise((resolve, reject) => {
     //模拟网络请求，请求成功执行resolve()，请求失败执行reject()

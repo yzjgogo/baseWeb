@@ -35,6 +35,7 @@
       // 第二次网络请求的代码
       setTimeout(() => {
         resolve()
+        // reject() 任何一个环节出错，都会走下面的catch()
       }, 1000)
     })
   }).then(() => {
@@ -62,6 +63,8 @@
     console.log('Hello Python');
     console.log('Hello Python');
     console.log('Hello Python');
+  }).catch(err=>{
+    console.log("出错了----")
   })
 </script>
 </body>
