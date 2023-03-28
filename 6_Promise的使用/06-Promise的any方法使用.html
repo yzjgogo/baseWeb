@@ -7,43 +7,16 @@
 <body>
 
 <script>
-  // 请求二一:
-  // let isResult1 = false
-  // let isResult2 = false
-  // $ajax({
-  //   url: '',
-  //   success: function () {
-  //     console.log('结果1');
-  //     isResult1 = true
-  //     handleResult()
-  //   }
-  // })
-  // // 请求二:
-  // $ajax({
-  //   url: '',
-  //   success: function () {
-  //     console.log('结果2');
-  //     isResult2 = true
-  //     handleResult()
-  //   }
-  // })
-  //
-  // function handleResult() {
-  //   if (isResult1 && isResult2) {
-  //     //
-  //   }
-  // }
 
   /**
    https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Asynchronous/Promises
 
-   当且仅当数组中所有的 Promise 都被兑现时，才会通知 then() 处理函数并提供一个包含所有响应的数组，数组中响应的顺序与被传入 all() 的 Promise 的顺序相同。
+   有时，你可能需要等待一组 Promise 中的某一个 Promise 的执行，而不关心是哪一个。在这种情况下，你需要 Promise.any()。这就像 Promise.all()，不过在 Promise 数组中的任何一个被兑现时它就会被兑现，如果所有的 Promise 都被拒绝，它也会被拒绝。
 
-   如果数组中有任何一个 Promise 被拒绝。此时，catch() 处理函数被调用，并提供被拒绝的 Promise 所抛出的错误。
-
+   值得注意的是，在这种情况下，我们无法预测哪个获取请求会先被兑现。
    * */
 
-  Promise.all([
+  Promise.any([
       // new Promise((resolve, reject) => {
       //   $.ajax({
       //     url: 'url1',
