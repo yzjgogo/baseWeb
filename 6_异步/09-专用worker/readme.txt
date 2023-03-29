@@ -13,3 +13,7 @@ main.js和generate.js通过消息发送互传信息
 
 subworker：这个东西好像还没有浏览器支持，不知道怎么用到，也没搜索到，先看下MDN文档的几句话概况吧
 https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers
+
+
+专用worker中，DedicatedWorkerGlobalScope 对象代表了 worker 的上下文
+SharedWorker中，SharedWorkerGlobalScope是上下文

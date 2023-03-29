@@ -8,3 +8,6 @@ index2.html引入了square.js，square.js里new SharedWorker("worker.js")了
 
 在worker.js里写上console.log()然后浏览器F12控制台无法看到输出的解决办法：
 参考：看到worker里的log.png
+
+专用worker中，DedicatedWorkerGlobalScope 对象代表了 worker 的上下文
+SharedWorker中，SharedWorkerGlobalScope是上下文
