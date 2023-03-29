@@ -1,3 +1,6 @@
+参考：
+https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers
+
 index.html是入口 里面可以跳转到 index2.html
 
 index和index2共享worker.js这个工作线程
