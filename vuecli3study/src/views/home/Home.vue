@@ -12,6 +12,7 @@
         汉字获取拼音(js-pinyin);<br/>
         时间日期格式化(moment)
       </button>
+      <button @click="toFiler">filters的用法</button>
     </div>
     <img alt="Vue logo" src="../../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
@@ -50,6 +51,9 @@ export default {
     },
     toPinyin(){
       this.$router.push("/myPinyin")
+    },
+    toFiler(){
+      this.$router.push("/myFilter")
     }
   }
 }

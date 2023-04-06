@@ -13,7 +13,7 @@
   import moment from "moment";  //"moment": "^2.24.0"
   // 1676276583
 export default {
-  name: 'MySlot',
+  name: 'MyPinyin',
   data() {
     return {
 
