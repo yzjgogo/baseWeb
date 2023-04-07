@@ -13,6 +13,7 @@
         时间日期格式化(moment)
       </button>
       <button @click="toFiler">filters的用法</button>
+      <button @click="toAxios">axios的用法，涉及到Blob</button>
     </div>
     <img alt="Vue logo" src="../../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
@@ -54,6 +55,9 @@ export default {
     },
     toFiler(){
       this.$router.push("/myFilter")
+    },
+    toAxios(){
+      this.$router.push("/myAxios")
     }
   }
 }
