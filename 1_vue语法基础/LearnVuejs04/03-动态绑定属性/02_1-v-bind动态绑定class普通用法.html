@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    .active {
+      color: red;
+      background-color: #6CD559;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+
+  <h2 class="title" v-bind:class="getClasses()">随便的内容1</h2>
+  <h2 class="title" :class="getClasses()">随便的内容2</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+    },
+    methods: {
+      getClasses: function () {
+        return 'active'
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
