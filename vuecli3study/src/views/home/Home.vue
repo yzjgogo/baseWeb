@@ -15,6 +15,8 @@
       <button @click="toFiler">filters的用法</button>
       <button @click="toAxios">axios的用法，涉及到Blob</button>
       <button @click="toCommonStyle">整个项目使用的公共样式</button>
+      <button @click="toTransition">vue中transition的用法</button>
+      <button @click="toWebSocket">WebSocket的用法</button>
     </div>
     <img alt="Vue logo" src="../../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
@@ -62,6 +64,12 @@ export default {
     },
     toCommonStyle(){
       this.$router.push("/commonStyle")
+    },
+    toTransition(){
+      this.$router.push("/myTransition")
+    },
+    toWebSocket(){
+      this.$router.push("/myWebSocket")
     }
   }
 }
