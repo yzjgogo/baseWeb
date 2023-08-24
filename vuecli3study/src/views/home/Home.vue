@@ -8,6 +8,7 @@
       <button @click="toVueData">Vue的$data和$options的用法</button>
       <button @click="toDeep">Scoped,/deep/,::v-deep的用法</button>
       <button @click="toSlot">Slot的用法</button>
+      <button @click="toVModel">v-model的扩展用法</button>
       <button @click="toPinyin">
         汉字获取拼音(js-pinyin);<br/>
         时间日期格式化(moment)
@@ -52,6 +53,9 @@ export default {
     },
     toSlot(){
       this.$router.push("/mySlot")
+    },
+    toVModel(){
+      this.$router.push("/myVModel")
     },
     toPinyin(){
       this.$router.push("/myPinyin")

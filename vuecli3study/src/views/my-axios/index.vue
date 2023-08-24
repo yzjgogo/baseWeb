@@ -24,10 +24,11 @@
         },
         methods: {
             downloadFile() {
+                //http://125.69.0.87:8113/d211-bfy/api/sch/devicemaintain/exportdevicemaintainprocessexcel
                 return new Promise((resolve, reject) => {
                     axios({
                         method: 'post',
-                        url: `http://222.212.88.30:8113/d211-bfy/api/sch/devicemaintain/exportdevicemaintainprocessexcel`,
+                        url: `http://125.69.0.87:8113/d211-bfy/api/sch/devicemaintain/exportdevicemaintainprocessexcel`,
 
                         // `responseType` indicates the type of data that the server will respond with
                         // options are: 'arraybuffer', 'document', 'json', 'text', 'stream'
@@ -39,7 +40,7 @@
                         getResponse: true,
                         headers: {
                             //校本云 -> OA -> 维修报销统计 -> 统计导出
-                            Authorization: '8dde4850bf0b8f675a997aff6e6ca3b111e8a25dd21e7a0c802661ca33b7a32a',
+                            Authorization: 'b54220adec939ae3c4fe2881eb5327428297cb3a7cc636a4d7f16cc8d0b48560',
                             Scope: 'com.zhl.xby.web'
                         },
                         data: {
