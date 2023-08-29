@@ -79,6 +79,30 @@ label与数组中的元素值相对应，如果存在指定的值则为选中状
             <el-checkbox label="选中且禁用" disabled></el-checkbox>
         </el-checkbox-group>
 
+
+
+        <div style="background-color: yellow;width: 600px;color: green;margin: 10px">文件上传</div>
+<!--
+校本云 -> 校务 -> 官网内容管理 -> 创建文章 -> 点击上传附件
+src\views\pages\eduManagement\websiteConManagement\articleContent.vue
+src\businessComponent\zhlDrawerForm\zhlUpload.vue
+这个上传原样来自校本云，内容并不全，完整版去看：https://element.eleme.cn/2.13/#/zh-CN/component/upload
+目的是想知道调用archive/upload/uploadfile时，'file'字段来自哪里，经验证'file'字段不是我们程序员定义的，而是来自el-upload内存自动的
+参考图片：el-upload-file.jpeg
+-->
+        <el-upload
+                :action="action"
+                :headers="headers"
+                :data="uploadData"
+                :show-file-list="false"
+                :on-success="uploadSuccess"
+                :on-error="uploadError"
+                :before-upload="beforeUpload"
+                :on-progress="onProgress"
+                :accept="accept">
+            <el-button ref="upload"
+                       size="small">上传</el-button>
+        </el-upload>
     </div>
 </template>
 
@@ -93,6 +117,24 @@ label与数组中的元素值相对应，如果存在指定的值则为选中状
                 checked3:true,
                 checked4:true,
                 checkList: ['选中且禁用','复选框 A'],
+                //文件上传相关
+                action: 'http://api.banfeiyue.com/api/archive/upload/uploadfile',
+                headers: {
+                    Scope: 'com.zhl.xby.web',
+                    Authorization: '921d42022478239668257caa195c83db22da11f3a7f489df2f9be08e0595fb7d'
+                },
+                uploadData: {
+                    file_type: 'pdf',
+                    book_id: 0,
+                    book_type: 0,
+                    uid: '2004479084',
+                    compress_type: 0,
+                    token: '921d42022478239668257caa195c83db22da11f3a7f489df2f9be08e0595fb7d',
+                    filter_sensitive: 0,
+                    business_id: 200418,
+                    folder_id: 0
+                },
+                accept: '.pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.wps,.zip,.rar,.ppt,.pptx',
             };
         },
         methods: {
@@ -107,7 +149,20 @@ label与数组中的元素值相对应，如果存在指定的值则为选中状
             //dialog打开时的回调
             whenOpen() {
                 console.log('执行了whenopen')
-            }
+            },
+            uploadSuccess(response, file, fileList) {
+                console.log("执行uploadSuccess",file,fileList)
+            },
+            // 上传失败
+            uploadError() {
+                console.log("执行uploadError")
+            },
+            beforeUpload(file) {
+                console.log("执行beforeUpload",file)
+            },
+            onProgress(event, file, fileList) {
+                console.log("执行onProgress",event,file,fileList)
+            },
         }
     }
 </script>
