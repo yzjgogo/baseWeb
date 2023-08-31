@@ -9,7 +9,11 @@
 
         -->
 
-        <button @click="saveToLocal()">下载文件</button>
+        <button @click="saveToLocal()">下载文件-Blob</button>
+
+<!--        加上 multiple 支持多选文件,弹出文件选择弹窗后，按住Ctrl键再去选择，就能多选-->
+        <br>
+        <input ref="mInput" type="file" accept="image/*" @change="selectFile()" />
     </div>
 </template>
 
@@ -80,7 +84,46 @@
                 }).catch(err => {
 
                 })
-            }
+            },
+            selectFile(){
+                //获取选择的图片文件file，这个File和android中的File概念完全一样，因为我再android钛成师悦app里也调用过这个接口上传图片，传的就是android的File对象
+                const file = this.$refs.mInput.files[0]
+                console.log("选择的图片",file)
+                let formData = new FormData()
+                formData.append('file', file)//file对象
+                formData.append('file_type', file.type)
+                formData.append('compress_tye', 0)
+                formData.append('business_id', '200418')
+                formData.append('token', '149d12f5216c428c420ba2cd7fcc04dbb048a252723ff88450da4e8519696123')
+                formData.append('filter_sensitive', 0)
+                formData.append('folder_id', 0)
+
+                //试了试能不能给data传map这种键值对，结果发现时不行的
+                // let map = new Map([
+                //     ['file',file],
+                //     ['file_type',file.type],
+                //     ['compress_tye',0],
+                //     ['business_id',200418],
+                //     ['token','149d12f5216c428c420ba2cd7fcc04dbb048a252723ff88450da4e8519696123'],
+                //     ['filter_sensitive',0],
+                //     ['folder_id',0],
+                // ])
+                // console.log("看看map",map)
+
+                axios({
+                    url:`http://api.banfeiyue.com/api/archive/upload/uploadfile`,
+                    method:'post',
+                    data:formData,//post方法需要用data传参，data可以接收formData键值对数据，不能传map
+                    headers:{
+                        Scope:'com.zhl.xby.web',
+                        Authorization:'149d12f5216c428c420ba2cd7fcc04dbb048a252723ff88450da4e8519696123'
+                    }
+                }).then(result => {
+                    console.log("上传成功",result)
+                },err => {
+                    console.log("上传失败",err)
+                })
+            },
         }
     }
 </script>

@@ -2,6 +2,11 @@
   <div>
     <div>
       <button @click="logData()">输出$data 和 $options</button>
+      <div style="height: 1px;width: 800px;background-color: #f8b38d;margin: 20px"></div>
+      <div>
+        $forceUpdate()：总之你发现页面实在是没响应式刷新，就用它，保证能刷新，比如你修改对象的属性或数值的元素等等；<br>
+        https://cn.vuejs.org/api/component-instance.html#emit
+      </div>
     </div>
   </div>
 </template>

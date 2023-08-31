@@ -5,7 +5,7 @@
       <button @click="toLodash">lodash</button>
       <button @click="toJsonToObj">本地json文件解析为对象接收--</button>
       <button @click="toMZYD">名著阅读</button>
-      <button @click="toVueData">Vue的$data和$options的用法</button>
+      <button @click="toVueData">Vue基础补充</button>
       <button @click="toDeep">Scoped,/deep/,::v-deep的用法</button>
       <button @click="toSlot">Slot的用法</button>
       <button @click="toVModel">v-model的扩展用法</button>
