@@ -89,6 +89,8 @@ src\businessComponent\zhlDrawerForm\zhlUpload.vue
 这个上传原样来自校本云，内容并不全，完整版去看：https://element.eleme.cn/2.13/#/zh-CN/component/upload
 目的是想知道调用archive/upload/uploadfile时，'file'字段来自哪里，经验证'file'字段不是我们程序员定义的，而是来自el-upload内存自动的
 参考图片：el-upload-file.jpeg
+
+参考：js自己的文件上传方式：E:\web\baseWeb\vuecli3study\src\views\my-axios\index.vue
 -->
         <el-upload
                 :action="action"

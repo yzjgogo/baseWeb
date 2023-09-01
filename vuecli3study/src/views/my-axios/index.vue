@@ -11,7 +11,17 @@
 
         <button @click="saveToLocal()">下载文件-Blob</button>
 
-<!--        加上 multiple 支持多选文件,弹出文件选择弹窗后，按住Ctrl键再去选择，就能多选-->
+<!--
+加上 multiple 支持多选文件,弹出文件选择弹窗后，按住Ctrl键再去选择，就能多选
+accept指定接收什么类型
+onchange:当文件选择成功时回调
+
+扩展：其它几种文件上传的方式：https://www.yii666.com/blog/380410.html
+
+FormData用法参考：E:\web\JsBase\10_Improve\03_JS\form_data.html
+
+参考ElementUI提供的文件上传组件：el-upload：E:\web\baseWeb\vuecli3study\src\views\elementui\MyElementUi.vue
+-->
         <br>
         <input ref="mInput" type="file" accept="image/*" @change="selectFile()" />
     </div>
