@@ -42,7 +42,7 @@ FormData用法参考：E:\web\JsBase\10_Improve\03_JS\form_data.html
                 return new Promise((resolve, reject) => {
                     axios({
                         method: 'post',
-                        url: `http://125.69.0.87:8113/d211-bfy/api/sch/devicemaintain/exportdevicemaintainprocessexcel`,
+                        url: `http://api.banfeiyue.com/api/sch/devicemaintain/exportdevicemaintainprocessexcel`,
 
                         // `responseType` indicates the type of data that the server will respond with
                         // options are: 'arraybuffer', 'document', 'json', 'text', 'stream'
@@ -54,7 +54,7 @@ FormData用法参考：E:\web\JsBase\10_Improve\03_JS\form_data.html
                         getResponse: true,
                         headers: {
                             //校本云 -> OA -> 维修报销统计 -> 统计导出
-                            Authorization: 'b54220adec939ae3c4fe2881eb5327428297cb3a7cc636a4d7f16cc8d0b48560',
+                            Authorization: 'aa9f0fbb68db2740963284a1ec9f824e9a6b62f892838a4da7eaca73c0da220f',
                             Scope: 'com.zhl.xby.web'
                         },
                         data: {
@@ -98,13 +98,13 @@ FormData用法参考：E:\web\JsBase\10_Improve\03_JS\form_data.html
             selectFile(){
                 //获取选择的图片文件file，这个File和android中的File概念完全一样，因为我再android钛成师悦app里也调用过这个接口上传图片，传的就是android的File对象
                 const file = this.$refs.mInput.files[0]
-                console.log("选择的图片",file)
+                console.log("选择的图片",file,file.type)
                 let formData = new FormData()
                 formData.append('file', file)//file对象
                 formData.append('file_type', file.type)
                 formData.append('compress_tye', 0)
                 formData.append('business_id', '200418')
-                formData.append('token', '149d12f5216c428c420ba2cd7fcc04dbb048a252723ff88450da4e8519696123')
+                formData.append('token', 'aa9f0fbb68db2740963284a1ec9f824e9a6b62f892838a4da7eaca73c0da220f')
                 formData.append('filter_sensitive', 0)
                 formData.append('folder_id', 0)
 
@@ -123,10 +123,10 @@ FormData用法参考：E:\web\JsBase\10_Improve\03_JS\form_data.html
                 axios({
                     url:`http://api.banfeiyue.com/api/archive/upload/uploadfile`,
                     method:'post',
-                    data:formData,//post方法需要用data传参，data可以接收formData键值对数据，不能传map
+                    data:formData,//post方法需要用data传参，且上传文件时data需要接收formData键值对数据，不能传map，不能传对象{key:value}
                     headers:{
                         Scope:'com.zhl.xby.web',
-                        Authorization:'149d12f5216c428c420ba2cd7fcc04dbb048a252723ff88450da4e8519696123'
+                        Authorization:'aa9f0fbb68db2740963284a1ec9f824e9a6b62f892838a4da7eaca73c0da220f'
                     }
                 }).then(result => {
                     console.log("上传成功",result)
