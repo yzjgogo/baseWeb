@@ -14,7 +14,7 @@
         时间日期格式化(moment)
       </button>
       <button @click="toFiler">filters的用法</button>
-      <button @click="toAxios">axios的用法，涉及到Blob</button>
+      <button @click="toAxios">上传与下载、axios的用法、Blob</button>
       <button @click="toCommonStyle">整个项目使用的公共样式</button>
       <button @click="toTransition">vue中transition的用法</button>
       <button @click="toWebSocket">WebSocket的用法</button>
