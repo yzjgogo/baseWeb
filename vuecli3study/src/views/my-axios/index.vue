@@ -7,6 +7,14 @@
         https://www.npmjs.com/package/axios
         https://github.com/axios/axios
 
+        前端下载：
+        参考：https://zhuanlan.zhihu.com/p/450942203 或 前端下载.png
+        涉及到Blob、File、URL.createObjectURL
+        Base64、atob、btoa
+        ArrayBuffer、Uint8Array
+        Blob、File、Base64、ArrayBuffer相互转换
+        同源（域）和跨域
+
         -->
 
 <!--
@@ -19,13 +27,16 @@ a标签下载注意事项.png
 https://www.jianshu.com/p/461b2b888a21
 a标签下载注意事项2.png
 -->
-        <a target="_blank" download="hello.mp3" href="https://zhljy.cdn.bcebos.com/CACBACAF/ff8a86b472dd40abb08bc5ebb20f87d6.mp3">a标签配合download属性支持下载指定链接的资源</a>
+        <a target="_blank" download="hello.mp3" href="https://zhljy.cdn.bcebos.com/CACBACAF/ff8a86b472dd40abb08bc5ebb20f87d6.mp3">1：a标签配合download属性支持下载指定链接的资源</a><br/><br/>
 <!--        <a download="解决.zip" target="_blank" href="http://zhl-file.xxfz.com.cn/group1/M01/05/E6/dr5jH122sv-IENEPAAAAPGa0mh0AAJFMQNx4RAAAABU300.zip">第三课</a>-->
 <!--        <a download="解决.png" target="_blank" href="https://zhldebug.cdn.bcebos.com/CACDAJBJ/79f67dd8468647469a9033ebbdee0169.jpg">a标签配合download属性下载图片-跨域失败的情况</a><br/><br/>-->
 
-        <button @click="saveToLocal()">模拟校本云下载文件</button><br/><br/>
-        <button @click="downloadImageUseAxios()">给定一个图片的url，用axios下载图片</button><br/><br/>
-        <button @click="downloadImageUseCanvas()">给定一个图片的url，借用canvas和a标签下载图片</button><br/><br/>
+        <button @click="saveToLocal()">2：模拟校本云下载文件，接口获取到的数据使用Blob下载</button><br/><br/>
+        <button @click="downloadImageUseAxios()">3：给定一个图片的url，用axios下载图片</button><br/><br/>
+        <button @click="downloadImageUseCanvas()">4：给定一个图片的url，借用canvas和a标签下载图片</button><br/><br/>
+        <button @click="downloadUseForm()">5：使用Form表单下载</button><br/><br/>
+<!--      参考：https://zhuanlan.zhihu.com/p/450942203 或 前端下载.png 最下面的介绍  -->
+        <button>6：几个第三方下载库，npm库（看注释）</button><br/><br/>
 
 <!--
 加上 multiple 支持多选文件,弹出文件选择弹窗后，按住Ctrl键再去选择，就能多选
@@ -186,6 +197,41 @@ FormData用法参考：E:\web\JsBase\10_Improve\03_JS\form_data.html
 
 
             //给定一个图片的url，借用canvas和a标签下载图片-----------------------------------------------------------------------------------------------------
+
+
+            /**
+                使用表单下载即使跨域也可以下载，因为JS无法获取到action后的内容，提交的form表单数据不需要返回，浏览器认为是安全的行为，所以浏览器不会阻止Form表单跨域。
+             Form表单可以支持GET请求和POST请求
+             */
+            downloadUseForm(){
+                const form = document.createElement('form')
+                form.method = 'get'
+                form.action = 'http://zhl-file.xxfz.com.cn/group1/M01/05/E6/dr5jH122sv-IENEPAAAAPGa0mh0AAJFMQNx4RAAAABU300.zip'
+                // form.action = 'https://zhljy.cdn.bcebos.com/CACBACAF/ff8a86b472dd40abb08bc5ebb20f87d6.mp3'
+                form.name = '我是' //表单名，用于区分同一个页面的不同表单
+
+                //如果下载请求，后台需要传递参数，则可以创建input标签传递，又因为一般此时下载我们不希望用户看到这个input,因此我们可以设置type='hidden',当我们需要传递或在页面存储不应该让用户课件的数值时(例如id、key等)，可以用type='hidden'
+                //提交参数1,如果需要参数
+                var parameter1 = document.createElement('input')
+                parameter1.setAttribute('type', 'hidden')
+                parameter1.setAttribute('name', 'clinicId')
+                form.appendChild(parameter1)
+
+                //提交参数2，如果需要参数
+                var parameter2 = document.createElement('input')
+                parameter2.setAttribute('type', 'hidden')
+                parameter2.setAttribute('id', '10056')
+                form.appendChild(parameter2)
+
+                document.body.appendChild(form)
+                form.submit()
+            },
+
+
+
+
+            //5：使用Form表单下载-----------------------------------------------------------------------------------------------------
+
 
 
 
