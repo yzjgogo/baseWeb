@@ -18,6 +18,8 @@ sync使用场景：
   b:在子组件需要修改属性值时，使用this.$emit('update:show', false)
   则父组件就能直接接收到新的属性值false同时赋值给isShow,同时子组件的show也就更新了
 
+5,补充：不光是属性show，任何属性都可以，即 anyProperty.sync
+
 -->
 
 <div id="app">
