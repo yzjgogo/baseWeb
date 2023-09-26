@@ -18,6 +18,7 @@
       <button @click="toCommonStyle">整个项目使用的公共样式</button>
       <button @click="toTransition">vue中transition的用法</button>
       <button @click="toWebSocket">WebSocket的用法</button>
+      <button @click="toQuill">富文本Quill的用法</button>
     </div>
     <img alt="Vue logo" src="../../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
@@ -74,6 +75,9 @@ export default {
     },
     toWebSocket(){
       this.$router.push("/myWebSocket")
+    },
+    toQuill(){
+      this.$router.push("/myQuill")
     }
   }
 }
