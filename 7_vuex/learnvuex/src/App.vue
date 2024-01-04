@@ -136,7 +136,10 @@
           })
       },
       updateName() {
-        this.$store.commit('updateName', 'lisi')
+        //省略命名空间a/的写法
+        this.$store.commit('updateName', 'lisi--2')
+        //使用命名空间a/的写法，前提是在moduleA.js中要定义namespaced:true
+        // this.$store.commit('a/updateName', 'lisi--2')
       },
       asyncUpdateName() {
         this.$store.dispatch('aUpdateName')

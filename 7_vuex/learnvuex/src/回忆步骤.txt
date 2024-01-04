@@ -13,5 +13,8 @@ modules目录
 ->
 mapState的用法：App.vue -> computed
 
+->通过命名空间访问module
+在App.vue中搜索'a/updateName'
+
 
 
