@@ -92,7 +92,7 @@
       ...mapState('b',{bname:state=>state.bname})
 
 
-      /** mapGetters、mapActions等等，用法类似mapState，也可参考有道云笔记 */
+      /** mapGetters、mapActions、mapMutations等等，用法类似mapState，也可参考有道云笔记 */
     },
     methods: {
       addition() {
