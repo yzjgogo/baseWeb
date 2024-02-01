@@ -1,5 +1,5 @@
 
-// 配置路由相关的信息
+// 配置路由相关的信息 官网：https://v3.router.vuejs.org/zh/installation.html
 import VueRouter from 'vue-router'
 import Vue from 'vue'
 // 一次性加载所有的路由，导致打包的结果非常大，用户第一次加载网页很慢，
