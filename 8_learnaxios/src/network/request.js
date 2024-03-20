@@ -1,5 +1,8 @@
 import axios from 'axios'
-
+/**
+ * 用TypeScript封装axios：
+ * https://juejin.cn/post/7071518211392405541
+ * */
 export function request(config) {
   // 1.创建axios的实例，注意不是用全局的
   const instance = axios.create({
