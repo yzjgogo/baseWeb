@@ -17,6 +17,7 @@
         <h2>{{mydata.a}}</h2>
         <button @click="changeA">点我改变mydata的a属性</button>
         <button @click="changeC">点我改变mydata的a的b的c属性</button>
+        <button @click="changeD">点我改变mydata的a的d属性</button>
     </div>
 </template>
 
@@ -30,7 +31,8 @@
                     a:1,
                     b:{
                         c:2
-                    }
+                    },
+                    d:10
                 }
             }
         },
@@ -44,6 +46,9 @@
           },
           changeC(){
               this.mydata.b.c = 222
+          },
+            changeD(){
+              this.mydata.d = 223
           }
         },
         //同样适用于vue属性的监听
@@ -66,6 +71,10 @@
                     console.log("data的b.c数据发生变化--：" , value);
                 },
                 deep: true
+            },
+            //可以直接使用函数监听对象属性
+            'mydata.d':function (newValue,oldValue) {
+                console.log("监听d后",newValue,oldValue)
             }
         }
     }
