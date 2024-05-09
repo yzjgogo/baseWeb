@@ -80,6 +80,10 @@ module.exports = {
             //npm install --save-dev babel-loader@7 babel-core babel-preset-es2015 (--force)，这里没有用webpack官网的babel-loader
             //的安装方式，而是用视频里老师的方式，自己找官网看看\
             //对应package.json -> devDependencies -> babel-loader,babel-core,babel-preset-es2015
+
+          //官网：https://webpack.js.org/loaders/
+          //官网：https://babeljs.io/repl
+          //官网：https://babeljs.io
             {
                 test: /\.js$/,
                 // exclude: 排除
