@@ -81,8 +81,8 @@ const routes = [
 const router = new VueRouter({
   // 配置路由和组件之间的应用关系
   routes,
-  //默认是hash，地址栏有#号
-  mode: 'history',//可以去掉#号
+  //默认是hash，地址栏有#号，参考：E:\web\JsBase\04_BOM_webApi\04_浏览器地址栏location对象.html E:\web\JsBase\01_HtmlCssBase\file\URL的hash.md
+  // mode: 'history',//可以去掉#号
   linkActiveClass: 'active'//统一将所有的router-link的router-link-active改成active
 })
 // (导航守卫1)：全局导航守卫
