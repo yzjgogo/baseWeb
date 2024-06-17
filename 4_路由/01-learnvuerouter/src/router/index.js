@@ -81,8 +81,16 @@ const routes = [
 const router = new VueRouter({
   // 配置路由和组件之间的应用关系
   routes,
-  //默认是hash，地址栏有#号，参考：E:\web\JsBase\04_BOM_webApi\04_浏览器地址栏location对象.html E:\web\JsBase\01_HtmlCssBase\file\URL的hash.md
+
+  //前提：URL的hash 和 window的history 的改变都不会触发页面的加载，这就给实现单页面应用提供了先天的遍历条件，而vue即兼容hash的方式又兼容history的方式，可以通过mode告诉vue采用哪种方式实现单页面路由
+  //参考：E:\web\baseWeb\4_路由\01-learnvuerouter\route的mode.md
+  //默认是hash，地址栏有#号，
+  // 参考：E:\web\JsBase\04_BOM_webApi\04_浏览器地址栏location对象.html
+  // E:\web\JsBase\01_HtmlCssBase\file\URL的hash.md
+  // E:\web\JsBase\04_BOM_webApi\05_history对象.html
   // mode: 'history',//可以去掉#号
+
+
   linkActiveClass: 'active'//统一将所有的router-link的router-link-active改成active
 })
 // (导航守卫1)：全局导航守卫
