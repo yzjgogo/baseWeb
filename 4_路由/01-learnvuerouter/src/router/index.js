@@ -8,7 +8,9 @@ import Vue from 'vue'
 // import User from '../components/User'
 
 
-//路由的懒加载，被访问的时候才加载
+//路由的懒加载，被访问的时候才加载,import会返回一个Promise对象，因此箭头函数最终返回一个Promise对象
+//参考：E:\web\Vue3\VueDemo\VueCliWebpackDemo\cliwebpackdemo\src\14_异步组件-1-webpack的分包
+//参考：E:\web\Vue3\VueDemo\VueCliWebpackDemo\cliwebpackdemo\src\14_异步组件-2-组件的异步
 const Home = () => import('../components/Home')
 const HomeNews = () => import('../components/HomeNews')
 const HomeMessage = () => import('../components/HomeMessage')
