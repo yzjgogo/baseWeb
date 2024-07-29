@@ -8,6 +8,8 @@ import {INCREMENT} from "./mutations-types";
  字符串的事件类型（type）-> 'decrement'
  一个回调函数（handler）,该回调函数的第一个参数就是state。 (state){state.counter--}
 
+ 官方建议，修改state，只能通过mutations里的方法去修改，不能直接调用store.state.aaa = 10,为了F12插件跟踪方便
+
  * */
 export default {
 
