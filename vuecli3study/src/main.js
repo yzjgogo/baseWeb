@@ -3,6 +3,7 @@ import router from './router'
 import store from './store'
 import 'amfe-flexible'
 import App from './App.vue'
+import './assets/css/index.less'
 
 // 下面两行是elementUI的配置
 import ElementUI from 'element-ui';
