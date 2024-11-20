@@ -3,6 +3,8 @@ import router from './router'
 import store from './store'
 import 'amfe-flexible'
 import App from './App.vue'
+
+// 配置项目的整体css样式，包括对html和body标签的样式配置，只需这一行代码即生效，参考善版无影
 import './assets/css/index.less'
 
 // 下面两行是elementUI的配置
