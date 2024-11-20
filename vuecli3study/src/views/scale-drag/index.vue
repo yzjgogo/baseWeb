@@ -3,19 +3,23 @@
     <div class="left">
       我模拟菜单栏
     </div>
+<!--    关键点1：scale-root是被放大的元素scale-self的父容器，scale-self放大后可以在该范围内拖拽-->
     <div class="scale-root">
+<!--      关键点2：scale-self是实际被放大的元素，虽然可能需求上只是需要我们放大book-page，但是我们给book-page用scale-self包裹-->
       <div class="scale-self"
            @mousedown="dragDown"
            :style="{
            'transform': `translate(${currentDragMove.x + 'px, ' + currentDragMove.y + 'px'}) scale(${currentZoom})`,
            'cursor': currentZoom === 1 ? 'default' : 'grab'
          }">
+<!--        关键点3：我们只是放大了scale-self，因此book-pag也跟着放大了，因为book-pag是scale-self的一部分-->
         <div class="book-page" :style="{
               backgroundSize: `contain`,
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
               backgroundImage: 'url(' + imgURL + ')'}">
-
+<!--          关键点4：元素被放大后，并不会影响元素内部的交互-->
+          <div class="diy-button" @click="doClickTest()">放大也可以点我</div>
         </div>
       </div>
       <div class="scale-buttons">
@@ -105,6 +109,9 @@ export default {
         this.$store.commit('SWIPE_TOUCH_ABLE', false)
       }
     },
+    doClickTest(){
+      console.log("点击了哈哈哈")
+    }
   }
 }
 </script>
@@ -132,12 +139,21 @@ export default {
       .book-page{
         position: absolute;
         left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%,0);
         height: calc(100% - 100px);;
         margin-top: 50px;
         margin-bottom: 50px;
         aspect-ratio:0.7;
+        .diy-button{
+          width: 150px;
+          height: 50px;
+          text-align: center;
+          line-height: 50px;
+          margin-left: 200px;
+          margin-top: 350px;
+          background-color: #2eaae0;
+          color: red;
+        }
       }
     }
     .scale-buttons{
