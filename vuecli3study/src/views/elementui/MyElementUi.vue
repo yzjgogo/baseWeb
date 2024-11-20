@@ -41,36 +41,33 @@
         <el-checkbox v-model="checked" :disabled="false">备选项1</el-checkbox>
 
 
-
         <p>2、禁用el-checkbox:设置disabled</p>
-<!--        所谓禁用，只是不能再通过鼠标点击改变选中状态，不影响checkbox当前是否选中，以及checkbox的值-->
-<!--        没选择状态下禁用-->
+        <!--        所谓禁用，只是不能再通过鼠标点击改变选中状态，不影响checkbox当前是否选中，以及checkbox的值-->
+        <!--        没选择状态下禁用-->
         <el-checkbox v-model="checked2" disabled>备选项2</el-checkbox>
-<!--        选中状态下禁用-->
+        <!--        选中状态下禁用-->
         <el-checkbox v-model="checked3" disabled>备选项3</el-checkbox>
-<!--        使用v-bind:disabled="返回boolean类型的表达式" 动态实现是否禁用-->
+        <!--        使用v-bind:disabled="返回boolean类型的表达式" 动态实现是否禁用-->
         <el-checkbox v-model="checked4" :disabled="10>0">备选项3</el-checkbox>
 
 
-
-
         <p>3、多选框组</p>
-<!--
-适用于多个勾选框绑定到同一个数组的情景，通过是否勾选来表示这一组选项中选中的项。
-checkbox-group元素能把多个 checkbox 管理为一组，只需要在 Group 中使用v-model绑定Array类型的变量即可。
-el-checkbox 的 label属性是该 checkbox 对应的值，若该标签中无内容，则该属性也充当 checkbox 按钮后的介绍。
-若该标签中有内容，这个内容纯粹就是个介绍并不是checkbox对应的值，label仍然是其对应的值。
-label与数组中的元素值相对应，如果存在指定的值则为选中状态，否则为不选中。
+        <!--
+        适用于多个勾选框绑定到同一个数组的情景，通过是否勾选来表示这一组选项中选中的项。
+        checkbox-group元素能把多个 checkbox 管理为一组，只需要在 Group 中使用v-model绑定Array类型的变量即可。
+        el-checkbox 的 label属性是该 checkbox 对应的值，若该标签中无内容，则该属性也充当 checkbox 按钮后的介绍。
+        若该标签中有内容，这个内容纯粹就是个介绍并不是checkbox对应的值，label仍然是其对应的值。
+        label与数组中的元素值相对应，如果存在指定的值则为选中状态，否则为不选中。
 
-点击某个el-checkbox选中了对应的label值放入checkList,取消选中则对应的label值从checkList中移除；因为用的v-model,vue.data.checkList里的元素发生变化也会
-反向影响group里的checkbox的选中与否，如果checkList里的元素能在group中找到对应的label则对应的checkbox选中，否则不选中，
-如果checkList里的元素不能在group中找到，也没啥影响，就纯粹是多余的而已，不会影响group里的checkbox的选中与否
+        点击某个el-checkbox选中了对应的label值放入checkList,取消选中则对应的label值从checkList中移除；因为用的v-model,vue.data.checkList里的元素发生变化也会
+        反向影响group里的checkbox的选中与否，如果checkList里的元素能在group中找到对应的label则对应的checkbox选中，否则不选中，
+        如果checkList里的元素不能在group中找到，也没啥影响，就纯粹是多余的而已，不会影响group里的checkbox的选中与否
 
-关键点：
-1：label就是checkbox的值
-2：如果checkbox标签中无内容则label也是checkbox后面的介绍
-3：v-model实现checkList与group里的checkbox的双向绑定
--->
+        关键点：
+        1：label就是checkbox的值
+        2：如果checkbox标签中无内容则label也是checkbox后面的介绍
+        3：v-model实现checkList与group里的checkbox的双向绑定
+        -->
         <el-checkbox-group v-model="checkList">
             <el-checkbox label="复选框 A"></el-checkbox>
             <el-checkbox label="复选框 B"></el-checkbox>
@@ -80,18 +77,17 @@ label与数组中的元素值相对应，如果存在指定的值则为选中状
         </el-checkbox-group>
 
 
-
         <div style="background-color: yellow;width: 600px;color: green;margin: 10px">文件上传</div>
-<!--
-校本云 -> 校务 -> 官网内容管理 -> 创建文章 -> 点击上传附件
-src\views\pages\eduManagement\websiteConManagement\articleContent.vue
-src\businessComponent\zhlDrawerForm\zhlUpload.vue
-这个上传原样来自校本云，内容并不全，完整版去看：https://element.eleme.cn/2.13/#/zh-CN/component/upload
-目的是想知道调用archive/upload/uploadfile时，'file'字段来自哪里，经验证'file'字段不是我们程序员定义的，而是来自el-upload内存自动的
-参考图片：el-upload-file.jpeg
+        <!--
+        校本云 -> 校务 -> 官网内容管理 -> 创建文章 -> 点击上传附件
+        src\views\pages\eduManagement\websiteConManagement\articleContent.vue
+        src\businessComponent\zhlDrawerForm\zhlUpload.vue
+        这个上传原样来自校本云，内容并不全，完整版去看：https://element.eleme.cn/2.13/#/zh-CN/component/upload
+        目的是想知道调用archive/upload/uploadfile时，'file'字段来自哪里，经验证'file'字段不是我们程序员定义的，而是来自el-upload内存自动的
+        参考图片：el-upload-file.jpeg
 
-参考：js自己的文件上传方式：E:\web\baseWeb\vuecli3study\src\views\my-axios\index.vue
--->
+        参考：js自己的文件上传方式：E:\web\baseWeb\vuecli3study\src\views\my-axios\index.vue
+        -->
         <el-upload
                 :action="action"
                 :headers="headers"
@@ -105,6 +101,25 @@ src\businessComponent\zhlDrawerForm\zhlUpload.vue
             <el-button ref="upload"
                        size="small">上传</el-button>
         </el-upload>
+
+
+
+        <div style="background-color: yellow;width: 600px;color: green;margin: 10px">tab页</div>
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
+            <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
+            <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+            <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+        </el-tabs>
+
+
+
+        <div style="background-color: yellow;width: 600px;color: green;margin: 10px">树形控件</div>
+        <el-tree :data="treeData"
+                 :props="defaultProps"
+                 show-checkbox
+                 @node-click="handleNodeClick"
+                 @check-change="handleCheckChange"></el-tree>
     </div>
 </template>
 
@@ -113,12 +128,13 @@ src\businessComponent\zhlDrawerForm\zhlUpload.vue
         name: 'MyElementUi',
         data() {
             return {
+                activeName: 'second',
                 dialogVisible: false,//dialog用
-                checked:true,
-                checked2:false,
-                checked3:true,
-                checked4:true,
-                checkList: ['选中且禁用','复选框 A'],
+                checked: true,
+                checked2: false,
+                checked3: true,
+                checked4: true,
+                checkList: ['选中且禁用', '复选框 A'],
                 //文件上传相关
                 action: 'http://api.banfeiyue.com/api/archive/upload/uploadfile',
                 headers: {
@@ -137,9 +153,60 @@ src\businessComponent\zhlDrawerForm\zhlUpload.vue
                     folder_id: 0
                 },
                 accept: '.pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.wps,.zip,.rar,.ppt,.pptx',
+
+              //el-tree开始
+
+
+              treeData: [{
+                label: '一级 1',
+                children: [{
+                  label: '二级 1-1',
+                  children: [{
+                    label: '三级 1-1-1'
+                  }]
+                }]
+              }, {
+                label: '一级 2',
+                children: [{
+                  label: '二级 2-1',
+                  children: [{
+                    label: '三级 2-1-1'
+                  }]
+                }, {
+                  label: '二级 2-2',
+                  children: [{
+                    label: '三级 2-2-1'
+                  }]
+                }]
+              }, {
+                label: '一级 3',
+                children: [{
+                  label: '二级 3-1',
+                  children: [{
+                    label: '三级 3-1-1'
+                  }]
+                }, {
+                  label: '二级 3-2',
+                  children: [{
+                    label: '三级 3-2-1'
+                  }]
+                }]
+              }],
+              defaultProps: {
+                children: 'children',
+                label: 'label'
+              }
+
+              //el-tree结束
+
+
+
             };
         },
         methods: {
+            handleClick(tab, event) {
+                console.log(tab, event);
+            },
             handleClose(done) {
                 this.$confirm('确认关闭？')
                     .then(_ => {
@@ -153,18 +220,28 @@ src\businessComponent\zhlDrawerForm\zhlUpload.vue
                 console.log('执行了whenopen')
             },
             uploadSuccess(response, file, fileList) {
-                console.log("执行uploadSuccess",file,fileList)
+                console.log("执行uploadSuccess", file, fileList)
             },
             // 上传失败
             uploadError() {
                 console.log("执行uploadError")
             },
             beforeUpload(file) {
-                console.log("执行beforeUpload",file)
+                console.log("执行beforeUpload", file)
             },
             onProgress(event, file, fileList) {
-                console.log("执行onProgress",event,file,fileList)
+                console.log("执行onProgress", event, file, fileList)
             },
+
+          //el-tree开始
+          handleNodeClick(data) {
+            console.log(data);
+          },
+          handleCheckChange(data, checked, indeterminate) {
+              console.log("选中状态改变")
+            console.log(data, checked, indeterminate);
+          },
+          //el-tree结束
         }
     }
 </script>
