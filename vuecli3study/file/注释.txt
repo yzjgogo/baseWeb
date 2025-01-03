@@ -57,7 +57,7 @@ Vue.prototype._ = lodash
 
       postcss-pxtorem：
       https://www.npmjs.com/package/postcss-pxtorem
-      将px转换为px，行内样式无效，因此建议样式都写到<style></style>里，参考：https://blog.csdn.net/guixin12345/article/details/125920852
+      将px转换为px，行内样式无效，因此建议样式都写到<style></style>里，或者写一个px2rem的方法，参考：https://blog.csdn.net/guixin12345/article/details/125920852
 
       amfe-flexible：
       https://www.npmjs.com/package/amfe-flexible
