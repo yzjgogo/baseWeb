@@ -47,7 +47,15 @@ Vue.prototype._ = lodash
 
 3：MyLodash.vue使用lodash
 
-第3：px自动转rem步骤：参考：px转rem.png
+第3：rem在项目中的使用 (搜：rem在项目中的使用步骤12)
+    1：给html标签设置font-size，定义1rem的单位值，参考:src/config/rem.js
+    2：在main.js中import '@/config/rem'，导入上面的rem.js，这样整个项目在加载时就加载rem.js，就给html标签设置了font-size
+        (注意：main.js中已经把import '@/config/rem'注释掉了，因为要显示下面的'px自动转rem')
+    3：然后你就可以在布局中使用rem单位了。
+    参考：    E:\web\baseWeb\9_移动web\03-2rem-rem单位.html
+    这种方式是直接在布局中使用rem作为单位，下面的"px自动转rem"则可以在布局中仍然使用蓝湖UI设计的(比如1920*1080或者375*667)px单位，最终插件会自动渲染为rem单位
+
+第4：px自动转rem步骤：参考：px转rem.png
       https://www.jianshu.com/p/7acdb535fcd5
       https://www.jianshu.com/p/4d3b97f7a48b
       1：package.json里引入 "amfe-flexible": "2.2.1", "postcss-pxtorem": "5.1.1"
@@ -65,8 +73,8 @@ Vue.prototype._ = lodash
       为html、body添加font-size，窗口调整时候重新设置font-size，这是rem自适应屏幕的核心
 
 
-第4：遍历某个文件夹下的指定文件类型，获取文件的内容，webpack的require.context("要遍历的文件夹",是否遍历子文件夹,要遍历的文件类型)
+第5：遍历某个文件夹下的指定文件类型，获取文件的内容，webpack的require.context("要遍历的文件夹",是否遍历子文件夹,要遍历的文件类型)
     vuecli3study\src\router\modules\index.js
 
-第5：给路径起别名，以及path.join(path1,path2,...) 和 path.resolve(path1,path2,...)的理解
+第6：给路径起别名，以及path.join(path1,path2,...) 和 path.resolve(path1,path2,...)的理解
      vuecli3study\vue.config.js

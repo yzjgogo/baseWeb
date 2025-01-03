@@ -17,6 +17,9 @@ import lodash from 'lodash'
 // 全局注册filter_2：引入filters.js文件
 import filters from '@/libs/filters'
 
+// rem在项目中的使用步骤2
+// import '@/config/rem'
+
 /**如果为true则构建或编译时terminal会输出很多信息*/
 Vue.config.productionTip = true
 
