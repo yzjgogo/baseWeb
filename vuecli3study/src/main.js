@@ -3,6 +3,8 @@ import router from './router'
 import store from './store'
 import 'amfe-flexible'
 import App from './App.vue'
+// $utils实现步骤2
+import utils from './utils/utils'
 
 // 配置项目的整体css样式，包括对html和body标签的样式配置，只需这一行代码即生效，参考善版无影
 import './assets/css/index.less'
@@ -27,6 +29,8 @@ Vue.use(ElementUI)
 
 //在Vue的原型中定义loadsh，方便在任意组件中使用this._.xxxx()使用
 Vue.prototype._ = lodash
+// $utils实现步骤3
+Vue.prototype.$utils = utils
 // 全局注册filter_4，将filters.js文件里定义的filter进行全局注册
 Object.keys(filters).forEach(key => {
   console.log('注册filter')

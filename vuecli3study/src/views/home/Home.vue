@@ -20,6 +20,7 @@
       <button @click="toWebSocket">WebSocket的用法</button>
       <button @click="toQuill">富文本Quill的用法</button>
       <button @click="toScaleDrag">实现元素的缩放，支持拖拽移动，不影响元素内部的点击事件，如果缩放区域有翻页等可以设法在放大时屏蔽</button>
+      <button @click="toTool">知识点集合</button>
     </div>
     <img alt="Vue logo" src="../../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
@@ -82,6 +83,9 @@ export default {
     },
     toScaleDrag(){
       this.$router.push("/scaleDrag")
+    },
+    toTool(){
+      this.$router.push("/myTool")
     }
   }
 }
