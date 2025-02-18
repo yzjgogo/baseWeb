@@ -1,0 +1,19 @@
+{
+  "name": "lintpro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:create": "eslint --init",
+    "lint": "cross-env NODE_ENV=production eslint app.js",
+    "js": "cross-env NODE_ENV=production node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "eslint": "^6.0.1"
+  }
+}
