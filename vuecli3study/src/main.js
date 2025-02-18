@@ -19,6 +19,11 @@ import lodash from 'lodash'
 // 全局注册filter_2：引入filters.js文件
 import filters from '@/libs/filters'
 
+
+// 引入vant
+import Vant from 'vant'
+import 'vant/lib/index.css'
+
 // rem在项目中的使用步骤2
 // import '@/config/rem'
 
@@ -26,6 +31,7 @@ import filters from '@/libs/filters'
 Vue.config.productionTip = true
 
 Vue.use(ElementUI)
+Vue.use(Vant)
 
 //在Vue的原型中定义loadsh，方便在任意组件中使用this._.xxxx()使用
 Vue.prototype._ = lodash

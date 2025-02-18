@@ -17,3 +17,4 @@
 /WebpackStudy/05_webpack中使用Vue0_直接使用el指定的默认模板/dist/
 /WebpackStudy/05_webpack中使用Vue1_template指定的模板代替el默认模板避免操作index.html/dist/
 /WebpackStudy/05_webpack中使用Vue2_el_template_components区分与抽离出component/dist/
+vuecli3study/package-lock.json
