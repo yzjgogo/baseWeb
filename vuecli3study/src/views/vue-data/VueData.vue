@@ -20,6 +20,9 @@
       <TestWin v-bind:name="'张学友'"></TestWin>
       <TestWin v-bind:age="18"></TestWin>
       <TestWin v-bind="testObj"></TestWin>
+
+      <div class="line"></div>
+      <div>{{`子组件继承父组件：可用于修改父组件的行为满足自己的需求，一般当遇到第三方组件不足以满足自己的需求时，可以考虑这种方案。实际项目举例：无影(新华)移动版intelligent-book项目中，视频播放时全屏的方案是点击让整个布局旋转90度，但旋转后van-slider点击进度条某个区域后播放进度定位错乱了，因此可以考虑继承van-slider使其适配旋转的情况：(src\views\function\video-play\components\video-control.vue -> Slider -> src\components\wrong-question-notebook\CustomVideo\components\Slider.vue) -> 我已经拷贝到vuecli3study\src\views\vue-data\components\Slider.vue进去看详情`}}</div>
     </div>
   </div>
 </template>

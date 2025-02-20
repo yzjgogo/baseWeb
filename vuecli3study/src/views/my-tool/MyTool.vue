@@ -12,6 +12,10 @@
       van-circle的rate和speed的理解,参考：vancircle.md
     </div>
     <VCircle></VCircle>
+
+    <div class="tool-button" @click="toVideoPlay()">
+      旋转整个布局90度，模拟横屏
+    </div>
   </div>
 </template>
 
@@ -35,6 +39,9 @@ export default {
     },
     addVueComponent() {
       showSecondWindow()
+    },
+    toVideoPlay(){
+      this.$router.push('/videoPlay')
     }
   }
 }
