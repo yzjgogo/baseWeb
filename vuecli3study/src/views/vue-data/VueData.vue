@@ -27,7 +27,9 @@
       
 
     <div class="tool-button" @click="toAttrsAndListeners()">
-      组件的attrs和listeners的使用；attrs：父组件传递给子组件的所有的非props属性(在子组件的props中找不到，也不包括class和style这种)都可以在子组件的this.$attrs中访问到，然后你在子组件中通过v-bind="$attrs"又可以向后代传递，直到遇到某个后代在props中定义了同名的attr就算传递到这个后代了，这对跨层级数据传递非常有用，某种成都上有android开发中单例的功能；<br />
+      组件的attrs和listeners的使用；<br/>
+      attrs：父组件传递给子组件的所有的非props属性(在子组件的props中找不到，也不包括class和style这种)都可以在子组件的this.$attrs中访问到，然后你在子组件中通过v-bind="$attrs"又可以向后代传递，直到遇到某个后代在props中定义了同名的attr就算传递到这个后代了，这对跨层级数据传递非常有用，某种程度上有android开发中单例的功能（回顾搜索:attr回顾步骤）；<br />
+      listeners：孙子组件(任何层级的后代组件)想通过this.$emit()发送事件到爷爷或任何祖先组件时，可以在两端组件中间的每一层组件中使用v-on="$listeners"，这样就能做到事件层层向上传递到目标先辈组件。参考grandson发送事件，son里面用v-on="$listeners"修饰grandson，然后grandpa就能收到事件。
     </div>
 
     </div>
