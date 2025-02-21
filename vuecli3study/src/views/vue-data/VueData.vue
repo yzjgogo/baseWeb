@@ -22,16 +22,19 @@
       <TestWin v-bind="testObj"></TestWin>
 
       <div class="line"></div>
-      <div>{{`子组件继承父组件：可用于修改父组件的行为满足自己的需求，一般当遇到第三方组件不足以满足自己的需求时，可以考虑这种方案。实际项目举例：无影(新华)移动版intelligent-book项目中，视频播放时全屏的方案是点击让整个布局旋转90度，但旋转后van-slider点击进度条某个区域后播放进度定位错乱了，因此可以考虑继承van-slider使其适配旋转的情况：(src\views\function\video-play\components\video-control.vue -> Slider -> src\components\wrong-question-notebook\CustomVideo\components\Slider.vue) -> 我已经拷贝到vuecli3study\src\views\vue-data\components\Slider.vue进去看详情`}}</div>
+      <div>
+        {{
+          `子组件继承父组件：可用于修改父组件的行为满足自己的需求，一般当遇到第三方组件不足以满足自己的需求时，可以考虑这种方案。实际项目举例：无影(新华)移动版intelligent-book项目中，视频播放时全屏的方案是点击让整个布局旋转90度，但旋转后van-slider点击进度条某个区域后播放进度定位错乱了，因此可以考虑继承van-slider使其适配旋转的情况：(src\views\function\video-play\components\video-control.vue -> Slider -> src\components\wrong-question-notebook\CustomVideo\components\Slider.vue) -> 我已经拷贝到vuecli3study\src\views\vue-data\components\Slider.vue进去看详情`
+        }}
+      </div>
 
-      
+      <div class="tool-button" @click="toAttrsAndListeners()">
+        组件的attrs和listeners的使用；<br />
+        attrs：父组件传递给子组件的所有的非props属性(在子组件的props中找不到，也不包括class和style这种)都可以在子组件的this.$attrs中访问到，然后你在子组件中通过v-bind="$attrs"又可以向后代传递，直到遇到某个后代在props中定义了同名的attr就算传递到这个后代了，这对跨层级数据传递非常有用，某种程度上有android开发中单例的功能（回顾搜索:attr回顾步骤）；<br />
+        listeners：孙子组件(任何层级的后代组件)想通过this.$emit()发送事件到爷爷或任何祖先组件时，可以在两端组件中间的每一层组件中使用v-on="$listeners"，这样就能做到事件层层向上传递到目标先辈组件。参考grandson发送事件，son里面用v-on="$listeners"修饰grandson，然后grandpa就能收到事件。
+      </div>
 
-    <div class="tool-button" @click="toAttrsAndListeners()">
-      组件的attrs和listeners的使用；<br/>
-      attrs：父组件传递给子组件的所有的非props属性(在子组件的props中找不到，也不包括class和style这种)都可以在子组件的this.$attrs中访问到，然后你在子组件中通过v-bind="$attrs"又可以向后代传递，直到遇到某个后代在props中定义了同名的attr就算传递到这个后代了，这对跨层级数据传递非常有用，某种程度上有android开发中单例的功能（回顾搜索:attr回顾步骤）；<br />
-      listeners：孙子组件(任何层级的后代组件)想通过this.$emit()发送事件到爷爷或任何祖先组件时，可以在两端组件中间的每一层组件中使用v-on="$listeners"，这样就能做到事件层层向上传递到目标先辈组件。参考grandson发送事件，son里面用v-on="$listeners"修饰grandson，然后grandpa就能收到事件。
-    </div>
-
+      <div class="tool-button" @click="routeToUrl()">vue2中路由转url</div>
     </div>
   </div>
 </template>
@@ -67,8 +70,25 @@ export default {
       console.log(this.$options.name)
       console.log(this.$options.customOption)
     },
-    toAttrsAndListeners(){
-      this.$router.push('/grandpa')
+    toAttrsAndListeners() {
+      this.$router.push({
+        name: 'grandpa'
+      })
+    },
+    routeToUrl() {
+      const rUrl = this.$router.resolve({
+        name: 'grandpa',
+        query: {
+          name: '周星驰',
+          age: 50
+        }
+      }).href
+      /*  
+      /grandpa?name=%E5%91%A8%E6%98%9F%E9%A9%B0&age=50
+      得到的rUrl就是最终的结果，无效继续拼接前缀，例如http://localhost:8080，就可以直接访问，例如window.open(rUrl),或者iframe访问等等。。。。
+      */
+      console.log('获得的URL', rUrl)
+      window.open(rUrl)
     }
   },
   customOption: 'foo' //自定义一个属性
@@ -83,14 +103,14 @@ export default {
   margin: 20px;
 }
 
-  .tool-button {
-    width: fit-content;
-    height: fit-content;
-    background-color: skyblue;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin: 10px;
-  }
+.tool-button {
+  width: fit-content;
+  height: fit-content;
+  background-color: skyblue;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 10px;
+}
 </style>
