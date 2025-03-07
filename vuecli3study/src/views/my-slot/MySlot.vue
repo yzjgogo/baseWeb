@@ -7,8 +7,9 @@
       <span>我替换默认的插槽内容</span>
       <span>我替换默认的插槽内容</span>
     </MyNormalSlot>
+
     <h3>具名插槽</h3>
-    <!-- 不适用插槽，全用默认的 -->
+    <!-- 不使用插槽，全用默认的 -->
     <my-name-slot/>
     <!--    使用slot="name" 的方式-->
     <MyNameSlot>
