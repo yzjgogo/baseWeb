@@ -52,6 +52,14 @@
     </MyNameSlot>
 
 
+    <!-- 使用#default找到没有命名的插槽 -->
+    <MyNameSlot>
+      <template #default>
+        <span slot="center" style="background-color: #f8b38d">使用#default找到没有命名的插槽</span>
+      </template>
+    </MyNameSlot>
+
+
 
     
     
