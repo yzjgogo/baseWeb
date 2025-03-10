@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>只有一个没名字的插槽</h3>
+    <h3 style="margin-top: 50px;">只有一个没名字的插槽</h3>
     <MyNormalSlot></MyNormalSlot>
     <MyNormalSlot>
       <!-- 可以包裹多个元素 -->
@@ -13,7 +13,7 @@
 
 
 
-    <h3>具名插槽</h3>
+    <h3 style="margin-top: 50px;">具名插槽</h3>
 
 
     <!-- 不使用插槽，全用默认的 -->
@@ -53,7 +53,14 @@
 
 
 
-    <div>-------------------------------------------------------------------------------------------------------</div>
+    
+    
+
+
+    <h3 style="margin-top: 50px;">$slots的用法</h3>
+    <MyDollarSlot>
+      <div slot="head">我是外部传过来的头部</div>
+    </MyDollarSlot>
 
 
 
@@ -67,7 +74,7 @@
 
 
 
-    <h3>作用域插槽</h3>
+    <h3 style="margin-top: 50px;">作用域插槽</h3>
     
     <!--作用域插槽:子组件提供数据，父组件提供样式-->
 <!--即：父组件替换插槽的标签，但是数据由子组件来提供-->
@@ -96,12 +103,13 @@
 </template>
 
 <script>
+  import MyDollarSlot from "@/components/MyDollarSlot";
   import MyNormalSlot from "@/components/MyNormalSlot";
   import MyNameSlot from "@/components/MyNameSlot";
   import MyScopeSlot from "@/components/MyScopeSlot";
 export default {
   name: 'MySlot',
-  components: {MyNormalSlot, MyNameSlot, MyScopeSlot},
+  components: {MyNormalSlot, MyNameSlot, MyScopeSlot,MyDollarSlot},
   data() {
     return {
 
