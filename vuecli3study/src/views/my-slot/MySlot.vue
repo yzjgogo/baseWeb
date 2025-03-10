@@ -8,19 +8,33 @@
       <span>我替换默认的插槽内容</span>
     </MyNormalSlot>
 
+
+
+
+
+
     <h3>具名插槽</h3>
+
+
     <!-- 不使用插槽，全用默认的 -->
     <my-name-slot/>
+
+
     <!--    使用slot="name" 的方式-->
     <MyNameSlot>
+      <!-- 这个span会找到里面没有名字的插槽替换 -->
+      <span>有名</span>
       <span slot="center" style="background-color: #6CD559">使用slot="name" 的方式</span>
     </MyNameSlot>
+
+
     <!--    使用slot="name" 的方式并用<template/>包裹-->
     <MyNameSlot>
       <template slot="center">
         <span style="background-color: #6CD559">使用slot="name" 的方式并用template包裹</span>
       </template>
     </MyNameSlot>
+
 
     <!--      使用v-slot:name 的方式，需要用<template/>包裹，高版本的vue支持，2.6.xx就支持,当前项目是^2.6.14-->
     <MyNameSlot>
@@ -29,6 +43,7 @@
       </template>
     </MyNameSlot>
 
+    
     <!--      使用#name 的方式，需要用<template/>包裹，这是v-slot:name的简写方式，高版本的vue支持，2.6.xx就支持,当前项目是^2.6.14-->
     <MyNameSlot>
       <template #center>
@@ -39,6 +54,16 @@
 
 
     <div>-------------------------------------------------------------------------------------------------------</div>
+
+
+
+
+
+
+
+
+
+
 
 
 
