@@ -47,6 +47,20 @@
         https://www.itxst.com/sortablejs/neuinffi.html  <br />
         https://www.itxst.com/vue-draggable-next/tutorial.html  <br />
       </div>
+
+
+
+      <div class="line">隐私政策 或 协议模板</div>
+      <div @click="toMemberAgreement()">
+        跳转到会员协议
+      </div>
+      <div @click="toUserAgreement()">
+        跳转到用户协议
+      </div>
+
+
+
+
     </div>
   </div>
 </template>
@@ -101,7 +115,21 @@ export default {
       */
       console.log('获得的URL', rUrl)
       window.open(rUrl)
-    }
+    },
+    toMemberAgreement() {
+      this.$router.push({
+        name: 'Agreement',
+        query: {
+          type: 'member'
+        }
+      })},
+      toUserAgreement() {
+      this.$router.push({
+        name: 'Agreement',
+        query: {
+          type: 'user'
+        }
+      })}
   },
   customOption: 'foo' //自定义一个属性
 }
