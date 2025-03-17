@@ -8,5 +8,15 @@ export default [
       desc: '协议',
       keepAlive: true
     }
+  },
+  {
+    path: '/diyDirective',
+    name: 'DiyDirective',
+    component: () => import(/* webpackChunkName: "DiyDirective" */ '@views/diy-directive/index'),
+    meta: {
+      title: '自定义指令',
+      desc: '自定义指令',
+      keepAlive: true
+    }
   }
 ]

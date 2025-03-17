@@ -41,26 +41,20 @@
       <div class="tool-button" @click="routeToUrl()">vue2中路由转url</div>
 
       <div class="line">vuedraggable的用法</div>
-      <div>参考：drag01.pdf，drag02.pdf，drag03.pdf，drag04.pdf，drag05.pdf <br />
+      <div>
+        参考：drag01.pdf，drag02.pdf，drag03.pdf，drag04.pdf，drag05.pdf <br />
         https://sortablejs.github.io/Vue.Draggable/#/simple <br />
         https://github.com/SortableJS/Vue.Draggable <br />
-        https://www.itxst.com/sortablejs/neuinffi.html  <br />
-        https://www.itxst.com/vue-draggable-next/tutorial.html  <br />
+        https://www.itxst.com/sortablejs/neuinffi.html <br />
+        https://www.itxst.com/vue-draggable-next/tutorial.html <br />
       </div>
-
-
 
       <div class="line">隐私政策 或 协议模板</div>
-      <div @click="toMemberAgreement()">
-        跳转到会员协议
-      </div>
-      <div @click="toUserAgreement()">
-        跳转到用户协议
-      </div>
+      <div @click="toMemberAgreement()">跳转到会员协议</div>
+      <div @click="toUserAgreement()">跳转到用户协议</div>
 
-
-
-
+      <div class="line">自定义指令</div>
+      <div @click="toDiyDirective()">去自定义指令</div>
     </div>
   </div>
 </template>
@@ -122,14 +116,21 @@ export default {
         query: {
           type: 'member'
         }
-      })},
-      toUserAgreement() {
+      })
+    },
+    toUserAgreement() {
       this.$router.push({
         name: 'Agreement',
         query: {
           type: 'user'
         }
-      })}
+      })
+    },
+    toDiyDirective() {
+      this.$router.push({
+        name: 'DiyDirective'
+      })
+    }
   },
   customOption: 'foo' //自定义一个属性
 }

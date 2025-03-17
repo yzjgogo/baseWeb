@@ -19,6 +19,8 @@ import lodash from 'lodash'
 // 全局注册filter_2：引入filters.js文件
 import filters from '@/libs/filters'
 
+//引入自定义指令
+import '@/directive/index'
 
 // 引入vant
 import Vant from 'vant'
