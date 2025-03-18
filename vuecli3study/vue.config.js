@@ -3,10 +3,11 @@
 //https://www.jianshu.com/p/f2b4653e42e3
 //https://nodejs.org/api/path.html#pathresolvepaths
 //对比：E:\web\baseWeb\WebpackStudy\03_webpack命令_本地与全局依赖_npm_run_xxx\webpack.config.js
-const path = require('path');
+const path = require('path')
+const { CodeInspectorPlugin } = require('code-inspector-plugin')
 function resolve(dir) {
   // 设置绝对路径
-  return path.join(__dirname, dir)//__dirname就是当前这个vue.config.js所在的路径
+  return path.join(__dirname, dir) //__dirname就是当前这个vue.config.js所在的路径
 }
 module.exports = {
   transpileDependencies: true,
@@ -22,11 +23,18 @@ module.exports = {
   }
   */
 
+  configureWebpack: {
+    plugins: [
+      CodeInspectorPlugin({
+        bundler: 'webpack'
+      })
+    ]
+  },
   //给路径指定别名的方式2：注意resolve()方法是上面定义的
   chainWebpack: (config) => {
     config.resolve.alias
-        // set(别名, 路径)
-        // .set('@', resolve('./src'))
-        .set('@views', resolve('./src/views'))
+      // set(别名, 路径)
+      // .set('@', resolve('./src'))
+      .set('@views', resolve('./src/views'))
   }
 }

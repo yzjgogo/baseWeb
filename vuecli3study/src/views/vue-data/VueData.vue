@@ -55,6 +55,18 @@
 
       <div class="line">自定义指令</div>
       <div @click="toDiyDirective()">去自定义指令</div>
+
+      <div class="line">vConsole莫名其妙的问题</div>
+      <div>
+        vConsole引入后有时会导致浏览器的console输出一些莫名其妙的错误，关键时刻可以先把vConsole注释掉，排除掉这个原因
+      </div>
+
+      <div class="line">code-inspector-plugin</div>
+      <div>
+        code-inspector-plugin：可以F12的时候看都某个元素，例如div所在的vue文件，也可以通过快捷键直接在浏览器点击UI界面上的某个元素就会打开vscode对应的代码<br>
+        使用步骤：code-inspector-plugin步骤1：在package.json的devDependencies中添加"code-inspector-plugin": "^0.19.2"<br>
+        code-inspector-plugin步骤2：在vue.config.js中引入插件，搜索CodeInspectorPlugin
+      </div>
     </div>
   </div>
 </template>
