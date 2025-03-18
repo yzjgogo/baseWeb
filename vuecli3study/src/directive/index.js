@@ -1,4 +1,6 @@
 
+import Vue from 'vue'
+
 import './autoZIndex'
 import './yellowBg'
 import './dirAll'
