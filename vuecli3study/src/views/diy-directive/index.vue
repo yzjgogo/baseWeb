@@ -14,7 +14,7 @@
       <br>其中arg是传给指令的参数，可选。例如 v-my-directive:foo 时arg就是
       "foo"，下面会讲到动态指令参数；
       <br>modifiers是一个包含修饰符的对象，例如 v-my-directive.foo.bar 中，修饰符对象为
-      { foo: true, bar: true }，例如单击事件的.stop和.prevent等就是修饰符；
+      { foo: true, bar: true }，例如单击事件的.stop和.prevent等就是修饰符，mobileMousedown.js，mobileMousemove.js，mobileMouseup.js中有用到；
       <br>value：指令的绑定值，也可以是一个函数，看下面的举例
     </div>
     <div v-dongTaiArg:[direction]="200" class="line">传给指令的参数可以是动态的,通过中括号包裹</div>
