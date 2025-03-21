@@ -43,6 +43,7 @@
       <div class="line">vuedraggable的用法</div>
       <div>
         参考：drag01.pdf，drag02.pdf，drag03.pdf，drag04.pdf，drag05.pdf <br />
+        https://juejin.cn/post/7180234528009486394<br/>
         https://sortablejs.github.io/Vue.Draggable/#/simple <br />
         https://github.com/SortableJS/Vue.Draggable <br />
         https://www.itxst.com/sortablejs/neuinffi.html <br />
@@ -67,6 +68,12 @@
         使用步骤：code-inspector-plugin步骤1：在package.json的devDependencies中添加"code-inspector-plugin": "^0.19.2"<br>
         code-inspector-plugin步骤2：在vue.config.js中引入插件，搜索CodeInspectorPlugin
       </div>
+
+<div class="line">视口单位：vh,svh,lvh,dvh</div>
+<div>
+  参考：视口单位.jpg <br>
+  https://blog.csdn.net/qq_41221596/article/details/132632258
+</div>
     </div>
   </div>
 </template>
