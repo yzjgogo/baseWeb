@@ -3,7 +3,7 @@ const app = express()
 
 // 在这里，调用 express.static() 方法，快速的对外提供静态资源
 
-//http://127.0.0.1/files/aa.txt  不能http://127.0.0.1/aa.txt
+//添加前缀 http://127.0.0.1/files/aa.txt  不能http://127.0.0.1/aa.txt
 app.use('/files', express.static('./files'))
 
 //http://127.0.0.1/index.html  不需要http://127.0.0.1/clock/index.html
