@@ -1,3 +1,10 @@
+
+/*
+在 Express 中，路由指的是客户端的请求与服务器处理函数之间的映射关系。
+Express 中的路由分 3 部分组成，分别是请求的类型、请求的 URL 地址、处理函数，格式如下：
+app.METHOD(PATH, HANDLER)
+*/
+
 const express = require('express')
 const app = express()
 
