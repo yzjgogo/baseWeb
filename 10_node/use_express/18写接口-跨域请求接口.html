@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <button id="btnGET">GET</button>
+    <button id="btnPOST">POST</button>
+    <button id="btnDelete">DELETE</button>
+
+    <script>
+
+      /*
+        参考：E:\web\baseWeb\10_node\use_express\17写接口.js
+
+        这里是在本地的file协议打开的网页，即使不是file协议打开，而是非'http://127.0.0.1'的域名下请求，都会报跨域的问题
+
+        解决接口跨域问题的方案主要有两种：
+① CORS（主流的解决方案，推荐使用）
+② JSONP（有缺陷的解决方案：只支持 GET 请求）
+
+      */
+
+      $(function () {
+        // 1. 测试GET接口
+        $('#btnGET').on('click', function () {
+          $.ajax({
+            type: 'GET',
+            url: 'http://127.0.0.1/api/get',
+            data: { name: 'zs', age: 20 },
+            success: function (res) {
+              console.log("跨域get请求成功",res)
+            },
+          })
+        })
+        // 2. 测试POST接口
+        $('#btnPOST').on('click', function () {
+          $.ajax({
+            type: 'POST',
+            url: 'http://127.0.0.1/api/post',
+            data: { bookname: '水浒传', author: '施耐庵' },
+            success: function (res) {
+              console.log("跨域post请求成功",res)
+            },
+          })
+        })
+
+        // 3. 为删除按钮绑定点击事件处理函数
+        $('#btnDelete').on('click', function () {
+          $.ajax({
+            type: 'DELETE',
+            url: 'http://127.0.0.1/api/delete',
+            success: function (res) {
+              console.log("跨域delete请求成功",res)
+            },
+          })
+        })
+      })
+    </script>
+  </body>
+</html>

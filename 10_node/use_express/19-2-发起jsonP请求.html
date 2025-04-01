@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <button id="btnJSONP">JSONP</button>
+
+    <script>
+
+/*
+JSONP 的概念与特点
+概念：浏览器端通过 <script> 标签的 src 属性，请求服务器上的数据，同时，服务器返回一个函数的调用。这种请求数据
+的方式叫做 JSONP。
+特点：
+① JSONP 不属于真正的 Ajax 请求，因为它没有使用 XMLHttpRequest 这个对象。
+② JSONP 仅支持 GET 请求，不支持 POST、PUT、DELETE 等请求。
+*/
+      $(function () {
+
+        // 为 JSONP 按钮绑定点击事件处理函数，dataType: 'jsonp' 表示使用 jsonp 方式请求数据
+        $('#btnJSONP').on('click', function () {
+          $.ajax({
+            type: 'GET',
+            url: 'http://127.0.0.1/api/jsonp',
+            dataType: 'jsonp',
+            success: function (res) {
+              //服务端send的数据是：{"name":"zs","age":20}而不是callback({"name":"zs","age":20})
+              console.log("跨域jsonP请求成功",res)
+            },
+          })
+        })
+      })
+    </script>
+  </body>
+</html>
