@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="root-box">
     <div>
       <div class="line">$data 和 $options</div>
       <button @click="logData()">输出$data 和 $options</button>
@@ -43,7 +43,7 @@
       <div class="line">vuedraggable的用法</div>
       <div>
         参考：drag01.pdf，drag02.pdf，drag03.pdf，drag04.pdf，drag05.pdf <br />
-        https://juejin.cn/post/7180234528009486394<br/>
+        https://juejin.cn/post/7180234528009486394<br />
         https://sortablejs.github.io/Vue.Draggable/#/simple <br />
         https://github.com/SortableJS/Vue.Draggable <br />
         https://www.itxst.com/sortablejs/neuinffi.html <br />
@@ -64,16 +64,26 @@
 
       <div class="line">code-inspector-plugin</div>
       <div>
-        code-inspector-plugin：可以F12的时候看都某个元素，例如div所在的vue文件，也可以通过快捷键直接在浏览器点击UI界面上的某个元素就会打开vscode对应的代码<br>
-        使用步骤：code-inspector-plugin步骤1：在package.json的devDependencies中添加"code-inspector-plugin": "^0.19.2"<br>
+        code-inspector-plugin：可以F12的时候看都某个元素，例如div所在的vue文件，也可以通过快捷键直接在浏览器点击UI界面上的某个元素就会打开vscode对应的代码<br />
+        使用步骤：code-inspector-plugin步骤1：在package.json的devDependencies中添加"code-inspector-plugin":
+        "^0.19.2"<br />
         code-inspector-plugin步骤2：在vue.config.js中引入插件，搜索CodeInspectorPlugin
       </div>
 
-<div class="line">视口单位：vh,svh,lvh,dvh</div>
-<div>
-  参考：视口单位.jpg <br>
-  https://blog.csdn.net/qq_41221596/article/details/132632258
-</div>
+      <div class="line">视口单位：vh,svh,lvh,dvh</div>
+      <div>
+        参考：视口单位.jpg <br />
+        https://blog.csdn.net/qq_41221596/article/details/132632258
+      </div>
+
+      <div class="line">不跨标签和跨标签通信</div>
+      <button>常用的$bus.$emit，不再介绍：不支持夸标签通信</button>
+      <button @click="toTestEmitterEvent()">
+        自己写一个事件总线：Emitter；完全是自己手写的，利用了javascript代码、变量、对象等是全局的、是挂到window上的特点实现的，即整个项目在不夸标签的情况下都能访问到同一个Emitter对象，参考emitter.js
+      </button>
+      <button @click="toTestBroadcastChannelEvent()">
+        使用BroadcastChannel发送事件：1：如果不是跨标签(当前window)，则同一个BroadcastChannel实例发送的postMessage同一个BroadcastChannel的onmessage收不到，需要不同的BroadcastChannel实例才能收到，例如可以new一个BroadcastChannel执行postMessage，再new一个BroadcastChannel用于onmessage；2：如果是跨标签(不同的window)通信，则BroadcastChannel的发送方(postMessage)和接收方(onmessage)肯定不是同一个BroadcastChannel实例，他们分数不同的window，因此双方都需要new出BroadcastChannel实例。
+      </button>
     </div>
   </div>
 </template>
@@ -86,6 +96,7 @@ export default {
   components: { TestWin },
   data() {
     return {
+      channel: null,
       bookList: ['大话西游'], // 名著的书本列表
       name: '周星驰',
       testObj: {
@@ -94,7 +105,76 @@ export default {
       }
     }
   },
+  mounted() {
+    console.log('mounted执行了==')
+    this.$emitter.on('testEmitter', this.emitterListener)
+
+    // 监听BroadcastChannel事件
+    this.channel = new BroadcastChannel('test-channel')
+    // channel.onmessage = (event) => {
+    //   console.log('接收到的Broadcast事件----', event.data)
+    // }
+    this.channel.onmessage = this.broadcastChannelListener
+  },
+  beforeDestroy() {
+    console.log('beforeDestroyed执行了')
+    this.$emitter.off('testEmitter', this.emitterListener)
+    this.channel?.close()
+  },
+  activated() {
+    console.log('activated执行了')
+  },
+  deactivated() {
+    console.log('deactivated执行了')
+  },
   methods: {
+    emitterListener(mData) {
+      console.log('接收到的事件----', mData)
+    },
+    broadcastChannelListener(event) {
+      console.log('接收到的BroadcastChannel事件----', event.data)
+    },
+
+    /**
+     *
+     */
+    toTestEmitterEvent() {
+      // this.$store.commit('studyTab/updateSubject', '西游记')
+      //不跨标签打开新的路由tabPage，tabPage与当前的VueData页是不跨标签的，是同一个window。因此可以通过Emitter发送接收事件
+      this.$router.push({
+        name: 'tabPage'
+      })
+
+      //跨标签打开新的window页面，新页面在新的window里，是不同的内存空间，彼此无法通过Emitter发送接收事件
+      // const rUrl = this.$router.resolve({
+      //   name: 'tabPage'
+      // }).href
+      // window.open(rUrl)
+    },
+    toTestBroadcastChannelEvent() {
+      /*
+      mounted中可以收到事件，因为BroadcastChannel是不同的实例
+       const channel1 = new BroadcastChannel('test-channel')
+       channel1.postMessage('我是tabPage组件发出的Broadcast事件---')
+
+      */
+
+      /*
+      mounted中收不到事件，因为BroadcastChannel是相同的实例
+      this.channel.postMessage('我是tabPage组件发出的Broadcast事件---')
+      */
+
+      //非跨标签通信，即当前window通信，此时可以收到事件
+      // this.$router.push({
+      //   name: 'tabPage'
+      // })
+
+      //跨标签通信，即跨window通信，此时可以收到事件
+      const rUrl = this.$router.resolve({
+        name: 'tabPage'
+      }).href
+      window.open(rUrl)
+    },
     logData() {
       // 参考：https://v2.cn.vuejs.org/v2/api/#data
       console.log('输出$data')
@@ -156,6 +236,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.root-box {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
 .line {
   width: 100%;
   height: fit-content;

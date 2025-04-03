@@ -26,6 +26,9 @@ import '@/directive/index'
 import Vant from 'vant'
 import 'vant/lib/index.css'
 
+
+import emitter from './utils/emitter'
+
 // rem在项目中的使用步骤2
 // import '@/config/rem'
 
@@ -39,6 +42,7 @@ Vue.use(Vant)
 Vue.prototype._ = lodash
 // $utils实现步骤3
 Vue.prototype.$utils = utils
+Vue.prototype.$emitter = emitter
 // 全局注册filter_4，将filters.js文件里定义的filter进行全局注册
 Object.keys(filters).forEach(key => {
   console.log('注册filter')
