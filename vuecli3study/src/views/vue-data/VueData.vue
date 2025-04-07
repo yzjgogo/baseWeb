@@ -77,12 +77,15 @@
       </div>
 
       <div class="line">不跨标签和跨标签通信</div>
-      <button>常用的$bus.$emit，不再介绍：不支持夸标签通信</button>
+      <button>不能夸标签通信--常用的$bus.$emit，不再介绍：不支持夸标签通信</button>
       <button @click="toTestEmitterEvent()">
-        自己写一个事件总线：Emitter；完全是自己手写的，利用了javascript代码、变量、对象等是全局的、是挂到window上的特点实现的，即整个项目在不夸标签的情况下都能访问到同一个Emitter对象，参考emitter.js
+        不能夸标签通信--自己写一个事件总线：Emitter；完全是自己手写的，利用了javascript代码、变量、对象等是全局的、是挂到window上的特点实现的，即整个项目在不夸标签的情况下都能访问到同一个Emitter对象，参考emitter.js，已经在main.js中挂载到vue实例上了，用法this.$emitter
       </button>
       <button @click="toTestBroadcastChannelEvent()">
-        使用BroadcastChannel发送事件：1：如果不是跨标签(当前window)，则同一个BroadcastChannel实例发送的postMessage同一个BroadcastChannel的onmessage收不到，需要不同的BroadcastChannel实例才能收到，例如可以new一个BroadcastChannel执行postMessage，再new一个BroadcastChannel用于onmessage；2：如果是跨标签(不同的window)通信，则BroadcastChannel的发送方(postMessage)和接收方(onmessage)肯定不是同一个BroadcastChannel实例，他们分数不同的window，因此双方都需要new出BroadcastChannel实例。
+        能夸标签通信--使用BroadcastChannel发送事件：1：如果不是跨标签(当前window)，则同一个BroadcastChannel实例发送的postMessage同一个BroadcastChannel的onmessage收不到，需要不同的BroadcastChannel实例才能收到，例如可以new一个BroadcastChannel执行postMessage，再new一个BroadcastChannel用于onmessage；2：如果是跨标签(不同的window)通信，则BroadcastChannel的发送方(postMessage)和接收方(onmessage)肯定不是同一个BroadcastChannel实例，他们分属不同的window，因此双方都需要new出BroadcastChannel实例。
+      </button>
+      <button @click="toTestCommonChannel()">
+        不是跨标签的情况下走Emitter，跨标签的情况下走BroadcastChannel：其实就是把Emitter和BroadcastChannel封装成一个对象。用法和Emitter一样，发送事件用：this.$commChannel.emit('事件名',数据)；接收事件参考：this.$commChannel.on('事件名',回调函数)；参考commChannel.js里面的内容
       </button>
     </div>
   </div>
@@ -115,6 +118,8 @@ export default {
     //   console.log('接收到的Broadcast事件----', event.data)
     // }
     this.channel.onmessage = this.broadcastChannelListener
+
+    this.$commChannel.on('testcommChannel', this.commChannelListener)
   },
   beforeDestroy() {
     console.log('beforeDestroyed执行了')
@@ -133,6 +138,9 @@ export default {
     },
     broadcastChannelListener(event) {
       console.log('接收到的BroadcastChannel事件----', event.data)
+    },
+    commChannelListener(mData) {
+      console.log('接收到的commChannelListener事件----', mData)
     },
 
     /**
@@ -174,6 +182,18 @@ export default {
         name: 'tabPage'
       }).href
       window.open(rUrl)
+    },
+    toTestCommonChannel(){
+      //非跨标签通信，即当前window通信，此时走commChannel里封装的Emitter通信
+      this.$router.push({
+        name: 'tabPage'
+      })
+
+      //跨标签通信，即跨window通信，此时走commChannel里封装的EmitterBroadcastChannel通信
+      // const rUrl = this.$router.resolve({
+      //   name: 'tabPage'
+      // }).href
+      // window.open(rUrl)
     },
     logData() {
       // 参考：https://v2.cn.vuejs.org/v2/api/#data
