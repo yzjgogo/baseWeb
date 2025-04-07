@@ -77,7 +77,9 @@
       </div>
 
       <div class="line">不跨标签和跨标签通信</div>
-      <button>不能夸标签通信--常用的$bus.$emit，不再介绍：不支持夸标签通信</button>
+      <button>
+        不能夸标签通信--常用的$bus.$emit，不再介绍：不支持夸标签通信
+      </button>
       <button @click="toTestEmitterEvent()">
         不能夸标签通信--自己写一个事件总线：Emitter；完全是自己手写的，利用了javascript代码、变量、对象等是全局的、是挂到window上的特点实现的，即整个项目在不夸标签的情况下都能访问到同一个Emitter对象，参考emitter.js，已经在main.js中挂载到vue实例上了，用法this.$emitter
       </button>
@@ -87,6 +89,11 @@
       <button @click="toTestCommonChannel()">
         不是跨标签的情况下走Emitter，跨标签的情况下走BroadcastChannel：其实就是把Emitter和BroadcastChannel封装成一个对象。用法和Emitter一样，发送事件用：this.$commChannel.emit('事件名',数据)；接收事件参考：this.$commChannel.on('事件名',回调函数)；参考commChannel.js里面的内容
       </button>
+
+      <div class="line">
+        获取url后面跟的参数，组成对象返回，兼容#前和#后都有的情况
+      </div>
+      <button @click="getQueryInUrl()">获取url参数</button>
     </div>
   </div>
 </template>
@@ -133,6 +140,35 @@ export default {
     console.log('deactivated执行了')
   },
   methods: {
+    /**
+     * 获取url后面跟的参数，组成对象返回，兼容#前和#后都有的情况
+     * @returns {Object} url参数对象
+     * 
+     * decodeURIComponent(i.split('=')[1])：对url参数进行解码，url参数中有中文时需要解码才能得到中文字符，例如这里的刘德华
+     */
+    getQueryInUrl() {
+      // const url = window.location.href
+      //http://localhost:8081/?token=7900150647de7f194c7adc6766212d331ed50b0a0b83355169f129e33f64fc6b#/book?book_id=1813067&name=刘德华
+      const url = `http://localhost:8081/?token=7900150647de7f194c7adc6766212d331ed50b0a0b83355169f129e33f64fc6b#/book?book_id=1813067&name=%E5%88%98%E5%BE%B7%E5%8D%8E`
+
+      const _query2Obj = (path) => {
+        if (!path) return
+        const queryStr = path.split('?')[1]
+        if (!queryStr) return {}
+        return Object.fromEntries(
+          queryStr
+            .split('&')
+            .map((i) => [i.split('=')[0], decodeURIComponent(i.split('=')[1])])
+        )
+      }
+      const [searchPath, hashPath] = url.split('#')
+      const queryObj = {
+        ..._query2Obj(searchPath),
+        ..._query2Obj(hashPath)
+      }
+      console.log("参数解析结果", queryObj)
+      return queryObj
+    },
     emitterListener(mData) {
       console.log('接收到的事件----', mData)
     },
@@ -183,7 +219,7 @@ export default {
       }).href
       window.open(rUrl)
     },
-    toTestCommonChannel(){
+    toTestCommonChannel() {
       //非跨标签通信，即当前window通信，此时走commChannel里封装的Emitter通信
       this.$router.push({
         name: 'tabPage'
