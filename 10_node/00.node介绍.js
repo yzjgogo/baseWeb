@@ -1,6 +1,9 @@
 // 参考：node图解.jpeg
 
 /**
+ 
+当时学习时的百度网盘路径：百度网盘学习时的视频路径.jpg
+
 Node.js 作为一个 JavaScript 的运行环境，仅仅提供了基础的功能和 API。然而，基于 Node.js 提供的这些基础能，很多强大
 的工具和框架如雨后春笋，层出不穷，所以学会了 Node.js ，可以让前端程序员胜任更多的工作和岗位：
 ① 基于 Express 框架（http://www.expressjs.com.cn/），可以快速构建 Web 应用
