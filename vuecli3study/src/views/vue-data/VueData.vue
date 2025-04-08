@@ -37,7 +37,9 @@
         listeners：孙子组件(任何层级的后代组件)想通过this.$emit()发送事件到爷爷或任何祖先组件时，可以在两端组件中间的每一层组件中使用v-on="$listeners"，这样就能做到事件层层向上传递到目标先辈组件。参考grandson发送事件，son里面用v-on="$listeners"修饰grandson，然后grandpa就能收到事件。
       </div>
 
-      <div class="line">vue2中的路由解析($router.resolve，能看到很多有用的信息)-vue2中路由转url</div>
+      <div class="line">
+        vue2中的路由解析($router.resolve，能看到很多有用的信息)-vue2中路由转url
+      </div>
       <div class="tool-button" @click="routeResolve()">vue2中的路由解析</div>
       <div class="tool-button" @click="routeToUrl()">vue2中路由转url</div>
 
@@ -95,6 +97,14 @@
         获取url后面跟的参数，组成对象返回，兼容#前和#后都有的情况
       </div>
       <button @click="getQueryInUrl()">获取url参数</button>
+
+      <div class="line">css变量的定义：参考图片：css变量F12的情况.jpeg</div>
+      <div class="use-var">
+        定义方式1：在.css或.less文件中定义，参考：vuecli3study\src\assets\css\variable.less中的--theme-color；其中:root这个css伪类匹配文档树的根元素，对于HTML来说，:root表示html这个元素，除了优先级更高之外，与html选择器相同；其中my_variable.less被index.less引入，index.less在main.js被引入也就生效了；变量的使用看这里的class,use-var里的var(--theme-color)
+      </div>
+      <div class="use-app-var">
+        定义方式2：在App.vue中的style中定义，因为是单页面应用，所以在App.vue中定义的css变量在整个项目中都能使用；看App.vue中的style中的--TopPadding和--BottomPadding，看class use-app-var里变量的使用<br />
+      </div>
     </div>
   </div>
 </template>
@@ -144,7 +154,7 @@ export default {
     /**
      * 获取url后面跟的参数，组成对象返回，兼容#前和#后都有的情况
      * @returns {Object} url参数对象
-     * 
+     *
      * decodeURIComponent(i.split('=')[1])：对url参数进行解码，url参数中有中文时需要解码才能得到中文字符，例如这里的刘德华
      */
     getQueryInUrl() {
@@ -167,7 +177,7 @@ export default {
         ..._query2Obj(searchPath),
         ..._query2Obj(hashPath)
       }
-      console.log("参数解析结果", queryObj)
+      console.log('参数解析结果', queryObj)
       return queryObj
     },
     emitterListener(mData) {
@@ -251,7 +261,7 @@ export default {
         name: 'grandpa'
       })
     },
-    routeResolve(){
+    routeResolve() {
       const myResolve = this.$router.resolve({
         name: 'grandpa',
         query: {
@@ -325,5 +335,14 @@ export default {
   padding-top: 5px;
   padding-bottom: 5px;
   margin: 10px;
+}
+.use-var{
+  background-color: var(--theme-color);
+}
+.use-app-var{
+  margin-top: 20px;
+  padding-top: var(--TopPadding);
+  padding-bottom: var(--BottomPadding);
+  background-color: var(--theme-color);
 }
 </style>

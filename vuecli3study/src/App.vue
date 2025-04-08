@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div id="app" 
+  :style="`--TopPadding: ${TopPadding}px; --BottomPadding: ${BottomPadding}px;`">
     <keep-alive>
       <router-view />
     </keep-alive>
@@ -8,7 +9,13 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      TopPadding: 40,
+      BottomPadding: 80,
+    }
+  },
 }
 </script>
 
