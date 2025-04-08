@@ -37,7 +37,8 @@
         listeners：孙子组件(任何层级的后代组件)想通过this.$emit()发送事件到爷爷或任何祖先组件时，可以在两端组件中间的每一层组件中使用v-on="$listeners"，这样就能做到事件层层向上传递到目标先辈组件。参考grandson发送事件，son里面用v-on="$listeners"修饰grandson，然后grandpa就能收到事件。
       </div>
 
-      <div class="line">vue2中路由转url</div>
+      <div class="line">vue2中的路由解析($router.resolve，能看到很多有用的信息)-vue2中路由转url</div>
+      <div class="tool-button" @click="routeResolve()">vue2中路由转url</div>
       <div class="tool-button" @click="routeToUrl()">vue2中路由转url</div>
 
       <div class="line">vuedraggable的用法</div>
@@ -249,6 +250,16 @@ export default {
       this.$router.push({
         name: 'grandpa'
       })
+    },
+    routeResolve(){
+      const myResolve = this.$router.resolve({
+        name: 'grandpa',
+        query: {
+          name: '周星驰',
+          age: 50
+        }
+      })
+      console.log('获得的路由解析结果', myResolve)
     },
     routeToUrl() {
       const rUrl = this.$router.resolve({
