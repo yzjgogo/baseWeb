@@ -38,7 +38,7 @@
       </div>
 
       <div class="line">vue2中的路由解析($router.resolve，能看到很多有用的信息)-vue2中路由转url</div>
-      <div class="tool-button" @click="routeResolve()">vue2中路由转url</div>
+      <div class="tool-button" @click="routeResolve()">vue2中的路由解析</div>
       <div class="tool-button" @click="routeToUrl()">vue2中路由转url</div>
 
       <div class="line">vuedraggable的用法</div>
