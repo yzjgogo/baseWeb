@@ -96,7 +96,7 @@
       <div class="line">
         获取url后面跟的参数，组成对象返回，兼容#前和#后都有的情况
       </div>
-      <button @click="getQueryInUrl()">获取url参数</button>
+      <button @click="getQueryInUrl()">获取url参数,且将url参数中的中文乱码编码成看得懂的中文</button>
 
       <div class="line">css变量的定义：参考图片：css变量F12的情况.jpeg</div>
       <div class="use-var">
