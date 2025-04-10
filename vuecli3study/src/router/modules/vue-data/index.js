@@ -22,4 +22,9 @@ export default [
     name: 'systemResource',
     component: () => import(/* webpackChunkName: "systemResource" */ '@views/vue-data/components/systemResource.vue')
   },
+  {
+    path: '/recordAudio',
+    name: 'recordAudio',
+    component: () => import(/* webpackChunkName: "recordAudio" */ '@views/vue-data/components/recordAudio.vue')
+  },
 ]

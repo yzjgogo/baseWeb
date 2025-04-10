@@ -107,6 +107,8 @@
       </div>
       <div class="line">web访问原生系统的资源，例如访问android，ios，windows等的图片，相机，文件等;图片压缩</div>
       <button @click="tosystemResource">go</button>
+      <div class="line">纯web实现录音：android,ios,windows等，使用第三方的js-audio-recorder录音，第三方的lamejs进行mp3编码，可以把wav格式的音频转为mp3格式等</div>
+      <button @click="goRecord">去录音页面</button>
     </div>
   </div>
 </template>
@@ -156,6 +158,11 @@ export default {
     tosystemResource(){
       this.$router.push({
         name: 'systemResource'
+      })
+    },
+    goRecord(){
+      this.$router.push({
+        name: 'recordAudio'
       })
     },
     /**

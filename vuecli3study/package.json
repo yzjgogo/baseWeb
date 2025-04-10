@@ -17,7 +17,9 @@
     "js-pinyin": "^0.1.9",
     "moment": "^2.24.0",
     "vant": "2.12.26",
-    "vuedraggable": "^2.23.2"
+    "vuedraggable": "^2.23.2",
+    "js-audio-recorder": "^1.0.7",
+    "lamejs": "^1.2.1"
   },
   "devDependencies": {
     "@babel/plugin-transform-private-methods": "^7.25.9",

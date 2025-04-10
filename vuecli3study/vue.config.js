@@ -4,6 +4,7 @@
 //https://nodejs.org/api/path.html#pathresolvepaths
 //对比：E:\web\baseWeb\WebpackStudy\03_webpack命令_本地与全局依赖_npm_run_xxx\webpack.config.js
 const path = require('path')
+const fs = require('fs')
 const { CodeInspectorPlugin } = require('code-inspector-plugin')
 function resolve(dir) {
   // 设置绝对路径
@@ -23,6 +24,12 @@ module.exports = {
   }
   */
 
+  devServer: {
+    // https: {
+    //   cert: fs.readFileSync(path.join(__dirname, 'src/ssl/cert.crt')),
+    //   key: fs.readFileSync(path.join(__dirname, 'src/ssl/cert.key'))
+    // }
+  },
   configureWebpack: {
     plugins: [
       CodeInspectorPlugin({
