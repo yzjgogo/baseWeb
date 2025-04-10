@@ -27,4 +27,9 @@ export default [
     name: 'recordAudio',
     component: () => import(/* webpackChunkName: "recordAudio" */ '@views/vue-data/components/recordAudio.vue')
   },
+  {
+    path: '/imgCropper',
+    name: 'imgCropper',
+    component: () => import(/* webpackChunkName: "imgCropper" */ '@views/vue-data/components/imgCropper.vue')
+  },
 ]

@@ -19,7 +19,8 @@
     "vant": "2.12.26",
     "vuedraggable": "^2.23.2",
     "js-audio-recorder": "^1.0.7",
-    "lamejs": "^1.2.1"
+    "lamejs": "^1.2.1",
+    "cropperjs": "^1.6.2"
   },
   "devDependencies": {
     "@babel/plugin-transform-private-methods": "^7.25.9",

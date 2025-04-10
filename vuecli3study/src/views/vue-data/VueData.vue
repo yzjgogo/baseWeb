@@ -109,6 +109,8 @@
       <button @click="tosystemResource">go</button>
       <div class="line">纯web实现录音：android,ios,windows等，使用第三方的js-audio-recorder录音，第三方的lamejs进行mp3编码，可以把wav格式的音频转为mp3格式等</div>
       <button @click="goRecord">去录音页面</button>
+      <div class="line">第三方的图片剪裁工具：cropperjs</div>
+      <button @click="goCropper">去剪裁图片</button>
     </div>
   </div>
 </template>
@@ -163,6 +165,11 @@ export default {
     goRecord(){
       this.$router.push({
         name: 'recordAudio'
+      })
+    },
+    goCropper(){
+      this.$router.push({
+        name: 'imgCropper'
       })
     },
     /**
