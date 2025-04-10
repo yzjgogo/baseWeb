@@ -80,17 +80,17 @@
       </div>
 
       <div class="line">不跨标签和跨标签通信</div>
-      <button>
-        不能夸标签通信--常用的$bus.$emit，不再介绍：不支持夸标签通信
-      </button>
-      <button @click="toTestEmitterEvent()">
-        不能夸标签通信--自己写一个事件总线：Emitter；完全是自己手写的，利用了javascript代码、变量、对象等是全局的、是挂到window上的特点实现的，即整个项目在不夸标签的情况下都能访问到同一个Emitter对象，参考emitter.js，已经在main.js中挂载到vue实例上了，用法this.$emitter
-      </button>
-      <button @click="toTestBroadcastChannelEvent()">
-        能夸标签通信(例如浏览器window.open打开新的标签；android打开新的CommonWebviewActivity等，总之是不同的window的通信)--使用BroadcastChannel发送事件：1：如果不是跨标签(当前window)，则同一个BroadcastChannel实例发送的postMessage同一个BroadcastChannel的onmessage收不到，需要不同的BroadcastChannel实例才能收到，例如可以new一个BroadcastChannel执行postMessage，再new一个BroadcastChannel用于onmessage；2：如果是跨标签(不同的window)通信，则BroadcastChannel的发送方(postMessage)和接收方(onmessage)肯定不是同一个BroadcastChannel实例，他们分属不同的window，因此双方都需要new出BroadcastChannel实例。
-      </button>
-      <button @click="toTestCommonChannel()">
-        不是跨标签的情况下走Emitter，跨标签的情况下走BroadcastChannel：其实就是把Emitter和BroadcastChannel封装成一个对象。用法和Emitter一样，发送事件用：this.$commChannel.emit('事件名',数据)；接收事件参考：this.$commChannel.on('事件名',回调函数)；参考commChannel.js里面的内容
+      <button style="margin: 10px;">
+        1:不能夸标签通信--常用的$bus.$emit，不再介绍：不支持夸标签通信
+      </button><br/>
+      <button @click="toTestEmitterEvent()" style="margin: 10px;">
+        2:不能夸标签通信--自己写一个事件总线：Emitter；完全是自己手写的，利用了javascript代码、变量、对象等是全局的、是挂到window上的特点实现的，即整个项目在不夸标签的情况下都能访问到同一个Emitter对象，参考emitter.js，已经在main.js中挂载到vue实例上了，用法this.$emitter
+      </button><br/>
+      <button @click="toTestBroadcastChannelEvent()" style="margin: 10px;">
+        3:能夸标签通信(例如浏览器window.open打开新的标签；android打开新的CommonWebviewActivity等，总之是不同的window的通信)--使用BroadcastChannel发送事件：1：如果不是跨标签(当前window)，则同一个BroadcastChannel实例发送的postMessage同一个BroadcastChannel的onmessage收不到，需要不同的BroadcastChannel实例才能收到，例如可以new一个BroadcastChannel执行postMessage，再new一个BroadcastChannel用于onmessage；2：如果是跨标签(不同的window)通信，则BroadcastChannel的发送方(postMessage)和接收方(onmessage)肯定不是同一个BroadcastChannel实例，他们分属不同的window，因此双方都需要new出BroadcastChannel实例。
+      </button><br/>
+      <button @click="toTestCommonChannel()" style="margin: 10px;">
+        4:不是跨标签的情况下走Emitter，跨标签的情况下走BroadcastChannel：其实就是把Emitter和BroadcastChannel封装成一个对象。用法和Emitter一样，发送事件用：this.$commChannel.emit('事件名',数据)；接收事件参考：this.$commChannel.on('事件名',回调函数)；参考commChannel.js里面的内容
       </button>
 
       <div class="line">
