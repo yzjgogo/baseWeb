@@ -17,4 +17,9 @@ export default [
     name: 'tabPage',
     component: () => import(/* webpackChunkName: "tabPage" */ '@views/vue-data/components/tabPage.vue')
   },
+  {
+    path: '/systemResource',
+    name: 'systemResource',
+    component: () => import(/* webpackChunkName: "systemResource" */ '@views/vue-data/components/systemResource.vue')
+  },
 ]

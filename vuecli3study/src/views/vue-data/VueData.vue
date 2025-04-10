@@ -105,6 +105,8 @@
       <div class="use-app-var">
         定义方式2：在App.vue中的style中定义，因为是单页面应用，所以在App.vue中定义的css变量在整个项目中都能使用；看App.vue中的style中的--TopPadding和--BottomPadding，看class use-app-var里变量的使用<br />
       </div>
+      <div class="line">web访问原生系统的资源，例如访问android，ios，windows等的图片，相机，文件等;图片压缩</div>
+      <button @click="tosystemResource">go</button>
     </div>
   </div>
 </template>
@@ -151,6 +153,11 @@ export default {
     console.log('deactivated执行了')
   },
   methods: {
+    tosystemResource(){
+      this.$router.push({
+        name: 'systemResource'
+      })
+    },
     /**
      * 获取url后面跟的参数，组成对象返回，兼容#前和#后都有的情况
      * @returns {Object} url参数对象
