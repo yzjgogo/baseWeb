@@ -6,6 +6,7 @@
 
 
 Cookie认证方式适用于传统的服务端生成前端页面的应用场景，不适用于前后端分离的应用场景，前后端分离应该用token认证方式
+Session 认证机制需要配合 Cookie 才能实现。由于 Cookie 默认不支持跨域访问，所以，当涉及到前端跨域请求后端接口的时候，需要做很多额外的配置，才能实现跨域 Session 认证，因此跨域的时候不推荐使用cookie
 
 参考：E:\web\JsBase\07_Apache\Cookie和Session.html
 
@@ -45,9 +46,9 @@ const app = express()
 const session = require('express-session')
 app.use(
   session({
-    secret: 'itheima',
-    resave: false,
-    saveUninitialized: true,
+    secret: 'itheima',//随便写
+    resave: false,//固定写法
+    saveUninitialized: true,//固定写法
   })
 )
 
