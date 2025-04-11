@@ -111,6 +111,8 @@
       <button @click="goRecord">去录音页面</button>
       <div class="line">第三方的图片剪裁工具：cropperjs</div>
       <button @click="goCropper">去剪裁图片</button>
+      <div class="line">前端数据存储方案：Cookie、sessionStorage、localStorage、localforage、IndexedDB </div>
+      <button @click="goCacheData">去页面</button>
     </div>
   </div>
 </template>
@@ -157,6 +159,11 @@ export default {
     console.log('deactivated执行了')
   },
   methods: {
+    goCacheData(){
+      this.$router.push({
+        name: 'cacheData'
+      })
+    },
     tosystemResource(){
       this.$router.push({
         name: 'systemResource'
@@ -338,13 +345,6 @@ export default {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-}
-.line {
-  width: 100%;
-  height: fit-content;
-  margin-top: 20px;
-  font-weight: bold;
-  font-size: 20px;
 }
 
 .tool-button {
