@@ -26,6 +26,7 @@ app.use(express.urlencoded({ extended: false }))
 内置中间件3: express.static()，用于托管静态资源,参考：E:\web\baseWeb\10_node\use_express\02使用express.static对外提供静态资源.js
 */
 
+//参考图片：postman发送json数据.jpg
 app.post('/user', (req, res) => {
   // 在服务器，可以使用 req.body 这个属性，来接收客户端发送过来的请求体数据
   // 默认情况下，如果不配置解析表单数据的中间件，则 req.body 默认等于 undefined
@@ -33,9 +34,25 @@ app.post('/user', (req, res) => {
   res.send('ok')
 })
 
+//参考：postman发送urlencoded数据.jpg
 app.post('/book', (req, res) => {
   // 在服务器端，可以通过 req,body 来获取 JSON 格式的表单数据和 url-encoded 格式的数据
   console.log('书本路由', req.body)
+  res.send('ok')
+})
+
+/*
+内置中间件4：multer;使用 express.urlencoded() 中间件无法解析 multipart/form-data 格式的请求体
+数据。推荐使用 multer 来解析 multipart/form-data 格式的表单数据。https://www.npmjs.com/package/multer
+npm i multer@1.4.2
+
+这个例子没有研究全，以后回忆的时候从0开始研究
+*/
+const multer  = require('multer')
+const upload = multer()
+app.post('/info', upload.none(), (req, res) => {
+  // 在服务器端，可以通过 req,body 来获取 JSON 格式的表单数据和 url-encoded 格式的数据
+  console.log('信息路由', req.body)
   res.send('ok')
 })
 
