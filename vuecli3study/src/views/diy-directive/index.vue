@@ -26,6 +26,7 @@
 </template>
 
 <script>
+// 参考vu3自定义指令，E:\web\vue3\vue3study\VueCliWebpackDemo\cliwebpackdemo\src\35_自定义指令
 export default {
   name: 'DiyDirective',
   data() {
