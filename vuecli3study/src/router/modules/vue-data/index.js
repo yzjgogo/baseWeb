@@ -33,6 +33,11 @@ export default [
     component: () => import(/* webpackChunkName: "imgCropper" */ '@views/vue-data/components/imgCropper.vue')
   },
   {
+    path: '/imgVueCropper',
+    name: 'imgVueCropper',
+    component: () => import(/* webpackChunkName: "imgCropper" */ '@views/vue-data/components/imgVueCropper.vue')
+  },
+  {
     path: '/cacheData',
     name: 'cacheData',
     component: () => import(/* webpackChunkName: "cacheData" */ '@views/vue-data/components/cacheData.vue')

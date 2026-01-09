@@ -27,6 +27,10 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 
 
+// 引入vue-cropper剪裁图片
+import vueCropper from 'vue-cropper'
+Vue.use(vueCropper)
+
 import emitter from './utils/emitter'
 import commChannel from './utils/commChannel'
 

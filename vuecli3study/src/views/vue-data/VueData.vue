@@ -110,7 +110,9 @@
       <div class="line">纯web实现录音：android,ios,windows等，使用第三方的js-audio-recorder录音，第三方的lamejs进行mp3编码，可以把wav格式的音频转为mp3格式等</div>
       <button @click="goRecord">去录音页面</button>
       <div class="line">第三方的图片剪裁工具：cropperjs</div>
-      <button @click="goCropper">去剪裁图片</button>
+      <button @click="goCropper1">用cropperjs去剪裁图片</button>
+      <div class="line">第三方的图片剪裁工具：vue-cropper</div>
+      <button @click="goCropper2">用vue-cropper去剪裁图片</button>
       <div class="line">前端数据存储方案：Cookie、sessionStorage、localStorage、localforage、IndexedDB </div>
       <button @click="goCacheData">去页面</button>
     </div>
@@ -174,9 +176,14 @@ export default {
         name: 'recordAudio'
       })
     },
-    goCropper(){
+    goCropper1(){
       this.$router.push({
         name: 'imgCropper'
+      })
+    },
+    goCropper2(){
+      this.$router.push({
+        name: 'imgVueCropper'
       })
     },
     /**
