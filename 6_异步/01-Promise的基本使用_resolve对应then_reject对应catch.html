@@ -20,6 +20,8 @@
   // 什么情况下会用到Promise?
   // 一般情况下是有异步操作时,使用Promise对这个异步操作进行封装
   // 在执行传入的回调函数时, 会传入两个参数, resolve, reject.本身又是函数
+
+  //20260127很重要的补充:一旦执行new Promise(),这个Promise就进入pending状态，相当于一直等着不往下执行，直到resolve()或者reject()被调用，Promise才会进入fulfilled状态或者rejected状态，然后才会去执行then()或者catch()里面的回调函数。
   new Promise((resolve, reject) => {
     //模拟网络请求，请求成功执行resolve()，请求失败执行reject()
     setTimeout(() => {
