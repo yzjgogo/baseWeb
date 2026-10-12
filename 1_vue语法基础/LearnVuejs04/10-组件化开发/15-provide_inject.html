@@ -5,7 +5,31 @@
   <title>Title</title>
 </head>
 <body>
+<!--
 
+  provide:给祖先使用，提供数据；
+  inject:给后代使用，获取祖先提供您的数据，无论隔了多少层的后代都可以；
+
+  provide和inject默认不是响应式的，解决办法：
+  provide提供的是一个对象，inject接收的就是这个对象，后代组件可以直接修改这个对象的属性值，达到响应式的效果，因为对象是引用类型，后代组件修改的是同一个对象的属性值
+  eg:
+  provide() {
+  return {
+    // 这样传递整个对象，子组件修改或读取对象内的属性时是响应式的
+    userInfo: this.userInfo 
+  }
+}
+  如果想在后代中修改祖先的数据，祖先提供的是一个方法，后代接收这个方法，后代调用这个方法修改祖先的数据
+  eg:
+  provide() {
+  return {
+    userInfo: this.userInfo,
+    updateName: (newName) => {
+      this.userInfo.name = newName;
+    }
+  }
+}
+  -->
 <div id="app">
   <cpn></cpn>
 </div>
